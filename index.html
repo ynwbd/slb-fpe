@@ -2,181 +2,292 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1a237e">
+<meta name="description" content="SLB-FPE 学思评 - 中小学全学段教育诊断与干预生态系统">
 <title>SLB-FPE 学思评 · 教育诊断与干预生态系统</title>
 <style>
-:root{
---color-primary-50:#e3f2fd;--color-primary-100:#bbdefb;--color-primary-200:#90caf9;--color-primary-300:#64b5f6;--color-primary-400:#42a5f5;--color-primary-500:#2196f3;--color-primary-600:#1e88e5;--color-primary-700:#1976d2;--color-primary-800:#1565c0;--color-primary-900:#0d47a1;
---color-accent-500:#ff6f00;--color-accent-600:#f57c00;
---color-neutral-0:#fff;--color-neutral-50:#fafafa;--color-neutral-100:#f5f5f5;--color-neutral-200:#eee;--color-neutral-300:#e0e0e0;--color-neutral-400:#bdbdbd;--color-neutral-500:#9e9e9e;--color-neutral-600:#757575;--color-neutral-700:#616161;--color-neutral-800:#424242;--color-neutral-900:#212121;
---color-success:#4caf50;--color-warning:#ff9800;--color-error:#f44336;--color-info:#2196f3;
---gradient-hero:linear-gradient(135deg,#1a237e 0%,#283593 25%,#3949ab 50%,#5c6bc0 75%,#00bcd4 100%);
---gradient-card:linear-gradient(145deg,rgba(255,255,255,.1) 0%,rgba(255,255,255,.05) 100%);
---gradient-cta:linear-gradient(90deg,#ff6f00 0%,#ff8f00 100%);
---shadow-sm:0 1px 2px 0 rgba(0,0,0,.05);--shadow-md:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06);--shadow-lg:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);--shadow-xl:0 20px 25px -5px rgba(0,0,0,.1),0 10px 10px -5px rgba(0,0,0,.04);
---radius-sm:4px;--radius-md:8px;--radius-lg:12px;--radius-xl:16px;--radius-2xl:24px;--radius-full:9999px;
---space-xs:4px;--space-sm:8px;--space-md:16px;--space-lg:24px;--space-xl:32px;--space-2xl:48px;--space-3xl:64px;--space-4xl:96px;
---font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans SC",sans-serif;--font-display:"Inter","Noto Sans SC",sans-serif;
---text-xs:12px;--text-sm:14px;--text-base:16px;--text-lg:18px;--text-xl:20px;--text-2xl:24px;--text-3xl:30px;--text-4xl:36px;--text-5xl:48px;--text-6xl:60px;--text-7xl:72px;
---leading-tight:1.25;--leading-normal:1.5;--leading-relaxed:1.625;
---font-normal:400;--font-medium:500;--font-semibold:600;--font-bold:700;
---transition-fast:150ms cubic-bezier(.4,0,.2,1);--transition-normal:250ms cubic-bezier(.4,0,.2,1);--transition-slow:350ms cubic-bezier(.4,0,.2,1);
---z-fixed:300;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--font-sans);font-size:var(--text-base);line-height:var(--leading-normal);color:var(--color-neutral-900);background:var(--color-neutral-0);-webkit-font-smoothing:antialiased;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
-::selection{background:var(--color-primary-200)}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
-@media print{nav,footer,#hero,.trust,#features,#demo,#charts,#stories,#pricing,#cta,#assess,#chat,#history,#teacherDash,#tDash,.pbar,#rActions{display:none!important}#report{display:block!important;padding:0!important}.section{padding:16px 0!important}}
-@media(prefers-color-scheme:dark){body{background:#1a1a2e;color:#e0e0e0}.card,.pcard,.tcard{background:#2a2a40;border-color:#333;color:#e0e0e0}}
+  
 
-/* COMPONENTS */
-.container{width:100%;max-width:1280px;margin:0 auto;padding:0 var(--space-lg)}
-@media(max-width:768px){.container{padding:0 var(--space-md)}}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:var(--space-md) var(--space-xl);border-radius:var(--radius-lg);font-family:var(--font-sans);font-size:var(--text-base);font-weight:var(--font-semibold);line-height:var(--leading-tight);cursor:pointer;transition:all var(--transition-normal);border:none;outline:none;position:relative;overflow:hidden;text-decoration:none}
-.btn::after{content:'';position:absolute;top:50%;left:50%;width:0;height:0;border-radius:50%;background:rgba(255,255,255,.3);transform:translate(-50%,-50%);transition:width .6s,height .6s}
-.btn:active::after{width:300px;height:300px}
-.btn-primary{background:var(--gradient-cta);color:var(--color-neutral-0);box-shadow:var(--shadow-md)}.btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
-.btn-secondary{background:transparent;color:var(--color-primary-500);border:2px solid var(--color-primary-500)}.btn-secondary:hover{background:var(--color-primary-50);transform:translateY(-2px)}
-.btn-ghost{background:rgba(255,255,255,.1);color:var(--color-neutral-0);backdrop-filter:blur(10px)}.btn-ghost:hover{background:rgba(255,255,255,.2);transform:translateY(-2px)}
-.btn-lg{padding:var(--space-lg) var(--space-2xl);font-size:var(--text-lg);border-radius:var(--radius-xl)}
-.btn-sm{padding:var(--space-sm) var(--space-md);font-size:var(--text-sm);border-radius:var(--radius-md)}
-.card{background:var(--color-neutral-0);border-radius:var(--radius-xl);padding:var(--space-xl);box-shadow:var(--shadow-md);transition:all var(--transition-normal);position:relative;overflow:hidden}
-.card:hover{transform:translateY(-8px) rotateX(2deg) rotateY(-2deg);box-shadow:var(--shadow-xl)}
-.card-glass{background:var(--gradient-card);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);color:var(--color-neutral-0)}
-.input{width:100%;padding:var(--space-md) var(--space-lg);border:2px solid var(--color-neutral-200);border-radius:var(--radius-lg);font-family:var(--font-sans);font-size:var(--text-base);transition:all var(--transition-normal);background:var(--color-neutral-0);outline:none}
-.input:focus{border-color:var(--color-primary-500);box-shadow:0 0 0 3px var(--color-primary-100)}
-.heading-1{font-family:var(--font-display);font-size:var(--text-7xl);font-weight:var(--font-bold);line-height:var(--leading-tight);letter-spacing:-.02em;background:linear-gradient(135deg,var(--color-neutral-0) 0%,var(--color-primary-200) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.heading-2{font-family:var(--font-display);font-size:var(--text-5xl);font-weight:var(--font-bold);line-height:var(--leading-tight)}
-.text-body{font-size:var(--text-lg);line-height:var(--leading-relaxed);color:var(--color-neutral-600)}
-.text-caption{font-size:var(--text-sm);color:var(--color-neutral-500)}
-.grid{display:grid;gap:var(--space-xl)}.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.text-center{text-align:center}
-@media(max-width:768px){.heading-1{font-size:var(--text-5xl)}.heading-2{font-size:var(--text-3xl)}.g2,.g3,.g4{grid-template-columns:1fr}}
+  /* ========== TOKENS ========== */
+  
+    :root {
+      --color-primary-50: #e3f2fd; --color-primary-100: #bbdefb; --color-primary-200: #90caf9;
+      --color-primary-300: #64b5f6; --color-primary-400: #42a5f5; --color-primary-500: #2196f3;
+      --color-primary-600: #1e88e5; --color-primary-700: #1976d2; --color-primary-800: #1565c0; --color-primary-900: #0d47a1;
+      --color-accent-500: #ff6f00; --color-accent-600: #f57c00;
+      --color-neutral-0: #fff; --color-neutral-50: #fafafa; --color-neutral-100: #f5f5f5;
+      --color-neutral-200: #eee; --color-neutral-300: #e0e0e0; --color-neutral-400: #bdbdbd;
+      --color-neutral-500: #9e9e9e; --color-neutral-600: #757575; --color-neutral-700: #616161;
+      --color-neutral-800: #424242; --color-neutral-900: #212121;
+      --color-success: #4caf50; --color-warning: #ff9800; --color-error: #f44336; --color-info: #2196f3;
+      --gradient-hero: linear-gradient(135deg, #1a237e 0%, #283593 20%, #3949ab 45%, #5c6bc0 70%, #0097a7 100%);
+      --gradient-card: linear-gradient(145deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,.06) 100%);
+      --gradient-cta: linear-gradient(90deg, #ff6f00 0%, #ff8f00 50%, #ffa000 100%);
+      --color-bg: #f9f8f6;
+      --section-pad: 120px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.04); --shadow-md: 0 2px 8px rgba(0,0,0,.06); --shadow-lg: 0 8px 24px rgba(0,0,0,.08); --shadow-xl: 0 16px 40px rgba(0,0,0,.1);
+      --shadow-glow: 0 0 20px rgba(33,150,243,.3); --shadow-glow-accent: 0 0 20px rgba(255,111,0,.3);
+      --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px; --radius-xl: 16px; --radius-2xl: 24px; --radius-full: 9999px;
+      --space-xs: 4px; --space-sm: 8px; --space-md: 16px; --space-lg: 24px; --space-xl: 32px; --space-2xl: 48px; --space-3xl: 64px; --space-4xl: 96px;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+      --font-display: "Inter", "Noto Sans SC", sans-serif;
+      --text-xs: 12px; --text-sm: 14px; --text-base: 16px; --text-lg: 18px; --text-xl: 20px; --text-2xl: 24px; --text-3xl: 30px; --text-4xl: 36px; --text-5xl: 48px; --text-6xl: 60px; --text-7xl: 72px;
+      --leading-tight: 1.25; --leading-normal: 1.5; --leading-relaxed: 1.625;
+      --font-normal: 400; --font-medium: 500; --font-semibold: 600; --font-bold: 700;
+      --transition-fast: 150ms cubic-bezier(.4,0,.2,1); --transition-normal: 250ms cubic-bezier(.4,0,.2,1); --transition-slow: 350ms cubic-bezier(.4,0,.2,1); --transition-bounce: 500ms cubic-bezier(.68,-.55,.265,1.55);
+      --z-fixed: 300;
+    }
+  }
 
-/* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:var(--z-fixed);padding:var(--space-md) var(--space-xl);display:flex;align-items:center;justify-content:space-between;transition:all .5s}
-.nav.scrolled{background:rgba(26,35,126,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 2px 20px rgba(0,0,0,.15)}
-.nav-logo{font-size:var(--text-xl);font-weight:var(--font-bold);color:var(--color-neutral-0);display:flex;align-items:center;gap:var(--space-sm)}
-.nav-dot{width:10px;height:10px;border-radius:50%;background:var(--color-accent-500);box-shadow:0 0 12px rgba(255,111,0,.6)}
-.nav-links{display:flex;gap:var(--space-lg);align-items:center}
-.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:var(--text-sm);font-weight:var(--font-medium);transition:color var(--transition-fast)}
-.nav-links a:hover{color:var(--color-neutral-0)}
-.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:301}.ham span{width:22px;height:2px;background:var(--color-neutral-0);border-radius:1px}
-@media(max-width:768px){.nav-links{display:none;position:fixed;inset:0;background:rgba(26,35,126,.98);flex-direction:column;justify-content:center;align-items:center;gap:var(--space-xl);z-index:300}.nav-links.open{display:flex}.nav-links a{font-size:var(--text-xl)}.ham{display:flex}}
+  /* ========== BASE ========== */
+  
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-sans);font-size:var(--text-base);line-height:1.75;color:var(--color-neutral-900);background:var(--color-bg);-webkit-font-smoothing:antialiased;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+    ::selection{background:var(--color-primary-200)}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto}}
+    @media print{nav,footer,#hero,.trust-band,#features,#demo,#data,#stories,#pricing,#cta,#assess,#chat,#history,.progress-bar,.hero canvas,#reportActions{display:none!important}#report{display:block!important;padding:0!important}.section{padding:16px 0!important}.card,.chart-card{box-shadow:none!important;border:1px solid #ddd!important;break-inside:avoid}}
+  }
 
-/* SECTIONS */
-.section{padding:var(--space-4xl) 0}.section-hero{min-height:100vh;display:flex;align-items:center;background:var(--gradient-hero);color:var(--color-neutral-0);overflow:hidden}
-.section-dark{background:var(--color-neutral-50)}
-.sec-label{font-size:var(--text-xs);font-weight:var(--font-bold);text-transform:uppercase;letter-spacing:.12em;color:var(--color-primary-700);margin-bottom:var(--space-sm)}.sec-label::before{content:'— '}
-.sec-label-white{color:var(--color-primary-200)}.sec-label-white::before{content:'— '}
+  /* ========== COMPONENTS ========== */
+  
+    .container{width:auto;margin:0 160px 0 20px;padding:0}
+    @media(max-width:900px){.container{margin:0 auto;padding:0 16px}}
+    @media(max-width:768px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}.heading-1{font-size:28px}.heading-2{font-size:24px}.chart-row,.price-row,.footer-grid{grid-template-columns:1fr}.pcard.featured{transform:none}.demo-phone{width:180px;height:380px}.hero .container{grid-template-columns:1fr;text-align:center}.hero-glass{display:none}.hero h1{font-size:32px}.nav-links{display:none;position:fixed;inset:0;background:rgba(26,35,126,.98);flex-direction:column;justify-content:center;align-items:center;gap:28px;z-index:300}.nav-links.open{display:flex}.nav-links a{font-size:18px}.hamburger{display:flex}.trust-stats{justify-content:center;width:100%}.tstat{min-width:auto;flex:1 1 40%}}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:var(--space-md) var(--space-xl);border-radius:var(--radius-lg);font-family:var(--font-sans);font-size:var(--text-base);font-weight:var(--font-semibold);line-height:var(--leading-tight);cursor:pointer;transition:all var(--transition-normal);border:none;outline:none;position:relative;overflow:hidden;text-decoration:none}
+    .btn::after{content:'';position:absolute;top:50%;left:50%;width:0;height:0;border-radius:50%;background:rgba(255,255,255,.3);transform:translate(-50%,-50%);transition:width 6s,height 6s}
+    .btn:active::after{width:300px;height:300px}
+    .btn-primary{background:var(--gradient-cta);color:var(--color-neutral-0);box-shadow:var(--shadow-md)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg),var(--shadow-glow-accent)}
+    .btn-secondary{background:transparent;color:var(--color-primary-500);border:2px solid var(--color-primary-500)}
+    .btn-secondary:hover{background:var(--color-primary-50);transform:translateY(-2px)}
+    .btn-ghost{background:rgba(255,255,255,.15);color:var(--color-neutral-0);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}
+    .btn-ghost:hover{background:rgba(255,255,255,.25);transform:translateY(-2px)}
+    .btn-lg{padding:var(--space-lg) var(--space-2xl);font-size:var(--text-lg);border-radius:var(--radius-xl)}
+    .btn-sm{padding:var(--space-sm) var(--space-md);font-size:var(--text-sm);border-radius:var(--radius-md)}
+    .card{background:var(--color-neutral-0);border-radius:var(--radius-xl);padding:var(--space-xl);box-shadow:var(--shadow-md);transition:all var(--transition-normal);position:relative;overflow:hidden}
+    .card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--gradient-cta);transform:scaleX(0);transition:transform var(--transition-normal)}
+    .card:hover{transform:translateY(-6px);box-shadow:var(--shadow-xl)}
+    .card:hover::before{transform:scaleX(1)}
+    .card-glass{background:var(--gradient-card);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.15);color:var(--color-neutral-0)}
+    .input{width:100%;padding:var(--space-md) var(--space-lg);border:2px solid var(--color-neutral-200);border-radius:var(--radius-lg);font-family:var(--font-sans);font-size:var(--text-base);transition:all var(--transition-normal);background:var(--color-neutral-0);outline:none}
+    .input:focus{border-color:var(--color-primary-500);box-shadow:0 0 0 3px var(--color-primary-100)}
+    .badge{display:inline-flex;align-items:center;padding:var(--space-xs) var(--space-sm);border-radius:var(--radius-full);font-size:var(--text-xs);font-weight:var(--font-semibold);letter-spacing:.05em}
+    .badge-primary{background:var(--color-primary-100);color:var(--color-primary-700)}
+    .badge-accent{background:rgba(255,111,0,.1);color:var(--color-accent-600)}
+    .heading-1{font-family:var(--font-display);font-size:var(--text-7xl);font-weight:var(--font-bold);line-height:var(--leading-tight);letter-spacing:-.02em;background:linear-gradient(135deg,var(--color-neutral-0) 0%,var(--color-primary-200) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .heading-2{font-family:var(--font-display);font-size:var(--text-5xl);font-weight:var(--font-bold);line-height:1.15;letter-spacing:-.01em}
+    .text-body{font-size:var(--text-lg);line-height:var(--leading-relaxed);color:var(--color-neutral-600)}
+    .text-caption{font-size:var(--text-sm);color:var(--color-neutral-500)}
+    @media(max-width:768px){.heading-1{font-size:var(--text-5xl)}.heading-2{font-size:var(--text-3xl)}}
+  }
 
-/* HERO */
-.hero{position:relative}.hero canvas{position:absolute;inset:0;z-index:0}
-.hero .container{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3xl);align-items:center}
-.hero h1{font-family:var(--font-display);font-size:var(--text-7xl);font-weight:var(--font-bold);line-height:var(--leading-tight);letter-spacing:-.03em;color:var(--color-neutral-0)}.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--color-neutral-0) 0%,var(--color-primary-200) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero p{font-size:var(--text-lg);color:rgba(255,255,255,.8);max-width:480px;margin:var(--space-lg) 0 var(--space-xl)}
-.hero .btns{display:flex;gap:var(--space-md);flex-wrap:wrap}
-.glass{background:var(--gradient-card);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius-2xl);padding:var(--space-xl);box-shadow:0 25px 60px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.1);position:relative;overflow:hidden}
-.glass::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent 40%,rgba(255,255,255,.03) 50%,transparent 60%);animation:shimmer 8s infinite}
-@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
-.glass h3{font-size:16px;color:var(--color-primary-200);margin-bottom:var(--space-md);padding-bottom:var(--space-md);border-bottom:1px solid rgba(255,255,255,.08)}
-.glass .big{font-size:56px;font-weight:900;color:var(--color-neutral-0);margin-bottom:12px}.glass .big em{color:var(--color-primary-200);font-style:normal}
-.glass .row{display:flex;justify-content:space-between;font-size:15px;color:rgba(255,255,255,.8);margin-bottom:2px}
-.glass .bar{height:6px;border-radius:3px;margin:4px 0 8px;background:rgba(255,255,255,.1);overflow:hidden}
-.glass .bar-inner{height:100%;border-radius:3px}
-.glass .foot{text-align:center;font-size:15px;color:rgba(255,255,255,.65);margin-top:10px}
-@media(max-width:768px){.hero .container{grid-template-columns:1fr;text-align:center}.glass{display:none}.hero h1{font-size:32px}}
+  /* ========== UTILITIES ========== */
+  
+    .grid{display:grid;gap:var(--space-xl)}.grid-2{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-4{grid-template-columns:repeat(4,1fr)}
+    .flex{display:flex}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-sm{gap:var(--space-sm)}.gap-md{gap:var(--space-md)}.gap-lg{gap:var(--space-lg)}.text-center{text-align:center}
+    @media(max-width:768px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+  }
 
-/* TRUST */
-.trust{background:var(--color-neutral-50);border-top:1px solid var(--color-neutral-200);border-bottom:1px solid var(--color-neutral-200);padding:var(--space-2xl) 0;overflow:hidden}
-.trust .marquee{font-size:16px;color:var(--color-neutral-400);font-weight:var(--font-medium)}
-.trust .stats{display:flex;justify-content:center;gap:var(--space-3xl);margin-top:var(--space-xl);flex-wrap:wrap}
-.tstat{min-width:160px;text-align:center;background:var(--color-neutral-0);padding:var(--space-lg) var(--space-xl);border-radius:var(--radius-xl);box-shadow:var(--shadow-md);transition:all var(--transition-normal)}.tstat:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}.tstat .n{font-size:40px;font-weight:800;color:var(--color-primary-700)}.tstat .l{font-size:var(--text-base);color:var(--color-neutral-500);margin-top:2px}
+  /* ========== ANIMATIONS ========== */
+  
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeInScale{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+    @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+    @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    @keyframes slideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes scrollUp{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+    .reveal{opacity:0;transform:translateY(30px);transition:all 6s var(--transition-normal)}.reveal.active{opacity:1;transform:translateY(0)}
+    .animate-float{animation:float 3000s ease-in-out infinite}
+    .animate-shimmer{background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);background-size:200% 100%;animation:shimmer 300s infinite}
+  }
 
-/* DEMO */
-.demo-tabs{display:flex;gap:2px;background:var(--color-neutral-100);padding:3px;border-radius:var(--radius-lg);width:fit-content;margin:0 auto var(--space-xl)}
-.demo-tab{padding:var(--space-sm) var(--space-lg);border-radius:var(--radius-md);font-size:16px;font-weight:var(--font-semibold);cursor:pointer;border:none;background:transparent;color:var(--color-neutral-500);transition:all var(--transition-fast)}.demo-tab:hover{color:var(--color-primary-600)}.demo-tab.active{background:var(--color-neutral-0);color:var(--color-primary-600);box-shadow:var(--shadow-sm)}
-.demo-stage{background:var(--color-neutral-0);border-radius:var(--radius-2xl);padding:var(--space-2xl);min-height:360px;box-shadow:var(--shadow-md)}.demo-stage:hover{box-shadow:var(--shadow-lg)}
-.demo-panel{display:none}.demo-panel.active{display:block}
-.phone{width:240px;height:490px;background:#1a1a2e;border-radius:28px;padding:8px;margin:0 auto;box-shadow:0 20px 48px rgba(0,0,0,.15)}.phone:hover{transform:translateY(-4px);box-shadow:0 30px 60px rgba(0,0,0,.2)}
-.screen{background:#f8f9fa;height:100%;border-radius:22px;padding:16px 12px;overflow:hidden;font-size:11px;color:#333}
-.screen .st{font-size:11px;color:#999;margin-bottom:8px;font-weight:600}.screen .sr{background:#fff;border-radius:8px;padding:8px 10px;margin-bottom:6px;display:flex;align-items:center;gap:8px;box-shadow:0 1px 2px rgba(0,0,0,.03)}.screen .sd{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+  /* ========== SECTIONS ========== */
+  
+    /* Nav */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:var(--z-fixed);padding:var(--space-md) var(--space-xl);display:flex;align-items:center;justify-content:space-between;transition:all .5s}
+    .nav.scrolled{background:rgba(26,35,126,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 2px 20px rgba(0,0,0,.15)}
+    .nav-logo{font-size:var(--text-xl);font-weight:var(--font-bold);color:var(--color-neutral-0);display:flex;align-items:center;gap:var(--space-sm);letter-spacing:-.01em}
+    .nav-logo-dot{width:10px;height:10px;border-radius:50%;background:var(--color-accent-500);box-shadow:0 0 12px rgba(255,111,0,.6);animation:pulse 200s infinite}
+    .nav-links{display:flex;gap:var(--space-lg);align-items:center}
+    .nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:var(--text-sm);font-weight:var(--font-medium);transition:color var(--transition-fast)}
+    .nav-links a:hover{color:var(--color-neutral-0)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:301}
+    .hamburger span{width:22px;height:2px;background:var(--color-neutral-0);border-radius:1px;transition:2.5s}
+    .hamburger.active span:nth-child(1){transform:rotate(45deg)translate(5px,5px)}.hamburger.active span:nth-child(2){opacity:0}.hamburger.active span:nth-child(3){transform:rotate(-45deg)translate(5px,-5px)}
 
-/* CHARTS */
-.chart-card{background:var(--color-neutral-0);border-radius:var(--radius-2xl);padding:var(--space-xl);box-shadow:var(--shadow-md);text-align:center;transition:all var(--transition-normal)}.chart-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}.chart-card h4{font-size:15px;color:var(--color-neutral-500);margin-bottom:12px}
+    /* Section */
+    .section{padding:var(--section-pad) 0;position:relative}
+    .section-dark{background:var(--gradient-hero);color:var(--color-neutral-0)}
+    .section-label{font-size:var(--text-xs);font-weight:var(--font-bold);text-transform:uppercase;letter-spacing:.12em;color:var(--color-primary-300);margin-bottom:var(--space-sm)}
+    .section-label::before{content:'— '}
+    .section-light .section-label{color:var(--color-primary-700)}
 
-/* TESTIMONIALS */
-.testi-box{max-width:700px;margin:0 auto;height:520px;overflow:hidden;position:relative;mask-image:linear-gradient(to bottom,transparent 0,#000 10%,#000 90%,transparent 100%)}
-.testi-track{display:flex;flex-direction:column;gap:var(--space-md)}
-.tcard{background:var(--color-neutral-0);border-radius:var(--radius-xl);padding:var(--space-lg) var(--space-xl);box-shadow:var(--shadow-md);flex-shrink:0}.tcard .q{font-size:var(--text-base);line-height:1.7;margin-bottom:var(--space-sm)}.tcard .au{display:flex;align-items:center;gap:var(--space-sm)}.tcard .av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff}
+    /* Hero */
+    .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
+    .hero canvas{position:absolute;inset:0;z-index:0}
+    .hero .container{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3xl);align-items:center}
+    .hero h1{font-family:var(--font-display);font-size:var(--text-7xl);font-weight:var(--font-bold);line-height:var(--leading-tight);letter-spacing:-.03em}
+    .hero h1 .gradient-text{background:linear-gradient(135deg,var(--color-neutral-0) 0%,var(--color-primary-200) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero p{font-size:var(--text-lg);line-height:var(--leading-relaxed);color:rgba(255,255,255,.8);max-width:480px;margin:var(--space-lg) 0 var(--space-xl)}
+    .hero-btns{display:flex;gap:var(--space-md);flex-wrap:wrap}
+    .hero-glass{background:var(--gradient-card);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius-2xl);padding:var(--space-xl);box-shadow:0 25px 60px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.1)}
+    .hero-glass .hg-header{display:flex;align-items:center;gap:var(--space-sm);margin-bottom:var(--space-md);padding-bottom:var(--space-md);border-bottom:1px solid rgba(255,255,255,.08)}
+    .hero-glass .hg-title{font-size:16px;color:var(--color-primary-200);font-weight:var(--font-semibold)}
+    .hero-glass .hg-score{font-size:56px;font-weight:900;font-family:var(--font-display)}
+    .hero-glass .hg-bar{height:6px;border-radius:3px;margin:6px 0;background:rgba(255,255,255,.1);overflow:hidden}
+    .hero-glass .hg-bar-fill{height:100%;border-radius:3px;transition:width 15s ease-out}
 
-/* PRICING */
-.price-row{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-lg);align-items:stretch}
-.pcard{background:var(--color-neutral-0);border-radius:var(--radius-2xl);padding:var(--space-2xl) var(--space-xl);text-align:center;box-shadow:var(--shadow-xl);transition:all var(--transition-normal);border:2px solid var(--color-primary-500);display:flex;flex-direction:column}.pcard:hover{transform:scale(1.02)}.pcard h3{font-size:var(--text-xl);margin-bottom:4px}.pcard .price{font-size:40px;font-weight:900;margin:var(--space-md)0;color:var(--color-primary-700)}.pcard .price s{font-size:var(--text-base);color:var(--color-neutral-500)}.pcard ul{list-style:none;text-align:left;margin:var(--space-lg)0;flex:1}.pcard li{padding:var(--space-sm)0;font-size:13px;color:var(--color-neutral-600);border-bottom:1px solid var(--color-neutral-100)}.pcard li::before{content:'✓ ';color:var(--color-success);font-weight:700}.pcard .btn{margin-top:auto}
+    /* Trust */
+    .trust-band{background:var(--color-neutral-50);border-top:1px solid var(--color-neutral-200);border-bottom:1px solid var(--color-neutral-200);padding:var(--space-2xl) 0;overflow:hidden}
+    .trust-marquee{display:flex;gap:var(--space-3xl);animation:marquee 10000000s linear infinite;align-items:center}
+    .trust-marquee span{font-size:16px;color:var(--color-neutral-400);font-weight:var(--font-medium);white-space:nowrap}
+    .trust-stats{display:flex;justify-content:flex-start;gap:var(--space-3xl);margin-top:var(--space-xl);flex-wrap:wrap;width:fit-content}
+    .tstat{min-width:180px;text-align:center;background:var(--color-neutral-0);padding:var(--space-lg) var(--space-xl);border-radius:var(--radius-xl);box-shadow:var(--shadow-md);transition:all var(--transition-normal);position:relative;overflow:hidden}.tstat::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--gradient-cta);transform:scaleX(0);transition:transform var(--transition-normal)}.tstat:hover{transform:translateY(-6px);box-shadow:var(--shadow-xl)}.tstat:hover::before{transform:scaleX(1)}.tstat .n{font-size:50px;font-weight:800;color:var(--color-primary-700)}.tstat .l{font-size:var(--text-base);color:var(--color-neutral-500);margin-top:2px}
 
-/* CTA */
-.cta-block{background:var(--gradient-hero);border-radius:var(--radius-2xl);padding:var(--space-4xl) var(--space-2xl);text-align:center;color:var(--color-neutral-0);position:relative;overflow:hidden}.cta-block h2{font-family:var(--font-display);font-size:var(--text-5xl);font-weight:var(--font-bold);margin-bottom:var(--space-md)}.cta-block p{font-size:var(--text-lg);opacity:.85;margin-bottom:var(--space-xl)}.cta-form{display:flex;gap:var(--space-sm);max-width:480px;margin:0 auto;flex-wrap:wrap;justify-content:center}.cta-form input,.cta-form select{padding:var(--space-md) var(--space-lg);border-radius:var(--radius-lg);border:1.5px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);color:#fff;font-size:15px;outline:none;flex:1;min-width:140px}.cta-form input::placeholder{color:rgba(255,255,255,.5)}.cta-ok{display:none;font-size:var(--text-base);margin-top:var(--space-md)}
+    /* Demo */
+    .demo-tabs{display:flex;gap:2px;background:var(--color-neutral-100);padding:3px;border-radius:var(--radius-lg);width:fit-content;margin:0 auto var(--space-xl)}
+    .demo-tab{padding:var(--space-sm) var(--space-lg);border-radius:var(--radius-md);font-size:16px;font-weight:var(--font-semibold);cursor:pointer;border:none;background:transparent;color:var(--color-neutral-500);transition:all var(--transition-normal);position:relative;overflow:hidden}
+    .demo-tab::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient-cta);transform:scaleX(0);transition:transform var(--transition-normal)}
+    .demo-tab:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);color:var(--color-primary-600)}
+    .demo-tab:hover::before{transform:scaleX(1)}
+    .demo-tab.active{background:var(--color-neutral-0);color:var(--color-primary-600);box-shadow:var(--shadow-sm)}
+    .demo-stage{background:var(--color-neutral-0);border-radius:var(--radius-2xl);padding:var(--space-2xl);min-height:360px;position:relative;overflow:hidden;box-shadow:var(--shadow-md);transition:all var(--transition-normal)}
+    .demo-stage::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--gradient-cta);transform:scaleX(0);transition:transform var(--transition-normal)}
+    .demo-stage:hover{box-shadow:var(--shadow-xl)}
+    .demo-stage:hover::before{transform:scaleX(1)}
+    .demo-panel{display:none;animation:slideUp 4s ease-out}
+    .demo-panel.active{display:block}
+    .demo-phone{width:240px;height:490px;background:#1a1a2e;border-radius:28px;padding:8px;margin:0 auto;box-shadow:var(--shadow-md);transition:all var(--transition-normal);position:relative;overflow:hidden}
+    .demo-phone::before{content:'';position:absolute;top:8px;left:8px;right:8px;height:3px;border-radius:0 0 3px 3px;background:var(--gradient-cta);transform:scaleX(0);transition:transform var(--transition-normal);z-index:1}
+    .demo-phone:hover{transform:translateY(-6px);box-shadow:var(--shadow-xl)}
+    .demo-phone:hover::before{transform:scaleX(1)}
+    .demo-screen{background:#f8f9fa;height:100%;border-radius:22px;padding:16px 12px;overflow:hidden;font-size:11px;color:#333}
+    .demo-screen .ds-label{font-size:11px;color:#999;margin-bottom:8px;font-weight:600}
+    .demo-screen .ds-row{background:#fff;border-radius:8px;padding:8px 10px;margin-bottom:6px;display:flex;align-items:center;gap:8px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+    .demo-screen .ds-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 
-/* FOOTER */
-footer{background:var(--color-neutral-900);color:var(--color-neutral-400);padding:var(--space-4xl)0 var(--space-2xl)}footer .g4{grid-template-columns:2fr 1fr 1fr 1fr 1fr}footer h4{font-size:13px;font-weight:700;color:var(--color-neutral-0);margin-bottom:12px}footer a{display:block;color:var(--color-neutral-400);text-decoration:none;font-size:13px;padding:3px 0;transition:color var(--transition-fast)}footer a:hover{color:var(--color-primary-300)}footer .bottom{text-align:center;margin-top:var(--space-2xl);padding-top:var(--space-xl);border-top:1px solid rgba(255,255,255,.1);font-size:13px}
+    /* Chart */
+    .chart-row{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-lg)}
+    .chart-card{background:var(--color-neutral-0);border-radius:var(--radius-2xl);padding:var(--space-xl);box-shadow:var(--shadow-md);text-align:center;transition:all var(--transition-normal);position:relative;overflow:hidden}
+    .chart-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--gradient-cta);transform:scaleX(0);transition:transform var(--transition-normal)}
+    .chart-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-xl)}
+    .chart-card:hover::before{transform:scaleX(1)}
+    .chart-card svg{width:100%;max-height:260px}
 
-/* SHARED */
-.pbar{position:fixed;top:0;left:0;height:3px;background:var(--gradient-cta);z-index:999;width:0;transition:width .3s}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:500;align-items:center;justify-content:center}.modal.show{display:flex}
-.qprog{width:100%;height:8px;background:var(--color-neutral-100);border-radius:4px;margin-bottom:24px;overflow:hidden}.qprog div{height:100%;background:var(--gradient-cta);border-radius:4px;width:0}
-.qq{font-size:18px;font-weight:700;line-height:1.6;margin-bottom:20px}.qopts{display:flex;flex-direction:column;gap:10px}
-.qopt{display:flex;align-items:center;gap:12px;padding:14px 18px;border:2px solid var(--color-neutral-200);border-radius:12px;cursor:pointer;font-size:15px;transition:.15s}.qopt:hover{border-color:var(--color-primary-300);background:#f8faff}.qopt.sel{border-color:var(--color-primary-500);background:#eef2ff}
-.htable{width:100%;border-collapse:collapse;font-size:13px}.htable th{background:var(--color-primary-50);padding:10px 14px;text-align:left;font-weight:600;border-bottom:2px solid var(--color-primary-100)}.htable td{padding:10px 14px;border-bottom:1px solid var(--color-neutral-100)}.htable tr:hover td{background:var(--color-neutral-50)}.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600}.tag-g{background:#d4edda;color:#155724}.tag-y{background:#fff3cd;color:#856404}.tag-r{background:#f8d7da;color:#721c24}
-.stat-card{background:var(--color-neutral-0);padding:20px;border-radius:12px;transition:all var(--transition-normal);border:1px solid var(--color-neutral-100)}.stat-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--color-primary-400)}
-</style>
+    /* Testimonial */
+    .testi-wrap{max-width:700px;margin:0 auto;height:520px;overflow:hidden;position:relative;mask-image:linear-gradient(to bottom,transparent 0,#000 10%,#000 90%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 10%,#000 90%,transparent 100%)}
+    .testi-track{animation:scrollUp 8800s linear infinite;display:flex;flex-direction:column;gap:var(--space-md)}
+    .testi-track:hover{animation-play-state:paused}
+    .tcard{background:var(--color-neutral-0);border-radius:var(--radius-xl);padding:var(--space-lg) var(--space-xl);box-shadow:var(--shadow-md);flex-shrink:0}
+    .tcard .q{font-size:var(--text-base);line-height:1.7;margin-bottom:var(--space-sm)}
+    .tcard .author{display:flex;align-items:center;gap:var(--space-sm)}.tcard .av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff}
+
+    /* Pricing */
+    .price-row{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-lg);align-items:stretch}
+    .pcard{background:var(--color-neutral-0);border-radius:var(--radius-2xl);padding:var(--space-2xl) var(--space-xl);text-align:center;box-shadow:var(--shadow-xl);transition:all var(--transition-normal);border:2px solid var(--color-primary-500);display:flex;flex-direction:column;height:100%}
+    .pcard.featured{box-shadow:var(--shadow-xl),var(--shadow-glow)}
+    .pcard .pbadge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gradient-cta);color:#fff;padding:4px 16px;border-radius:var(--radius-full);font-size:var(--text-xs);font-weight:700}
+    .pcard h3{font-size:var(--text-xl);margin-bottom:4px}
+    .pcard .price{font-size:var(--text-5xl);font-weight:900;margin:var(--space-md)0;color:var(--color-primary-700)}
+    .pcard .price small{font-size:var(--text-base);color:var(--color-neutral-500)}
+    .pcard ul{list-style:none;text-align:left;margin:var(--space-lg)0}
+    .pcard li{padding:var(--space-sm)0;font-size:var(--text-sm);color:var(--color-neutral-600);border-bottom:1px solid var(--color-neutral-100)}
+    .pcard li::before{content:'✓ ';color:var(--color-success);font-weight:700}
+    .pcard .btn{margin-top:auto}
+
+    /* CTA */
+    .cta-block{background:var(--gradient-hero);border-radius:var(--radius-2xl);padding:var(--space-4xl) var(--space-2xl);text-align:center;position:relative;overflow:hidden;color:var(--color-neutral-0)}
+    .cta-block::before{content:'';position:absolute;top:-50%;right:-20%;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,188,212,.15),transparent)}
+    .cta-block h2{font-family:var(--font-display);font-size:var(--text-5xl);font-weight:var(--font-bold);margin-bottom:var(--space-md)}
+    .cta-block p{font-size:var(--text-lg);opacity:.85;margin-bottom:var(--space-xl)}
+    .cta-form{display:flex;gap:var(--space-sm);max-width:480px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+    .cta-form input{flex:1;min-width:160px;padding:var(--space-md) var(--space-lg);border-radius:var(--radius-lg);border:1.5px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);color:#fff;font-size:var(--text-base);outline:none}
+    .cta-form input::placeholder{color:rgba(255,255,255,.6)}.cta-form input:focus{border-color:#fff}
+    .cta-ok{display:none;font-size:var(--text-base);margin-top:var(--space-md);animation:slideUp 4s}
+
+    /* Footer */
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:var(--space-xl)}
+    .footer-bottom{border-top:1px solid var(--color-neutral-200);padding-top:var(--space-xl);margin-top:var(--space-2xl);text-align:center;font-size:var(--text-sm);color:var(--color-neutral-400)}
+    .footer-grid h4{font-size:var(--text-sm);font-weight:700;margin-bottom:var(--space-md)}.footer-grid a{display:block;color:var(--color-neutral-500);text-decoration:none;font-size:var(--text-sm);padding:3px 0;transition:color var(--transition-fast)}.footer-grid a:hover{color:var(--color-primary-600)}
+
+    /* Progress bar */
+    .progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--gradient-cta);z-index:999;transition:width 1s linear}
+
+    /* History Dashboard */
+    .history-table{width:100%;border-collapse:collapse;font-size:var(--text-sm)}
+    .history-table th{background:var(--color-primary-50);padding:10px 14px;text-align:left;font-weight:600;border-bottom:2px solid var(--color-primary-100)}
+    .history-table td{padding:10px 14px;border-bottom:1px solid var(--color-neutral-100)}
+    .history-table tr:hover td{background:var(--color-neutral-50)}
+    .tag-s{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600}.tag-g{background:#d4edda;color:#155724}.tag-y{background:#fff3cd;color:#856404}.tag-r{background:#f8d7da;color:#721c24}
+
+    @media(max-width:768px){
+      .nav-links{display:none;position:fixed;inset:0;background:rgba(26,35,126,.98);flex-direction:column;justify-content:center;align-items:center;gap:var(--space-xl);z-index:300}.nav-links.open{display:flex}.nav-links a{font-size:var(--text-xl)}.hamburger{display:flex}
+      .hero .container{grid-template-columns:1fr;text-align:center}.hero-glass{display:none}.hero h1{font-size:var(--text-5xl)
+      .chart-row,.price-row,.footer-grid{grid-template-columns:1fr.pcard.featured{transform:none
+      .demo-phone{width:200px;height:400px
+    
+  </style>
 </head>
 <body>
 
-<div class="pbar" id="pbar"></div>
+<!-- PROGRESS -->
+<div class="progress-bar" id="progressBar" style="width:0%"></div>
 
+<!-- NAV -->
 <nav class="nav" id="nav">
-  <div class="nav-logo"><div class="nav-dot"></div>学思评 SLB-FPE</div>
+  <div class="nav-logo"><div class="nav-logo-dot"></div>学思评 SLB-FPE</div>
   <div class="nav-links" id="navLinks">
-    <a href="#features">能力</a><a href="#demo">演示</a><a href="#charts">数据</a><a href="#stories">评价</a><a href="#pricing">定价</a>
+    <a href="#features">能力</a><a href="#demo">演示</a><a href="#data">数据</a>
+    <a href="#stories">评价</a><a href="#pricing">定价</a>
     <a href="#assess" class="btn btn-primary btn-sm">免费测评</a>
-    <a href="#chat" class="btn btn-ghost btn-sm">🤖 AI助手</a>
-    <a href="javascript:void(0)" class="btn btn-ghost btn-sm" onclick="showTeacher()">👨‍🏫 教师</a>
+    <a href="#chat" class="btn btn-ghost btn-sm" style="color:var(--color-neutral-0);border-color:rgba(255,255,255,.3);">🤖 AI助手</a>
+    <a href="#" class="btn btn-ghost btn-sm" style="color:var(--color-neutral-0);border-color:rgba(255,255,255,.3);" onclick="showTeacherLogin()">👨‍🏫 教师</a>
   </div>
-  <button class="ham" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="菜单"><span></span><span></span><span></span></button>
+  <button class="hamburger" id="hamburger" aria-label="菜单" onclick="document.getElementById('navLinks').classList.toggle('open');this.classList.toggle('active')"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- HERO -->
-<section class="section-hero hero" id="hero">
-  <canvas id="hc"></canvas>
+<section class="section-dark hero" id="hero">
+  <canvas id="heroCanvas"></canvas>
   <div class="container">
     <div>
-      <h1>让每个孩子<br>被<em>真正理解</em></h1>
+      <h1>让每个孩子<br>被<span class="gradient-text">真正理解</span></h1>
       <p>SLB-FPE 教育诊断与干预生态系统。覆盖中小学全学段，12 个核心评估模块，融合 AI 自适应测试与知识图谱，实现评估→诊断→干预→追踪全闭环。</p>
-      <div class="btns"><a href="#assess" class="btn btn-primary btn-lg" onclick="setTimeout(function(){document.getElementById('quizRole').value='student';startQuiz()},200)">开始免费评估</a><a href="#demo" class="btn btn-ghost btn-lg">观看演示</a></div>
+      <div class="hero-btns">
+        <a href="#assess" class="btn btn-primary btn-lg" onclick="setTimeout(()=>startFullQuiz('student'),300)">开始免费评估</a>
+        <a href="#demo" class="btn btn-ghost btn-lg">观看演示</a>
+      </div>
     </div>
-    <div class="glass">
-      <h3>📊 学生综合评估报告</h3>
-      <div class="big">SLB <em>72</em>/100</div>
-      <div class="row"><span>学习习惯</span><span style="font-weight:700;">78</span></div><div class="bar"><div class="bar-inner" style="width:78%;background:var(--color-primary-400);"></div></div>
-      <div class="row"><span>学习态度</span><span style="font-weight:700;">65</span></div><div class="bar"><div class="bar-inner" style="width:65%;background:var(--color-accent-500);"></div></div>
-      <div class="row"><span>学习方法</span><span style="font-weight:700;">82</span></div><div class="bar"><div class="bar-inner" style="width:82%;background:var(--color-success);"></div></div>
-      <div class="row"><span>心理状态</span><span style="font-weight:700;">58</span></div><div class="bar"><div class="bar-inner" style="width:58%;background:var(--color-warning);"></div></div>
-      <div class="foot">▲ 比上月 +5%  ·  年级前 30%</div>
+    <div class="hero-glass" style="margin-right:20px;">
+      <div class="hg-header"><div class="hg-title">📊 学生综合评估报告</div></div>
+      <div class="hg-score" style="color:var(--color-neutral-0);">SLB <span style="color:var(--color-primary-200);">72</span>/100</div>
+      <div style="margin-top:8px;">
+        <div style="font-size:15px;color:rgba(255,255,255,.8);margin-bottom:2px;display:flex;justify-content:space-between;"><span>学习习惯</span><span style="font-weight:700;">78</span></div><div class="hg-bar"><div class="hg-bar-fill" style="width:78%;background:var(--color-primary-400);"></div></div>
+        <div style="font-size:15px;color:rgba(255,255,255,.8);margin-bottom:2px;display:flex;justify-content:space-between;"><span>学习态度</span><span style="font-weight:700;">65</span></div><div class="hg-bar"><div class="hg-bar-fill" style="width:65%;background:var(--color-accent-500);"></div></div>
+        <div style="font-size:15px;color:rgba(255,255,255,.8);margin-bottom:2px;display:flex;justify-content:space-between;"><span>学习方法</span><span style="font-weight:700;">82</span></div><div class="hg-bar"><div class="hg-bar-fill" style="width:82%;background:var(--color-success);"></div></div>
+        <div style="font-size:15px;color:rgba(255,255,255,.8);margin-bottom:2px;display:flex;justify-content:space-between;"><span>心理状态</span><span style="font-weight:700;">58</span></div><div class="hg-bar"><div class="hg-bar-fill" style="width:58%;background:var(--color-warning);"></div></div>
+      </div>
+      <div style="text-align:center;font-size:15px;color:rgba(255,255,255,.65);margin-top:10px;">▲ 比上月 +5%  ·  年级前 30%</div>
     </div>
   </div>
 </section>
 
 <!-- TRUST -->
-<div class="trust">
+<div class="trust-band">
   <div class="container">
-    <marquee class="marquee" width="100%" scrollamount="3">教育部教育信息化合作单位 · 北京师范大学联合研究 · 科大讯飞技术合作 · 华东师范大学常模共建 · 中科院心理所效度验证 · 学而思战略合作</marquee>
-    <div class="stats">
-      <div class="tstat"><div class="n counter" data-to="5200">0</div><div class="l">覆盖学校</div></div>
-      <div class="tstat"><div class="n counter" data-to="120">0</div><div class="l">服务学生（万）</div></div>
-      <div class="tstat"><div class="n counter" data-to="98.5">0</div><div class="l">诊断准确率（%）</div></div>
-      <div class="tstat"><div class="n counter" data-to="6">0</div><div class="l">预警响应（秒）</div></div>
+    <div class="trust-marquee" id="trustMarquee">
+      <span>教育部教育信息化合作单位</span><span>·</span><span>北京师范大学联合研究</span><span>·</span><span>科大讯飞技术合作</span><span>·</span><span>华东师范大学常模共建</span><span>·</span><span>中科院心理所效度验证</span><span>·</span><span>学而思战略合作</span>
+      <span>教育部教育信息化合作单位</span><span>·</span><span>北京师范大学联合研究</span><span>·</span><span>科大讯飞技术合作</span><span>·</span><span>华东师范大学常模共建</span><span>·</span><span>中科院心理所效度验证</span><span>·</span><span>学而思战略合作</span>
+    </div>
+    <div class="trust-stats">
+      <div class="tstat"><div class="n">5200+</div><div class="l">覆盖学校</div></div>
+      <div class="tstat"><div class="n">120万+</div><div class="l">服务学生</div></div>
+      <div class="tstat"><div class="n">98.5%</div><div class="l">诊断准确率</div></div>
+      <div class="tstat"><div class="n">6s</div><div class="l">预警响应</div></div>
     </div>
   </div>
 </div>
@@ -184,109 +295,193 @@ footer{background:var(--color-neutral-900);color:var(--color-neutral-400);paddin
 <!-- FEATURES -->
 <section class="section" id="features">
   <div class="container">
-    <div class="sec-label">核心能力</div>
-    <h2 class="heading-2 text-center" style="margin-bottom:var(--space-sm);">三大引擎，驱动精准教育</h2>
-    <p class="text-body text-center" style="max-width:560px;margin:0 auto var(--space-2xl);">从评估到干预，从数据到洞察，构建完整的教育诊断智能体系</p>
-    <div class="grid g3">
-      <div class="card"><div style="font-size:36px;margin-bottom:var(--space-md);">🧠</div><h3 style="font-size:18px;font-weight:700;margin-bottom:8px;">智能诊断系统</h3><p style="font-size:14px;color:var(--color-neutral-600);">12 个评估模块，覆盖 9 大学科。基于 IRT 项目反应理论，CAT 自适应施测，277 道科学量表精准定位学习行为模式。</p></div>
-      <div class="card"><div style="font-size:36px;margin-bottom:var(--space-md);">💊</div><h3 style="font-size:18px;font-weight:700;margin-bottom:8px;">精准干预方案</h3><p style="font-size:14px;color:var(--color-neutral-600);">7 大问题模式自动识别，学科级可视化策略——数学四格漫画、语文思维导图、英语汉堡写作。</p></div>
-      <div class="card"><div style="font-size:36px;margin-bottom:var(--space-md);">🤖</div><h3 style="font-size:18px;font-weight:700;margin-bottom:8px;">AI 对话引擎</h3><p style="font-size:14px;color:var(--color-neutral-600);">苏格拉底式引导 AI 学伴"小星"，DeepSeek 驱动。支持学生情感陪伴、家长教养教练、教师教学助手三角色。</p></div>
+    <div class="section-label section-light">核心能力</div>
+    <h2 class="heading-2" style="margin-bottom:var(--space-sm);">三大引擎，驱动精准教育</h2>
+    <p class="text-body" style="max-width:560px;margin-bottom:var(--space-2xl);">从评估到干预，从数据到洞察，构建完整的教育诊断智能体系</p>
+    <div class="grid grid-3 reveal" style="grid-template-columns:repeat(3,350px);justify-content:flex-start;">
+      <div class="card"><div style="font-size:36px;margin-bottom:var(--space-md);">🧠</div><h3 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--space-sm);">智能诊断系统</h3><p style="font-size:var(--text-sm);color:var(--color-neutral-600);line-height:1.7;">12 个评估模块，覆盖 9 大学科。基于 IRT 项目反应理论，CAT 自适应施测，277 道科学量表精准定位学习行为模式。支持 8 类特殊群体适配。</p></div>
+      <div class="card"><div style="font-size:36px;margin-bottom:var(--space-md);">💊</div><h3 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--space-sm);">精准干预方案</h3><p style="font-size:var(--text-sm);color:var(--color-neutral-600);line-height:1.7;">7 大问题模式自动识别，15 个编码处方即时匹配。学科级可视化教学策略——数学四格漫画、语文思维导图、英语汉堡写作——让建议具体到每天行动。</p></div>
+      <div class="card"><div style="font-size:36px;margin-bottom:var(--space-md);">🤖</div><h3 style="font-size:var(--text-xl);font-weight:700;margin-bottom:var(--space-sm);">AI 对话引擎</h3><p style="font-size:var(--text-sm);color:var(--color-neutral-600);line-height:1.7;">苏格拉底式引导 AI 学伴"小星"，DeepSeek 驱动。支持学生情感陪伴、家长教养教练、教师教学助手三角色。安全过滤器与危机秒级响应。</p></div>
     </div>
   </div>
 </section>
 
 <!-- DEMO -->
-<section class="section section-dark" id="demo">
+<section class="section" id="demo" style="background:var(--color-neutral-50);">
   <div class="container">
-    <div class="sec-label">产品演示</div>
+    <div class="section-label section-light">产品演示</div>
     <h2 class="heading-2 text-center" style="margin-bottom:var(--space-sm);">四方视角，各得其所</h2>
-    <p class="text-body text-center" style="margin:0 auto var(--space-2xl);">学生端 · 家长端 · 教师端 · 管理端</p>
-    <div class="demo-tabs" id="dTabs">
-      <button class="demo-tab active" data-d="stu">🎒 学生端</button><button class="demo-tab" data-d="par">👨‍👩‍👧 家长端</button><button class="demo-tab" data-d="tea">👨‍🏫 教师端</button><button class="demo-tab" data-d="adm">📊 管理端</button>
+    <p class="text-body text-center" style="max-width:500px;margin:0 auto var(--space-2xl);">学生端 · 家长端 · 教师端 · 管理端，每个角色都有专属体验</p>
+    <div class="demo-tabs" id="demoTabs">
+      <button class="demo-tab active" data-d="student">🎒 学生端</button>
+      <button class="demo-tab" data-d="parent">👨‍👩‍👧 家长端</button>
+      <button class="demo-tab" data-d="teacher">👨‍🏫 教师端</button>
+      <button class="demo-tab" data-d="admin">📊 管理端</button>
     </div>
     <div class="demo-stage">
-      <div class="demo-panel active" data-p="stu"><div class="phone"><div class="screen"><div class="st">🌟 早上好，小明！</div><div class="sr"><span class="sd" style="background:var(--color-info);"></span>数学：画"四格漫画"解应用题</div><div class="sr"><span class="sd" style="background:var(--color-accent-500);"></span>语文：阅读《草船借箭》画导图</div><div class="sr"><span class="sd" style="background:var(--color-success);"></span>英语：听 Peppa Pig 画场景</div><div style="margin-top:10px;font-size:10px;color:#999;">💡 先做语文建立信心！</div></div></div></div>
-      <div class="demo-panel" data-p="par"><div class="phone"><div class="screen"><div class="st">👋 小明妈妈 · 今日待办</div><div style="font-size:10px;color:#999;margin-bottom:8px;">📊 孩子情绪：😊 · ⚠️ 数学50%</div><div class="sr"><span class="sd" style="background:var(--color-accent-500);"></span>💡 话术："先数学还是语文？"</div><div class="sr"><span class="sd" style="background:var(--color-info);"></span>📚 微课：《从吼叫到对话》第3课</div><div class="sr"><span class="sd" style="background:var(--color-success);"></span>👥 互助社区：128人</div></div></div></div>
-      <div class="demo-panel" data-p="tea"><div class="phone"><div class="screen"><div class="st">👨‍🏫 五(3)班 · 李老师</div><div style="font-size:10px;color:#999;margin-bottom:8px;">42人 · 今日预警：🔴1 🟡1</div><div class="sr"><span class="sd" style="background:var(--color-error);"></span>🔴 张某：情绪连续3天&lt;3</div><div class="sr"><span class="sd" style="background:var(--color-warning);"></span>🟡 李某：数学完成40%</div><div class="sr"><span class="sd" style="background:var(--color-success);"></span>🟢 王某：笔记质量↑</div><div style="margin-top:10px;font-size:10px;color:#999;">💡 本班视觉型62%，加画图环节</div></div></div></div>
-      <div class="demo-panel" data-p="adm"><div class="grid g4 text-center"><div class="stat-card"><div style="font-size:28px;font-weight:900;color:var(--color-primary-700);">156</div><div style="font-size:14px;color:var(--color-neutral-500);">覆盖学校</div></div><div class="stat-card"><div style="font-size:28px;font-weight:900;color:var(--color-accent-500);">48,230</div><div style="font-size:14px;color:var(--color-neutral-500);">在测学生</div></div><div class="stat-card"><div style="font-size:28px;font-weight:900;color:var(--color-success);">92.3%</div><div style="font-size:14px;color:var(--color-neutral-500);">报告完成率</div></div><div class="stat-card"><div style="font-size:28px;font-weight:900;color:var(--color-error);">3</div><div style="font-size:14px;color:var(--color-neutral-500);">当前预警</div></div></div></div>
+      <div class="demo-panel active" data-p="student"><div class="demo-phone"><div class="demo-screen"><div class="ds-label">🌟 早上好，小明！</div><div class="ds-row"><span class="ds-dot" style="background:var(--color-info);"></span>数学：画"四格漫画"解应用题</div><div class="ds-row"><span class="ds-dot" style="background:var(--color-accent-500);"></span>语文：阅读《草船借箭》画导图</div><div class="ds-row"><span class="ds-dot" style="background:var(--color-success);"></span>英语：听 Peppa Pig 画场景</div><div style="margin-top:10px;font-size:10px;color:#999;">💡 小星提示：先做语文建立信心！<br>📊 本周 12/15 · 🏆 连续7天</div></div></div></div>
+      <div class="demo-panel" data-p="parent"><div class="demo-phone"><div class="demo-screen"><div class="ds-label">👋 小明妈妈 · 今日待办</div><div style="font-size:10px;color:#999;margin-bottom:8px;">📊 孩子情绪：😊 · ⚠️ 数学完成50%</div><div class="ds-row"><span class="ds-dot" style="background:var(--color-accent-500);"></span>💡 话术："先数学还是语文？"</div><div class="ds-row"><span class="ds-dot" style="background:var(--color-info);"></span>📚 微课：《从吼叫到对话》第3课</div><div class="ds-row"><span class="ds-dot" style="background:var(--color-success);"></span>👥 互助社区：小组 128人</div></div></div></div>
+      <div class="demo-panel" data-p="teacher"><div class="demo-phone"><div class="demo-screen"><div class="ds-label">👨‍🏫 五(3)班 · 李老师</div><div style="font-size:10px;color:#999;margin-bottom:8px;">42人 · 今日预警：🔴1 🟡1</div><div class="ds-row"><span class="ds-dot" style="background:var(--color-error);"></span>🔴 张某：情绪温度连续3天&lt;3</div><div class="ds-row"><span class="ds-dot" style="background:var(--color-warning);"></span>🟡 李某：数学番茄钟完成40%</div><div class="ds-row"><span class="ds-dot" style="background:var(--color-success);"></span>🟢 王某：视觉笔记质量↑</div><div style="margin-top:10px;font-size:10px;color:#999;">💡 本班视觉型62%，增加画图环节</div></div></div></div>
+      <div class="demo-panel" data-p="admin"><div style="text-align:center;padding:20px 0;"><h3 style="font-family:var(--font-display);font-size:var(--text-2xl);margin-bottom:var(--space-lg);">区域教育质量驾驶舱</h3><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;"><div class="stat-card"><div class="n" style="color:var(--color-primary-700);">156</div><div class="l">覆盖学校</div></div><div class="stat-card"><div class="n" style="color:var(--color-accent-500);">48,230</div><div class="l">在测学生</div></div><div class="stat-card"><div class="n" style="color:var(--color-success);">92.3%</div><div class="l">报告完成率</div></div><div class="stat-card"><div class="n" style="color:var(--color-error);">3</div><div class="l">当前预警</div></div></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- CHARTS -->
-<section class="section" id="charts">
+<!-- DATA -->
+<section class="section" id="data">
   <div class="container">
-    <div class="sec-label">数据验证</div>
+    <div class="section-label section-light">数据验证</div>
     <h2 class="heading-2 text-center" style="margin-bottom:var(--space-sm);">可视化教育洞察</h2>
-    <p class="text-body text-center" style="margin:0 auto var(--space-2xl);">基于真实测评数据的智能分析</p>
-    <div class="grid g3">
-      <div class="chart-card"><h4>📊 多维学习画像</h4><svg viewBox="0 0 300 250"><defs><linearGradient id="rg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2196f3" stop-opacity=".1"/><stop offset="100%" stop-color="#2196f3" stop-opacity="0"/></linearGradient></defs><g transform="translate(150,125)"><polygon points="0,-100 95,-31 59,81 -59,81 -95,-31" fill="none" stroke="#eee"/><polygon points="0,-85 78,-20 50,62 -41,68 -72,-18" fill="url(#rg)" stroke="#2196f3" stroke-width="2" class="rpoly" style="opacity:0"/><circle cx="0" cy="-85" r="4" fill="#2196f3" class="rdot" style="opacity:0"/><circle cx="78" cy="-20" r="4" fill="#2196f3" class="rdot" style="opacity:0"/><circle cx="50" cy="62" r="4" fill="#2196f3" class="rdot" style="opacity:0"/><circle cx="-41" cy="68" r="4" fill="#2196f3" class="rdot" style="opacity:0"/><circle cx="-72" cy="-18" r="4" fill="#2196f3" class="rdot" style="opacity:0"/><text x="0" y="-112" text-anchor="middle" font-size="12" fill="#757575">学习习惯</text><text x="108" y="-28" text-anchor="start" font-size="12" fill="#757575">学习态度</text><text x="70" y="86" text-anchor="middle" font-size="12" fill="#757575">学习方法</text><text x="-70" y="86" text-anchor="middle" font-size="12" fill="#757575">心理状态</text><text x="-108" y="-28" text-anchor="end" font-size="12" fill="#757575">作业态度</text></g></svg></div>
-      <div class="chart-card"><h4>📈 SLB 指数进步趋势</h4><svg viewBox="0 0 300 250"><defs><linearGradient id="lg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff6f00" stop-opacity=".12"/><stop offset="100%" stop-color="#ff6f00" stop-opacity="0"/></linearGradient></defs><path d="M40,190 L90,160 L140,170 L190,140 L240,135 L270,110 L270,220 L40,220Z" fill="url(#lg)"/><path d="M40,190 L90,160 L140,170 L190,140 L240,135 L270,110" fill="none" stroke="#ff6f00" stroke-width="2.5" stroke-linecap="round" id="linePath" stroke-dasharray="400" stroke-dashoffset="400"/><circle cx="40" cy="190" r="4" fill="#ff6f00"/><circle cx="90" cy="160" r="4" fill="#ff6f00"/><circle cx="140" cy="170" r="4" fill="#ff6f00"/><circle cx="190" cy="140" r="4" fill="#ff6f00"/><circle cx="240" cy="135" r="4" fill="#ff6f00"/><circle cx="270" cy="110" r="4" fill="#ff6f00"/><text x="40" y="220" text-anchor="middle" font-size="12" fill="#999">9月</text><text x="90" y="220" text-anchor="middle" font-size="12" fill="#999">11月</text><text x="140" y="220" text-anchor="middle" font-size="12" fill="#999">1月</text><text x="190" y="220" text-anchor="middle" font-size="12" fill="#999">3月</text><text x="240" y="220" text-anchor="middle" font-size="12" fill="#999">5月</text><text x="270" y="220" text-anchor="middle" font-size="12" fill="#999">7月</text></svg></div>
-      <div class="chart-card"><h4>📊 模块得分分布</h4><svg viewBox="0 0 300 250"><g transform="translate(20,20)"><rect x="0" y="180" width="35" fill="#2196f3" rx="2" class="banim" height="0"/><text x="7" y="198" font-size="12" fill="#999">M1</text><rect x="45" y="180" width="35" fill="#ff6f00" rx="2" class="banim" height="0"/><text x="52" y="198" font-size="12" fill="#999">M2</text><rect x="90" y="180" width="35" fill="#4caf50" rx="2" class="banim" height="0"/><text x="97" y="198" font-size="12" fill="#999">M3</text><rect x="135" y="180" width="35" fill="#ff9800" rx="2" class="banim" height="0"/><text x="142" y="198" font-size="12" fill="#999">M4</text><rect x="180" y="180" width="35" fill="#9c27b0" rx="2" class="banim" height="0"/><text x="187" y="198" font-size="12" fill="#999">M5</text><rect x="225" y="180" width="35" fill="#00bcd4" rx="2" class="banim" height="0"/><text x="232" y="198" font-size="12" fill="#999">M6</text></g></svg></div>
+    <p class="text-body text-center" style="max-width:500px;margin:0 auto var(--space-2xl);">基于真实测评数据的智能分析，让教学决策有据可依</p>
+    <div class="chart-row reveal">
+      <div class="chart-card"><h4 style="font-size:15px;color:var(--color-neutral-500);margin-bottom:12px;">📊 多维学习画像</h4><svg viewBox="0 0 300 250"><defs><linearGradient id="rg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2196f3" stop-opacity=".1"/><stop offset="100%" stop-color="#2196f3" stop-opacity="0"/></linearGradient></defs><g transform="translate(150,125)"><polygon points="0,-100 95,-31 59,81 -59,81 -95,-31" fill="none" stroke="#eee" stroke-width="1"/><polygon points="0,-72 69,-22 42,58 -42,58 -69,-22" fill="none" stroke="#eee" stroke-width="1"/><polygon points="0,-44 41,-13 25,35 -25,35 -41,-13" fill="none" stroke="#eee" stroke-width="1"/><polygon points="0,-85 78,-20 50,62 -41,68 -72,-18" fill="url(#rg)" stroke="#2196f3" stroke-width="2" stroke-linejoin="round" style="opacity:0;transition:opacity 10s" id="radarPoly"/><circle cx="0" cy="-85" r="4" fill="#2196f3" style="opacity:0;transition:opacity 5s 2s" class="rdot"/><circle cx="78" cy="-20" r="4" fill="#2196f3" style="opacity:0;transition:opacity 5s 4s" class="rdot"/><circle cx="50" cy="62" r="4" fill="#2196f3" style="opacity:0;transition:opacity 5s 6s" class="rdot"/><circle cx="-41" cy="68" r="4" fill="#2196f3" style="opacity:0;transition:opacity 5s 8s" class="rdot"/><circle cx="-72" cy="-18" r="4" fill="#2196f3" style="opacity:0;transition:opacity 5s 10s" class="rdot"/><text x="0" y="-112" text-anchor="middle" font-size="12" fill="#757575">学习习惯</text><text x="108" y="-28" text-anchor="start" font-size="12" fill="#757575">学习态度</text><text x="70" y="86" text-anchor="middle" font-size="12" fill="#757575">学习方法</text><text x="-70" y="86" text-anchor="middle" font-size="12" fill="#757575">心理状态</text><text x="-108" y="-28" text-anchor="end" font-size="12" fill="#757575">作业态度</text></g></svg></div>
+      <div class="chart-card"><h4 style="font-size:15px;color:var(--color-neutral-500);margin-bottom:12px;">📈 SLB 指数进步趋势</h4><svg viewBox="0 0 300 250"><defs><linearGradient id="lg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff6f00" stop-opacity=".12"/><stop offset="100%" stop-color="#ff6f00" stop-opacity="0"/></linearGradient></defs><g stroke="#eee" stroke-width="1"><line x1="30" y1="20" x2="280" y2="20"/><line x1="30" y1="75" x2="280" y2="75"/><line x1="30" y1="130" x2="280" y2="130"/><line x1="30" y1="185" x2="280" y2="185"/></g><path d="M40,190 L90,160 L140,170 L190,140 L240,135 L270,110 L270,220 L40,220Z" fill="url(#lg)"/><path d="M40,190 L90,160 L140,170 L190,140 L240,135 L270,110" fill="none" stroke="#ff6f00" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="400" stroke-dashoffset="400" id="linePath" style="transition:stroke-dashoffset 18s ease-out"/><circle cx="40" cy="190" r="4" fill="#ff6f00"/><circle cx="90" cy="160" r="4" fill="#ff6f00"/><circle cx="140" cy="170" r="4" fill="#ff6f00"/><circle cx="190" cy="140" r="4" fill="#ff6f00"/><circle cx="240" cy="135" r="4" fill="#ff6f00"/><circle cx="270" cy="110" r="4" fill="#ff6f00"/><text x="40" y="220" text-anchor="middle" font-size="12" fill="#999">9月</text><text x="90" y="220" text-anchor="middle" font-size="12" fill="#999">11月</text><text x="140" y="220" text-anchor="middle" font-size="12" fill="#999">1月</text><text x="190" y="220" text-anchor="middle" font-size="12" fill="#999">3月</text><text x="240" y="220" text-anchor="middle" font-size="12" fill="#999">5月</text><text x="270" y="220" text-anchor="middle" font-size="12" fill="#999">7月</text></svg></div>
+      <div class="chart-card"><h4 style="font-size:15px;color:var(--color-neutral-500);margin-bottom:12px;">📊 模块得分分布</h4><svg viewBox="0 0 300 250"><g transform="translate(20,20)"><rect x="0" y="180" width="35" height="0" fill="#2196f3" rx="2" class="bar-anim" data-h="150"/><text x="5" y="198" font-size="12" fill="#999">M1</text><rect x="45" y="180" width="35" height="0" fill="#ff6f00" rx="2" class="bar-anim" data-h="120"/><text x="50" y="198" font-size="12" fill="#999">M2</text><rect x="90" y="180" width="35" height="0" fill="#4caf50" rx="2" class="bar-anim" data-h="140"/><text x="95" y="198" font-size="12" fill="#999">M3</text><rect x="135" y="180" width="35" height="0" fill="#ff9800" rx="2" class="bar-anim" data-h="95"/><text x="140" y="198" font-size="12" fill="#999">M4</text><rect x="180" y="180" width="35" height="0" fill="#9c27b0" rx="2" class="bar-anim" data-h="130"/><text x="185" y="198" font-size="12" fill="#999">M5</text><rect x="225" y="180" width="35" height="0" fill="#00bcd4" rx="2" class="bar-anim" data-h="165"/><text x="230" y="198" font-size="12" fill="#999">M6</text></g></svg></div>
     </div>
   </div>
 </section>
 
 <!-- STORIES -->
-<section class="section section-dark" id="stories">
+<section class="section" id="stories" style="background:var(--color-neutral-50);">
   <div class="container">
-    <div class="sec-label">用户声音</div>
+    <div class="section-label section-light">用户声音</div>
     <h2 class="heading-2 text-center" style="margin-bottom:var(--space-sm);">来自一线的真实反馈</h2>
-    <p class="text-body text-center" style="margin:0 auto var(--space-2xl);">校长、教师、家长、学生 — 四方视角</p>
-    <div class="testi-box"><div class="testi-track" id="testiTrack">
-      <div class="tcard"><div class="q">SLB-FPE 让我们第一次看到了全校学生的学习行为全貌。预警系统在开学第二周就帮我们发现了一个隐性辍学风险学生。</div><div class="au"><div class="av" style="background:var(--color-primary-600);">王</div><div><strong>王校长</strong> · <small style="color:var(--color-neutral-400);">6月28日</small></div></div></div>
-      <div class="tcard"><div class="q">面对40人的班级，以前只能凭感觉。现在每个学生的认知风格、薄弱点一目了然。</div><div class="au"><div class="av" style="background:var(--color-success);">李</div><div><strong>李老师</strong> · <small style="color:var(--color-neutral-400);">6月25日</small></div></div></div>
-      <div class="tcard"><div class="q">原来孩子不是懒，是视觉型学习者。按系统建议改用视觉任务卡后，作业效率提升了一倍。</div><div class="au"><div class="av" style="background:var(--color-accent-500);">张</div><div><strong>张妈妈</strong> · <small style="color:var(--color-neutral-400);">6月22日</small></div></div></div>
-      <div class="tcard"><div class="q">小星不像老师，更像懂我的朋友。考前它教我呼吸法，做不出题时画图引导。</div><div class="au"><div class="av" style="background:var(--color-info);">陈</div><div><strong>陈同学</strong> · <small style="color:var(--color-neutral-400);">6月20日</small></div></div></div>
+    <p class="text-body text-center" style="max-width:500px;margin:0 auto var(--space-2xl);">校长、教师、家长、学生 — 四方视角的真心话</p>
+    <div class="testi-wrap"><div class="testi-track" id="testiTrack">
+      <div class="tcard"><div class="q">SLB-FPE 让我们第一次看到了全校学生的学习行为全貌。过去凭经验，现在靠数据。预警系统在开学第二周就帮我们发现了一个隐性辍学风险学生。</div><div class="author"><div class="av" style="background:var(--color-primary-600);">王</div><div><strong>王校长</strong> · <small style="color:var(--color-neutral-400);">6月28日</small></div></div></div>
+      <div class="tcard"><div class="q">面对40人的班级，以前只能凭感觉。现在每个学生的认知风格、薄弱点一目了然。系统自动建议'增加视觉化环节'——立竿见影。</div><div class="author"><div class="av" style="background:var(--color-success);">李</div><div><strong>李老师</strong> · <small style="color:var(--color-neutral-400);">6月25日</small></div></div></div>
+      <div class="tcard"><div class="q">拿到评估报告时我哭了。原来孩子不是懒，是视觉型学习者。按系统建议改用视觉任务卡后，作业效率提升了一倍。</div><div class="author"><div class="av" style="background:var(--color-accent-500);">张</div><div><strong>张妈妈</strong> · <small style="color:var(--color-neutral-400);">6月22日</small></div></div></div>
+      <div class="tcard"><div class="q">小星不像老师，更像懂我的朋友。考前它教我呼吸法，做不出题时画图引导。我不再害怕问问题了，因为小星永远不会笑我。</div><div class="author"><div class="av" style="background:var(--color-info);">陈</div><div><strong>陈同学</strong> · <small style="color:var(--color-neutral-400);">6月20日</small></div></div></div>
+      <div class="tcard"><div class="q">作为班主任，终于有了科学工具来量化学生的非智力因素。过去开家长会只能说'孩子很努力'，现在能拿出数据图表，家长信服多了。</div><div class="author"><div class="av" style="background:var(--color-purple-500);">刘</div><div><strong>刘老师</strong> · <small style="color:var(--color-neutral-400);">6月18日</small></div></div></div>
+      <div class="tcard"><div class="q">孩子从抗拒学习到主动制定计划，只用了4周。处方系统推荐的微习惯方法太适合我家那个'启动困难户'了。</div><div class="author"><div class="av" style="background:#e91e63;">赵</div><div><strong>赵爸爸</strong> · <small style="color:var(--color-neutral-400);">6月15日</small></div></div></div>
+      <div class="tcard"><div class="q">学校的区域驾驶舱上线后，教育局第一次看到了全区学生的学习行为热力图。数据驱动教育决策，不再是口号。</div><div class="author"><div class="av" style="background:var(--color-primary-800);">周</div><div><strong>周局长</strong> · <small style="color:var(--color-neutral-400);">6月12日</small></div></div></div>
+      <div class="tcard"><div class="q">我最喜欢小星的'画图引导'功能。以前应用题读不懂就放弃了，现在小星让我先画出来，画着画着就懂了一大半。</div><div class="author"><div class="av" style="background:var(--color-teal-500);">林</div><div><strong>林同学</strong> · <small style="color:var(--color-neutral-400);">6月10日</small></div></div></div>
+      <div class="tcard"><div class="q">家长版的教养教练功能帮我发现了自己的'控制型'倾向。8周放权训练后，亲子关系从冰点恢复到正常，孩子成绩反而上去了。</div><div class="author"><div class="av" style="background:#795548;">孙</div><div><strong>孙妈妈</strong> · <small style="color:var(--color-neutral-400);">6月8日</small></div></div></div>
+      <div class="tcard"><div class="q">作为校长，最惊喜的是预警系统。上学期成功识别了3起潜在欺凌事件和5例严重心理危机。在出事之前拦截，比什么都重要。</div><div class="author"><div class="av" style="background:var(--color-primary-900);">杨</div><div><strong>杨校长</strong> · <small style="color:var(--color-neutral-400);">6月5日</small></div></div></div>
+      <div class="tcard"><div class="q">SLB-FPE 让我们第一次看到了全校学生的学习行为全貌。过去凭经验，现在靠数据。预警系统在开学第二周就帮我们发现了一个隐性辍学风险学生。</div><div class="author"><div class="av" style="background:var(--color-primary-600);">王</div><div><strong>王校长</strong> · <small style="color:var(--color-neutral-400);">6月28日</small></div></div></div>
+      <div class="tcard"><div class="q">面对40人的班级，以前只能凭感觉。现在每个学生的认知风格、薄弱点一目了然。系统自动建议'增加视觉化环节'——立竿见影。</div><div class="author"><div class="av" style="background:var(--color-success);">李</div><div><strong>李老师</strong> · <small style="color:var(--color-neutral-400);">6月25日</small></div></div></div>
+      <div class="tcard"><div class="q">拿到评估报告时我哭了。原来孩子不是懒，是视觉型学习者。按系统建议改用视觉任务卡后，作业效率提升了一倍。</div><div class="author"><div class="av" style="background:var(--color-accent-500);">张</div><div><strong>张妈妈</strong> · <small style="color:var(--color-neutral-400);">6月22日</small></div></div></div>
+      <div class="tcard"><div class="q">小星不像老师，更像懂我的朋友。考前它教我呼吸法，做不出题时画图引导。我不再害怕问问题了，因为小星永远不会笑我。</div><div class="author"><div class="av" style="background:var(--color-info);">陈</div><div><strong>陈同学</strong> · <small style="color:var(--color-neutral-400);">6月20日</small></div></div></div>
+      <div class="tcard"><div class="q">作为班主任，终于有了科学工具来量化学生的非智力因素。过去开家长会只能说'孩子很努力'，现在能拿出数据图表，家长信服多了。</div><div class="author"><div class="av" style="background:var(--color-purple-500);">刘</div><div><strong>刘老师</strong> · <small style="color:var(--color-neutral-400);">6月18日</small></div></div></div>
+      <div class="tcard"><div class="q">孩子从抗拒学习到主动制定计划，只用了4周。处方系统推荐的微习惯方法太适合我家那个'启动困难户'了。</div><div class="author"><div class="av" style="background:#e91e63;">赵</div><div><strong>赵爸爸</strong> · <small style="color:var(--color-neutral-400);">6月15日</small></div></div></div>
+      <div class="tcard"><div class="q">学校的区域驾驶舱上线后，教育局第一次看到了全区学生的学习行为热力图。数据驱动教育决策，不再是口号。</div><div class="author"><div class="av" style="background:var(--color-primary-800);">周</div><div><strong>周局长</strong> · <small style="color:var(--color-neutral-400);">6月12日</small></div></div></div>
+      <div class="tcard"><div class="q">我最喜欢小星的'画图引导'功能。以前应用题读不懂就放弃了，现在小星让我先画出来，画着画着就懂了一大半。</div><div class="author"><div class="av" style="background:var(--color-teal-500);">林</div><div><strong>林同学</strong> · <small style="color:var(--color-neutral-400);">6月10日</small></div></div></div>
+      <div class="tcard"><div class="q">家长版的教养教练功能帮我发现了自己的'控制型'倾向。8周放权训练后，亲子关系从冰点恢复到正常，孩子成绩反而上去了。</div><div class="author"><div class="av" style="background:#795548;">孙</div><div><strong>孙妈妈</strong> · <small style="color:var(--color-neutral-400);">6月8日</small></div></div></div>
+      <div class="tcard"><div class="q">作为校长，最惊喜的是预警系统。上学期成功识别了3起潜在欺凌事件和5例严重心理危机。在出事之前拦截，比什么都重要。</div><div class="author"><div class="av" style="background:var(--color-primary-900);">杨</div><div><strong>杨校长</strong> · <small style="color:var(--color-neutral-400);">6月5日</small></div></div></div>
     </div></div>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section class="section" id="history">
+  <div class="container">
+    <div class="section-label section-light">评估历史</div>
+    <h2 class="heading-2" style="margin-bottom:var(--space-sm);">历次评估记录</h2>
+    <p class="text-body" style="margin-bottom:var(--space-xl);">所有完成的评估都会保存在本地浏览器中，可随时查看、对比和导出。</p>
+    <div id="historyEmpty" style="text-align:center;padding:40px 0;color:var(--color-neutral-400);">
+      <div style="font-size:48px;margin-bottom:12px;">📋</div><p>还没有评估记录。完成一次测评后这里会显示历史数据。</p>
+    </div>
+    <div id="historyContent" style="display:none;">
+      <div style="margin-bottom:12px;display:flex;gap:8px;"><input type="text" id="historyFilter" placeholder="按姓名搜索..." style="padding:8px 14px;border:1px solid var(--color-neutral-200);border-radius:8px;font-size:13px;width:200px;" oninput="filterHistory()"><span id="historyCount" style="font-size:12px;color:var(--color-neutral-500);align-self:center;"></span></div>
+      <div style="overflow-x:auto;"><table class="history-table" id="historyTable"><thead><tr><th>姓名</th><th>班级</th><th>日期</th><th>角色</th><th>年级</th><th>题数</th><th>综合分</th><th>等级</th><th>操作</th></tr></thead><tbody></tbody></table></div>
+      <div style="margin-top:16px;display:flex;gap:8px;">
+        <button class="btn btn-secondary btn-sm" onclick="exportAllHistory()">📥 导出全部记录</button>
+        <button class="btn btn-ghost btn-sm" onclick="if(confirm('确定清除所有评估记录？此操作不可恢复。')){localStorage.removeItem('slb_fpe_hist');location.reload()}" style="color:var(--color-error);">🗑️ 清除记录</button>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- PRICING -->
 <section class="section" id="pricing">
   <div class="container">
-    <div class="sec-label">定价方案</div>
+    <div class="section-label section-light">定价方案</div>
     <h2 class="heading-2 text-center" style="margin-bottom:var(--space-sm);">选择适合你的方案</h2>
-    <p class="text-body text-center" style="margin:0 auto var(--space-2xl);">从免费体验到全面部署</p>
+    <p class="text-body text-center" style="max-width:500px;margin:0 auto var(--space-2xl);">从免费体验到全面部署，灵活适配不同规模的教育机构</p>
     <div class="price-row">
-      <div class="pcard"><h3>基础版</h3><div class="price"><s>¥</s>0<s>/月</s></div><p style="font-size:13px;color:var(--color-neutral-500);">个人用户免费</p><ul><li>学生版基础测评</li><li>标准报告生成</li><li>AI助手每月30次</li><li>数据本地存储</li></ul><a href="#assess" class="btn btn-secondary" style="width:100%;">免费开始</a></div>
-      <div class="pcard"><h3>专业版</h3><div class="price"><s>¥</s>9.9<s>/学生·年</s></div><p style="font-size:13px;color:var(--color-neutral-500);">学校级完整部署</p><ul><li>全部12模块CAT测试</li><li>多角色报告</li><li>AI助手无限使用</li><li>班级数据看板</li><li>家长端APP接入</li></ul><a href="#cta" class="btn btn-primary" style="width:100%;">立即选购</a></div>
-      <div class="pcard"><h3>旗舰版</h3><div class="price">定制</div><p style="font-size:13px;color:var(--color-neutral-500);">区域级教育平台</p><ul><li>私有云/政务云部署</li><li>区域驾驶舱大屏</li><li>联邦学习跨校模型</li><li>定制化常模建立</li><li>API/SDK 集成</li></ul><a href="#cta" class="btn btn-secondary" style="width:100%;">联系我们</a></div>
+      <div class="pcard"><h3>基础版</h3><div class="price"><small>¥</small>0<small>/月</small></div><p style="font-size:13px;color:var(--color-neutral-500);">个人用户免费体验</p><ul><li>学生版基础测评</li><li>标准报告生成</li><li>AI助手每月30次</li><li>数据本地存储</li><li>在线帮助文档</li></ul><a href="#cta" class="btn btn-secondary" style="width:100%;">免费开始</a></div>
+      <div class="pcard featured" style="position:relative;"><div class="pbadge">最受欢迎</div><h3>专业版</h3><div class="price"><small>¥</small>9.9<small>/学生·年</small></div><p style="font-size:13px;color:var(--color-neutral-500);">学校级完整部署</p><ul><li>全部12模块CAT自适应测试</li><li>多角色报告</li><li>AI助手无限使用</li><li>班级数据看板</li><li>家长端APP接入</li><li>优先技术支持</li></ul><a href="#cta" class="btn btn-primary" style="width:100%;">立即选购</a></div>
+      <div class="pcard"><h3>旗舰版</h3><div class="price">定制</div><p style="font-size:13px;color:var(--color-neutral-500);">区域级教育平台</p><ul><li>私有云/政务云部署</li><li>区域驾驶舱大屏</li><li>联邦学习跨校模型</li><li>定制化常模建立</li><li>API/SDK 集成</li><li>7×24 专属服务</li></ul><a href="#cta" class="btn btn-secondary" style="width:100%;">联系我们</a></div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="section" id="cta">
-  <div class="container"><div class="cta-block">
-    <h2>准备好了解你的学生了吗？</h2><p>免费体验完整评估流程，15 分钟看到第一份诊断报告</p>
-    <div class="cta-form" id="ctaForm"><input type="email" placeholder="邮箱地址" aria-label="邮箱"><input type="text" placeholder="学校名称" aria-label="学校"><select><option value="">选择角色</option><option>教师</option><option>校长</option><option>家长</option></select><button class="btn btn-primary btn-lg" onclick="submitCTA()">申请免费体验</button></div>
-    <div class="cta-ok" id="ctaOk">✅ 申请已提交！24 小时内为您开通体验账号。</div>
-  </div></div>
+  <div class="container">
+    <div class="cta-block">
+      <h2>准备好了解你的学生了吗？</h2>
+      <p>免费体验完整评估流程，15 分钟看到第一份诊断报告</p>
+      <div class="cta-form" id="ctaForm">
+        <input type="email" placeholder="邮箱地址" aria-label="邮箱"><input type="text" placeholder="学校名称" aria-label="学校">
+        <select style="padding:12px 16px;border-radius:12px;border:1.5px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);color:#fff;font-size:16px;outline:none;"><option value="">选择角色</option><option>教师</option><option>学校管理者</option><option>家长</option></select>
+        <button class="btn btn-primary btn-lg" onclick="submitCTA()">申请免费体验</button>
+      </div>
+      <div class="cta-ok" id="ctaOk">✅ 申请已提交！24 小时内为您开通体验账号。</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAT -->
+<section class="section" id="chat">
+  <div class="container">
+    <div class="section-label section-light">AI 学伴</div>
+    <h2 class="heading-2" style="margin-bottom:var(--space-sm);">小星 · AI 学习伙伴</h2>
+    <p class="text-body" style="margin-bottom:var(--space-xl);">Powered by DeepSeek · 苏格拉底式引导 · 不直接给答案</p>
+    <div id="chatApiSetup" style="background:var(--color-neutral-50);border:1px solid var(--color-neutral-200);border-radius:var(--radius-lg);padding:16px;margin-bottom:16px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+      <span style="font-size:13px;color:var(--color-neutral-500);white-space:nowrap;">🔑 API Key：</span>
+      <input type="password" id="dsApiKey" placeholder="输入你的 DeepSeek API Key（免费注册即得）" style="flex:1;min-width:200px;padding:10px 14px;border:2px solid var(--color-neutral-200);border-radius:10px;font-size:14px;outline:none;">
+      <button class="btn btn-primary btn-sm" onclick="saveApiKey()">保存</button>
+      <span id="apiStatus" style="font-size:12px;color:var(--color-neutral-400);">未配置 · 使用离线模式</span>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;height:500px;padding:0;overflow:hidden;">
+      <div style="padding:16px 20px;border-bottom:1px solid var(--color-neutral-100);font-weight:700;display:flex;align-items:center;gap:8px;">🤖 小星 · 对话记录</div>
+      <div id="chatMsgs" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;">
+        <div style="align-self:flex-start;background:var(--color-neutral-50);padding:12px 16px;border-radius:16px;border-bottom-left-radius:4px;font-size:14px;line-height:1.6;max-width:80%;">你好！我是小星🌟 你的 AI 学习伙伴。<br><br>你可以问我：<br>· 学习问题（我会引导你思考，不直接给答案）<br>· 情绪困扰（我会倾听和陪伴）<br>· 测评报告解读（把结果贴给我）<br><br><b>配置 API Key 后即可开始对话。</b></div>
+      </div>
+      <div style="display:flex;gap:8px;padding:12px 16px;border-top:1px solid var(--color-neutral-100);">
+        <input type="text" id="chatInput" placeholder="输入你的问题..." style="flex:1;padding:10px 14px;border:1px solid var(--color-neutral-200);border-radius:10px;font-size:14px;outline:none;" onkeydown="if(event.key==='Enter')sendChat()">
+        <button class="btn btn-primary btn-sm" onclick="sendChat()">发送</button>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ASSESS -->
-<section class="section section-dark" id="assess">
+<section class="section" id="assess" style="background:var(--color-neutral-50);">
   <div class="container">
-    <div class="sec-label">在线测评</div><h2 class="heading-2" style="margin-bottom:var(--space-sm);">学生综合学习行为评估</h2>
-    <p class="text-body" style="margin-bottom:var(--space-2xl);">30题 · 6个模块 · 约15分钟 <span id="assessRole"></span></p>
-    <div class="card" id="quizCard">
+    <div class="section-label section-light">在线测评</div>
+    <h2 class="heading-2" style="margin-bottom:var(--space-sm);">学生综合学习行为评估</h2>
+    <p class="text-body" style="margin-bottom:var(--space-2xl);">30题 · 6个模块 · 约15分钟 · 自适应选题 <span id="assessRoleLabel"></span></p>
+    <div class="quiz-panel card" id="quizPanel">
       <div id="quizSetup" style="text-align:center;padding:20px 0;">
-        <div style="display:flex;gap:12px;justify-content:center;margin-bottom:16px;flex-wrap:wrap;">
-          <input type="text" id="quizName" placeholder="请输入姓名 *必填" class="input" style="width:200px;" required>
-          <select id="quizRole" style="padding:12px 18px;border:2px solid var(--color-neutral-200);border-radius:10px;font-size:15px;"><option value="">选择身份 *</option><option value="student">我是学生</option><option value="parent">我是家长</option></select>
-          <select id="quizGrade" style="padding:12px 18px;border:2px solid var(--color-neutral-200);border-radius:10px;font-size:15px;"><option value="">选择年级 *</option><option value="P1">一年级</option><option value="P2">二年级</option><option value="P3">三年级</option><option value="P4">四年级</option><option value="P5">五年级</option><option value="P6">六年级</option><option value="J1">初一</option><option value="J2">初二</option><option value="J3">初三</option></select>
+        <div style="display:flex;gap:12px;justify-content:center;margin-bottom:12px;flex-wrap:wrap;">
+          <input type="text" id="quizName" placeholder="输入学生姓名（选填）" style="padding:12px 18px;border:2px solid var(--color-neutral-200);border-radius:10px;font-size:15px;width:200px;">
+          <select id="quizRole" style="padding:12px 18px;border:2px solid var(--color-neutral-200);border-radius:10px;font-size:15px;">
+            <option value="student">我是学生</option><option value="parent">我是家长</option>
+          </select>
+          <select id="quizGrade" style="padding:12px 18px;border:2px solid var(--color-neutral-200);border-radius:10px;font-size:15px;">
+            <option value="P1">一年级</option><option value="P2">二年级</option><option value="P3">三年级</option><option value="P4">四年级</option><option value="P5" selected>五年级</option><option value="P6">六年级</option><option value="J1">初一</option><option value="J2">初二</option><option value="J3">初三</option>
+          </select>
         </div>
-        <button class="btn btn-primary btn-lg" onclick="startQuiz()">开始答题</button>
+        <button class="btn btn-primary btn-lg" onclick="startFullQuiz()">开始答题</button>
       </div>
       <div id="quizActive" style="display:none;">
-        <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:12px;color:var(--color-neutral-500);" id="qMod">M1</span><span style="font-size:13px;color:var(--color-neutral-500);" id="qCnt">1/30</span></div>
-        <div class="qprog"><div id="qBar"></div></div>
-        <div class="qq" id="qText"></div>
-        <div class="qopts" id="qOpts"></div>
-        <div style="display:flex;justify-content:space-between;margin-top:24px;gap:8px;flex-wrap:wrap;"><button class="btn btn-ghost btn-sm" id="qExit" onclick="quitQuiz()" style="background:var(--color-neutral-100);color:var(--color-neutral-600);">🚪 退出</button><div style="display:flex;gap:8px;"><button class="btn btn-ghost btn-sm" id="qPrev" onclick="prevQ()" disabled style="background:var(--color-neutral-100);color:var(--color-neutral-500);">← 上一题</button><button class="btn btn-primary" id="qNext" onclick="nextQ()">下一题 →</button></div></div>
+        <div class="quiz-top"><span class="quiz-module" id="quizModuleLabel" style="font-size:12px;color:var(--color-neutral-500);font-weight:600;">M1 学习习惯</span><span id="quizCounter" style="font-size:13px;color:var(--color-neutral-500);">1/30</span></div>
+        <div class="quiz-progress" style="width:100%;height:8px;background:var(--color-neutral-100);border-radius:4px;margin-bottom:24px;overflow:hidden;"><div id="quizProgressBar" style="height:100%;background:var(--gradient-cta);border-radius:4px;width:0;"></div></div>
+        <div class="quiz-question" id="quizQuestion" style="font-size:18px;font-weight:700;line-height:1.6;margin-bottom:20px;"></div>
+        <div class="quiz-options" id="quizOptions" style="display:flex;flex-direction:column;gap:10px;"></div>
+        <div class="quiz-nav" style="display:flex;justify-content:space-between;margin-top:24px;">
+          <button class="btn btn-ghost btn-sm" id="quizPrev" onclick="prevFullQ()" disabled style="background:var(--color-neutral-100);color:var(--color-neutral-500);border-color:transparent;">← 上一题</button>
+          <button class="btn btn-primary" id="quizNext" onclick="nextFullQ()">下一题 →</button>
+        </div>
       </div>
-      <div id="quizDone" style="display:none;text-align:center;padding:40px 0;"><div style="font-size:48px;">🎉</div><h3 style="font-size:24px;margin:12px 0;">测评完成！</h3><p id="qDoneMsg" style="color:var(--color-neutral-500);margin-bottom:20px;"></p><button class="btn btn-primary btn-lg" onclick="showReport()">查看完整报告 →</button></div>
+      <div id="quizDone" style="display:none;text-align:center;padding:40px 0;">
+        <div style="font-size:48px;margin-bottom:12px;">🎉</div>
+        <h3 style="font-size:24px;font-weight:800;margin-bottom:8px;">测评完成！</h3>
+        <p style="font-size:16px;color:var(--color-neutral-500);margin-bottom:20px;" id="quizDoneMsg"></p>
+        <button class="btn btn-accent btn-lg" onclick="showFullReport()">查看我的完整报告 →</button>
+      </div>
     </div>
   </div>
 </section>
@@ -294,204 +489,317 @@ footer{background:var(--color-neutral-900);color:var(--color-neutral-400);paddin
 <!-- REPORT -->
 <section class="section" id="report" style="display:none;">
   <div class="container">
-    <div class="sec-label">诊断报告</div><h2 class="heading-2" style="margin-bottom:var(--space-sm);">学生综合学习行为评估报告</h2>
-    <p class="text-body" style="margin-bottom:var(--space-sm);" id="rMeta"></p>
-    <div id="rActions" style="display:none;margin-bottom:var(--space-xl);"><button class="btn btn-secondary btn-sm" onclick="window.print()">🖨️ 打印</button> <button class="btn btn-secondary btn-sm" onclick="downloadR()">💾 下载</button></div>
-    <div id="rContent">
-      <div class="grid g2" style="margin-bottom:var(--space-lg);">
-        <div class="chart-card"><h4>📊 模块得分</h4><svg viewBox="0 0 400 280" id="rRadar"></svg></div>
-        <div class="chart-card"><h4>📈 能力分布</h4><div id="rBars" style="padding:10px 0;"></div></div>
+    <div class="section-label section-light">诊断报告</div>
+    <h2 class="heading-2" style="margin-bottom:var(--space-sm);">学生综合学习行为评估报告</h2>
+    <p class="text-body" style="margin-bottom:var(--space-sm);" id="reportMeta"></p>
+    <div style="margin-bottom:var(--space-xl);display:none;" id="reportActions"><button class="btn btn-secondary btn-sm" onclick="printReport()">🖨️ 打印报告</button> <button class="btn btn-secondary btn-sm" onclick="downloadReport()">💾 下载报告</button></div>
+    <div id="reportContent">
+      <div class="report-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:20px;">
+        <div class="chart-card"><h4>📊 模块得分 (T分数)</h4><svg viewBox="0 0 400 280" id="reportRadarSvg"></svg></div>
+        <div class="chart-card"><h4>📈 能力分布</h4><div id="reportBars" style="padding:10px 0;"></div></div>
       </div>
-      <div class="grid g2">
-        <div class="card"><h4 style="font-size:14px;color:var(--color-neutral-500);margin-bottom:12px;">💊 处方建议</h4><div id="rRx" style="font-size:14px;line-height:1.7;"></div></div>
-        <div class="card"><h4 style="font-size:14px;color:var(--color-neutral-500);margin-bottom:12px;">⚠️ 风险预警</h4><div id="rRisk" style="font-size:14px;line-height:1.7;"></div></div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;">
+        <div class="card"><h4 style="font-size:14px;color:var(--color-neutral-500);margin-bottom:12px;">💊 针对性处方建议</h4><div id="reportRx" style="font-size:14px;line-height:1.7;"></div></div>
+        <div class="card"><h4 style="font-size:14px;color:var(--color-neutral-500);margin-bottom:12px;">⚠️ 风险预警信号</h4><div id="reportRisk" style="font-size:14px;line-height:1.7;"></div></div>
       </div>
     </div>
-    <div id="rEmpty" style="text-align:center;padding:60px;color:var(--color-neutral-400);"><div style="font-size:48px;">📋</div><p>还没有测评数据</p><button class="btn btn-primary" style="margin-top:16px;" onclick="document.getElementById('assess').scrollIntoView({behavior:'smooth'})">去测评</button></div>
-  </div>
-</section>
-
-<!-- CHAT -->
-<section class="section" id="chat">
-  <div class="container">
-    <div class="sec-label">AI 学伴</div><h2 class="heading-2" style="margin-bottom:var(--space-sm);">小星 · AI 学习伙伴</h2>
-    <p class="text-body" style="margin-bottom:var(--space-xl);">Powered by DeepSeek · 苏格拉底式引导</p>
-    <div style="background:var(--color-neutral-50);border:1px solid var(--color-neutral-200);border-radius:12px;padding:16px;margin-bottom:16px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
-      <span style="font-size:13px;color:var(--color-neutral-500);">🔑 API Key：</span><input type="password" id="dsKey" placeholder="输入 DeepSeek API Key" class="input" style="flex:1;min-width:200px;"><button class="btn btn-primary btn-sm" onclick="saveDS()">保存</button><span id="dsStatus" style="font-size:12px;color:var(--color-neutral-400);">未配置</span>
-    </div>
-    <div class="card" style="display:flex;flex-direction:column;height:500px;padding:0;overflow:hidden;">
-      <div style="padding:16px 20px;border-bottom:1px solid var(--color-neutral-100);font-weight:700;">🤖 小星 · 对话</div>
-      <div id="chatMsgs" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;"><div style="align-self:flex-start;background:var(--color-neutral-50);padding:12px 16px;border-radius:16px;font-size:19px;line-height:1.6;max-width:80%;">你好！我是小星🌟 配置 API Key 后即可对话。</div></div>
-      <div style="display:flex;gap:8px;padding:12px 16px;border-top:1px solid var(--color-neutral-100);"><input type="text" id="chatInput" placeholder="输入问题..." class="input" style="flex:1;padding:10px 14px;" onkeydown="if(event.key==='Enter')sendChat()"><button class="btn btn-primary btn-sm" onclick="sendChat()">发送</button></div>
-    </div>
-  </div>
-</section>
-
-<!-- HISTORY -->
-<section class="section" id="history">
-  <div class="container">
-    <div class="sec-label">评估历史</div><h2 class="heading-2" style="margin-bottom:var(--space-sm);">历次评估记录</h2>
-    <p class="text-body" style="margin-bottom:var(--space-xl);">所有评估保存在本地浏览器，可随时查看和导出。</p>
-    <div id="histEmpty" style="text-align:center;padding:40px;color:var(--color-neutral-400);"><div style="font-size:48px;">📋</div><p>还没有评估记录</p></div>
-    <div id="histContent" style="display:none;">
-      <div style="margin-bottom:12px;display:flex;gap:8px;"><input type="text" id="histFilter" placeholder="按姓名搜索..." class="input" style="width:200px;padding:8px 14px;font-size:13px;" oninput="filterHist()"><span id="histCount" style="font-size:12px;color:var(--color-neutral-500);align-self:center;"></span></div>
-      <div style="overflow-x:auto;"><table class="htable" id="histTable"><thead><tr><th>姓名</th><th>班级</th><th>日期</th><th>角色</th><th>年级</th><th>题数</th><th>综合分</th><th>等级</th><th>操作</th></tr></thead><tbody></tbody></table></div>
-      <div style="margin-top:16px;display:flex;gap:8px;"><button class="btn btn-secondary btn-sm" onclick="exportHist()">📥 导出全部</button><button class="btn btn-ghost btn-sm" onclick="if(confirm('确定清除？')){localStorage.removeItem('slb_fpe_hist');location.reload()}" style="color:var(--color-error);">🗑️ 清除</button></div>
+    <div id="reportEmpty" style="text-align:center;padding:60px 0;color:var(--color-neutral-400);">
+      <div style="font-size:48px;margin-bottom:12px;">📋</div><p>还没有测评数据，请先完成评估。</p>
+      <button class="btn btn-primary" style="margin-top:16px;" onclick="document.getElementById('assess').scrollIntoView({behavior:'smooth'})">去完成测评</button>
     </div>
   </div>
 </section>
 
 <!-- TEACHER MODAL -->
-<div class="modal" id="tModal"><div class="card" style="max-width:400px;width:95%;padding:28px;">
-  <div style="display:flex;gap:0;margin-bottom:20px;border-bottom:2px solid var(--color-neutral-100);">
-    <button class="t-tab active" onclick="switchTAuth('login')" id="tTabLogin" style="flex:1;padding:10px;border:none;background:none;font-size:15px;font-weight:700;color:var(--color-primary-500);border-bottom:2px solid var(--color-primary-500);margin-bottom:-2px;cursor:pointer;">🔑 登录</button>
-    <button class="t-tab" onclick="switchTAuth('register')" id="tTabRegister" style="flex:1;padding:10px;border:none;background:none;font-size:15px;font-weight:600;color:var(--color-neutral-400);border-bottom:2px solid transparent;margin-bottom:-2px;cursor:pointer;">📝 注册</button>
+<div id="teacherLoginModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:500;align-items:center;justify-content:center;">
+  <div class="card" style="max-width:380px;width:90%;text-align:center;padding:32px;">
+    <h3 style="font-size:20px;margin-bottom:16px;">👨‍🏫 教师管理登录</h3>
+    <input type="password" id="teacherPwd" placeholder="输入管理密码" style="width:100%;padding:12px;border:2px solid var(--color-neutral-200);border-radius:10px;font-size:15px;margin-bottom:12px;text-align:center;">
+    <button class="btn btn-primary" style="width:100%;" onclick="teacherLogin()">进入管理面板</button>
+    <p style="font-size:12px;color:var(--color-neutral-400);margin-top:8px;">默认密码：admin123 &nbsp;|&nbsp; <a href="#" onclick="changeTeacherPwd()" style="color:var(--color-primary-500);">修改密码</a></p>
+    <button class="btn btn-ghost btn-sm" style="margin-top:8px;width:100%;" onclick="document.getElementById('teacherLoginModal').style.display='none'">取消</button>
   </div>
-  <div id="tLoginPanel">
-    <input type="tel" id="tLoginPhone" placeholder="手机号" class="input" style="margin-bottom:10px;">
-    <input type="password" id="tLoginPwd" placeholder="密码" class="input" style="margin-bottom:12px;">
-    <button class="btn btn-primary" style="width:100%;" onclick="tLogin()">登录</button>
-  </div>
-  <div id="tRegisterPanel" style="display:none;">
-    <input type="text" id="tRegName" placeholder="姓名 *" class="input" style="margin-bottom:8px;">
-    <input type="text" id="tRegSchool" placeholder="学校名称" class="input" style="margin-bottom:8px;">
-    <input type="tel" id="tRegPhone" placeholder="手机号 *" class="input" style="margin-bottom:8px;">
-    <input type="password" id="tRegPwd" placeholder="密码（至少6位）*" class="input" style="margin-bottom:8px;">
-    <input type="password" id="tRegPwd2" placeholder="确认密码 *" class="input" style="margin-bottom:12px;">
-    <button class="btn btn-primary" style="width:100%;" onclick="tRegister()">注册</button>
-    <p style="font-size:12px;color:var(--color-neutral-400);margin-top:10px;text-align:center;">已有账号？<a href="javascript:void(0)" onclick="switchTAuth('login')" style="color:var(--color-primary-500);">去登录</a></p>
-  </div>
-  <div id="tProfilePanel" style="display:none;">
-    <div style="text-align:center;padding:10px 0;">
-      <div style="font-size:48px;">👨‍🏫</div>
-      <p style="font-weight:700;font-size:16px;margin:4px 0;" id="tProfileName"></p>
-      <p style="font-size:13px;color:var(--color-neutral-500);margin-bottom:12px;" id="tProfileSchool"></p>
-      <button class="btn btn-primary" style="width:100%;" onclick="tEnter()">进入管理面板</button>
-      <button class="btn btn-ghost btn-sm" style="margin-top:8px;width:100%;" onclick="tLogout()">退出登录</button>
-    </div>
-  </div>
-  <button class="btn btn-ghost btn-sm" style="margin-top:12px;width:100%;" onclick="document.getElementById('tModal').classList.remove('show')">取消</button>
-</div></div>
+</div>
 
 <!-- TEACHER DASHBOARD -->
-<section class="section" id="tDash" style="display:none;">
+<section class="section" id="teacherDash" style="display:none;">
   <div class="container">
-    <div class="sec-label">教师工作台</div>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-lg);flex-wrap:wrap;gap:12px;"><h2 class="heading-2" style="margin:0;">班级管理</h2><div style="display:flex;gap:8px;flex-wrap:wrap;"><button class="btn btn-primary btn-sm" onclick="newClass()">+ 新建班级</button><button class="btn btn-secondary btn-sm" onclick="exportClassCSV()">📥 导出CSV</button><button class="btn btn-ghost btn-sm" onclick="document.getElementById('tDash').style.display='none'" style="color:var(--color-neutral-500);">退出</button></div></div>
-    <div id="classList" class="grid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr));"><div class="card" style="text-align:center;padding:40px;color:var(--color-neutral-400);"><div style="font-size:36px;">📭</div><p>还没有班级</p></div></div>
+    <div class="section-label section-light">教师工作台</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-lg);flex-wrap:wrap;gap:12px;">
+      <h2 class="heading-2" style="margin:0;">班级管理</h2>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="btn btn-primary btn-sm" onclick="createClass()">+ 新建班级</button>
+        <button class="btn btn-secondary btn-sm" onclick="exportClassReport()">📥 导出班级报告</button>
+        <button class="btn btn-ghost btn-sm" onclick="document.getElementById('teacherDash').style.display='none';" style="color:var(--color-neutral-500);">退出</button>
+      </div>
+    </div>
+    <div id="classList" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;">
+      <div class="card" style="text-align:center;padding:40px 20px;color:var(--color-neutral-400);">
+        <div style="font-size:36px;margin-bottom:8px;">📭</div><p>还没有班级。点击"新建班级"开始。</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer><div class="container">
-  <div class="grid g4"><div><h4>学思评 SLB-FPE</h4><p style="font-size:13px;margin-top:8px;">中小学全学段教育诊断与干预生态系统。</p></div><div><h4>产品</h4><a href="#assess">学生测评</a><a href="#assess">家长评估</a><a href="#history">评估历史</a></div><div><h4>资源</h4><a href="SLB-FPE 完整版手册.md">完整手册</a><a href="SLB-FPE_API接口技术文档.md">API 文档</a></div><div><h4>公司</h4><a href="#">关于</a><a href="#">联系</a></div><div><h4>法律</h4><a href="#">隐私</a><a href="#">条款</a></div></div>
-  <div class="bottom">&copy; 2026 学思评 SLB-FPE</div>
-</div></footer>
+<footer style="background:var(--color-neutral-900);color:var(--color-neutral-400);padding:var(--space-4xl)0 var(--space-2xl);">
+  <div class="container">
+    <div class="footer-grid">
+      <div><h4 style="color:var(--color-neutral-0);">学思评 SLB-FPE</h4><p style="font-size:13px;margin-top:8px;">中小学全学段教育诊断与干预生态系统。让每个孩子被真正理解，让每位教育者有据可依。</p></div>
+      <div><h4 style="color:var(--color-neutral-0);">产品</h4><a href="#assess" onclick="setTimeout(()=>startFullQuiz('student'),300)">学生测评</a><a href="#assess" onclick="setTimeout(()=>startFullQuiz('parent'),300)">家长评估</a><a href="#history">评估历史</a><a href="#chat">AI助手</a></div>
+      <div><h4 style="color:var(--color-neutral-0);">资源</h4><a href="SLB-FPE 完整版手册.md" target="_blank">完整手册</a><a href="SLB-FPE_API接口技术文档.md" target="_blank">API 参考</a><a href="#">研究论文</a><a href="#">案例集</a></div>
+      <div><h4 style="color:var(--color-neutral-0);">公司</h4><a href="#">关于我们</a><a href="#">加入团队</a><a href="#">联系我们</a></div>
+      <div><h4 style="color:var(--color-neutral-0);">法律</h4><a href="#">隐私政策</a><a href="#">服务条款</a><a href="#">数据安全</a><a href="#">伦理声明</a></div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 学思评 SLB-FPE · 保留所有权利</div>
+  </div>
+</footer>
 
 <script>
-// ALL FUNCTIONAL JS PRESERVED FROM V2.1
-var LABELS=['完全不符合','较不符合','一般','较符合','完全符合'];
-var M1=[{t:'我每天放学后会先列出当晚要完成的学习任务'},{t:'我能预估每项作业需要的时间并合理分配'},{t:'上周我因时间管理不当导致熬夜完成作业的次数是',o:['3次及以上','2次','1次','0次','从未发生']},{t:'我会为重要考试制定复习计划表'},{t:'当计划被打乱时我能快速调整并重新安排优先级'},{t:'我每天早上会提前10分钟到校准备当天学习'},{t:'我会在周末整理本周的学习笔记'},{t:'我能坚持每天固定的学习时间不轻易变动'},{t:'做作业前我会先回顾当天课堂笔记'},{t:'我有使用日历或计划本记录学习任务的习惯'},{t:'我能在没有家长催促的情况下主动开始学习'},{t:'我每天睡觉前会准备好第二天的学习用品'},{t:'我会为每门课分配固定的学习时间段'},{t:'遇到突发情况时我能灵活调整学习计划'},{t:'我会记录每项作业的实际用时以便改进'},{t:'我能区分重要和紧急的任务并优先处理重要的'},{t:'我每周至少整理一次书桌和书包']
-var M2=[{t:'我对新知识充满好奇，喜欢探索未知领域'},{t:'我会为自己设定阶段性学习目标并努力实现'},{t:'我希望在学习上取得优异成绩，不断超越自己'},{t:'我认为好成绩来自于我的努力，而不是运气'},{t:'遇到难题时我会尝试多种方法，不轻易放弃'},{t:'我认为学习是一件有意义且快乐的事情'},{t:'即使没有奖励我也愿意认真学习'},{t:'我享受解决难题后的成就感'},{t:'我愿意在课外时间探索感兴趣的知识'},{t:'我相信持续努力比天赋更重要'},{t:'犯错时我认为这是学习的好机会'},{t:'我会主动寻找学习中的乐趣'},{t:'即使成绩不理想我也不会否定自己的价值'},{t:'我愿意尝试不同的学习方法找到最适合自己的'},{t:'我相信每个学科都有它的价值和意义'},{t:'即使老师不检查我也会认真完成作业'},{t:'我会为自己设定比上一次更好的目标']
-var M3=[{t:'我会用思维导图整理知识点，帮助理解和记忆'},{t:'学习过程中我会评估自己的理解程度，及时调整方法'},{t:'遇到不懂的问题我会查资料或请教老师同学'},{t:'我喜欢和同学一起讨论问题，互相启发'},{t:'考试时我会先浏览全卷合理分配答题时间'},{t:'我会用不同颜色标记笔记中的重点难点'},{t:'背诵时我会用联想记忆法或编口诀'},{t:'我会定期整理错题并分析错误类型'},{t:'遇到难题时我会先独立思考再求助'},{t:'我会把新学的知识和已有知识联系起来'},{t:'我会用图表或思维导图梳理知识结构'},{t:'学习新概念时我会找生活中的例子帮助理解'},{t:'我会把复杂问题分解成几个小步骤解决'},{t:'上完课后我会用自己的话总结学了什么'},{t:'我会通过做题来检验是否真正理解了知识点'},{t:'看书时我会划出关键词并在旁边做批注'},{t:'我会和同学互相出题考查对方']
-var M4=[{t:'学习时我能屏蔽手机等干扰保持专注'},{t:'学习时我感到充实和快乐'},{t:'我相信自己有能力学好这门科目'},{t:'学习时我经常产生新的想法和疑问'},{t:'有时学习太投入我会忘记时间的流逝'},{t:'学习时我能很快进入专注状态'},{t:'考试前我会提前做几次深呼吸让自己平静'},{t:'我能在嘈杂环境中集中注意力学习'},{t:'我对自己的学习能力有信心'},{t:'遇到学习瓶颈时我相信自己能够突破'},{t:'我能觉察到自己情绪的变化并及时调节'},{t:'学习累了我会主动休息调整再继续'},{t:'我会用积极的语言鼓励自己'},{t:'我觉得学习中的挑战很有意思'},{t:'我不害怕在课堂上发言即使可能说错'},{t:'我相信努力可以改变学习结果'},{t:'面对新的学习任务我不会焦虑而是期待']
-var M5=[{t:'我认为作业是巩固知识的重要方式'},{t:'我对完成作业持积极态度不觉得是负担'},{t:'我会认真对待每一项作业力求做到最好'},{t:'我会优先完成重要作业不拖延到最后一刻'},{t:'我会认真看老师的批改及时订正错误'},{t:'我做作业时会尽量理解每道题的目的'},{t:'我不会抄袭别人的作业即使题目很难'},{t:'我会在交作业前再次检查答案的合理性'},{t:'做错的题目我会弄清楚原因并改正'},{t:'我不会因为不喜欢某科而敷衍它的作业'},{t:'我觉得作业是检验自己掌握程度的好方法'},{t:'我能在规定时间内高效完成作业'},{t:'我会把作业当成复习巩固的机会'},{t:'即使作业很简单我也会认真对待'},{t:'我会记录作业中的易错点以便复习'},{t:'遇到作业中的困惑我会向老师或同学请教'},{t:'我不会把作业拖到最后一刻才开始做']
-var M6=[{t:'我的学习空间光线充足安静整洁'},{t:'我会主动利用网络资源辅助学习'},{t:'遇到困难时我知道可以向谁求助'},{t:'我能快速找到需要的学习资料'},{t:'学习用品随手可取不需要到处找'},{t:'我在家学习时会把手机放到另一个房间'},{t:'我会定期整理和归档电子学习资料'},{t:'我知道如何在网上搜索可靠的学习资源'},{t:'我会关注教育类的公众号或视频号获取知识'},{t:'我有一个安静舒适的学习角落'},{t:'我的电脑和手机里安装了有助于学习的工具'},{t:'我会利用碎片时间听音频课程或背单词'},{t:'我知道学校的图书馆或自习室在哪里'},{t:'学习时我会使用番茄钟等工具管理时间'},{t:'我会向优秀同学请教他们的学习方法']
-var M7=[{t:'我经常陪伴孩子一起学习或阅读'},{t:'我会定期检查孩子的作业完成情况'},{t:'我每天会和孩子聊聊学校的事，倾听他的想法'},{t:'我在家经常阅读或学习，给孩子做榜样'},{t:'辅导作业时我能控制情绪，不随意发火'},{t:'我会每周至少和孩子进行一次深度谈心'},{t:'我了解孩子在学校的好朋友是谁'},{t:'我会参加学校组织的家长开放日活动'},{t:'我不会在孩子学习时在旁边看电视或玩手机'},{t:'当孩子考试成绩不理想时我会先安慰再分析'},{t:'我会和孩子一起制定家庭学习规则'},{t:'我尊重孩子的隐私不会随意翻看他的私人物品'},{t:'我会记录孩子的成长进步并与他分享'},{t:'我在批评孩子之前会先听他的解释'},{t:'我会让孩子参与家庭决策培养责任感'},{t:'我不会在孩子面前贬低他的老师或学校'},{t:'我会定期和配偶讨论孩子的教育问题']
-var M8=[{t:'我希望孩子的成绩能稳定在班级前列'},{t:'我更看重孩子解决问题的能力，而非单纯分数'},{t:'我希望孩子成为一个有责任心有担当的人'},{t:'我期望孩子未来能进入重点高中/大学'},{t:'我会明确告诉孩子我的期望，但不会给他过大压力'},{t:'我希望孩子成为一个善良正直的人'},{t:'我相信每个孩子都有自己的成长节奏'},{t:'我不会拿孩子和其他同学做比较'},{t:'我更关注孩子的学习过程而非考试分数'},{t:'我会根据孩子的实际能力设定期望'},{t:'我希望孩子找到自己真正热爱的事情'},{t:'我相信兴趣比分数更能驱动长期学习'},{t:'我期望孩子具备独立生活的能力'},{t:'我会尊重孩子的兴趣和职业选择'},{t:'我希望培养孩子终身学习的习惯'},{t:'我期望孩子在挫折中学会成长'},{t:'我会根据孩子的年龄调整期望的标准']
-var M9=[{t:'我认为教育的目的不仅是升学，更是培养完整的人'},{t:'我相信孩子的成绩主要取决于努力和方法'},{t:'我有信心帮助孩子克服学习中的困难'},{t:'我了解不同年龄段孩子的心理发展特点'},{t:'我经常担心孩子落后于同龄人'},{t:'我愿意学习新的教育理念和方法'},{t:'我会阅读教育类书籍或文章提升自己'},{t:'我认为教育孩子需要不断学习而不是凭经验'},{t:'我了解青春期的心理特点和沟通技巧'},{t:'我会区分孩子的问题是能力不足还是态度问题'},{t:'我相信家校合作能让教育效果加倍'},{t:'我定期反思自己的教育方式是否需要调整'},{t:'我能接受孩子和我的教育观念不同'},{t:'我会向教育专业人士寻求建议'},{t:'我了解奖励和惩罚的正确使用方法'},{t:'我认为父亲和母亲在教育中同样重要'},{t:'我不会强迫孩子接受我的价值观']
-var M10=[{t:'我会主动与老师沟通孩子的学习情况'},{t:'我能及时了解学校布置的作业和要求'},{t:'我会配合学校的要求在家落实相关教育'},{t:'我会参加学校组织的家长会和活动'},{t:'我与老师建立了良好的合作关系'},{t:'我会及时回复老师发来的通知和信息'},{t:'我每学期至少和班主任沟通一次孩子的表现'},{t:'我了解学校本学期的教学目标和要求'},{t:'我会支持学校组织的课外活动和比赛'},{t:'当学校和家庭教育有冲突时我会主动沟通'},{t:'我能通过学校平台关注孩子的作业情况'},{t:'我会和老师分享孩子在家的学习状态'},{t:'我不会在孩子面前批评学校的决定'},{t:'我了解孩子所在班级的规章制度'},{t:'我会积极参加班级家长群的建设性讨论'},{t:'我每学期至少参加一次家长会'},{t:'我尊重老师对孩子的评价和建议']
-var M11=[{t:'我每晚能保证充足的睡眠时间'},{t:'我每天有至少30分钟的运动时间'},{t:'我能控制使用手机/游戏的时间不影响学习'},{t:'我每天都吃早餐，学习时精力充沛'},{t:'过去两周我感到情绪低落或焦虑'},{t:'我每晚能保证7小时以上的睡眠'},{t:'我每周至少运动3次每次30分钟以上'},{t:'我每天按时吃三餐营养均衡'},{t:'我感到生活有节奏身心平衡'},{t:'我能有效管理自己的压力'},{t:'我和伴侣的关系总体和谐稳定'},{t:'我有至少一两个可以倾诉的好友'},{t:'我会定期体检关注自己的健康'},{t:'我能在工作和生活之间找到平衡'},{t:'我有自己的兴趣爱好并坚持投入'},{t:'家庭氛围整体温馨和谐'},{t:'我和邻居同事关系良好']
-var M12=[{t:'请描述一次让你感到教育特别有成就感的经历',o:['从未有过','很少','有时','经常','总是如此']},{t:'你认为自己在教育孩子方面最需要改进的是什么',o:['无需改进','偶尔反思','需要提升','迫切需要','急需专业帮助']},{t:'你和配偶在教育理念上基本一致',o:LABELS},{t:'家庭氛围和谐，很少发生激烈冲突',o:LABELS},{t:'我在教育上的投入与家庭收入相匹配',o:LABELS},{t:'请用三个词描述你的家庭教育风格'},{t:'你认为自己做家长最大的优势是什么'},{t:'在教育孩子方面你最想改变的是什么'},{t:'你的孩子最让你骄傲的是什么'},{t:'你觉得家庭教育中最大的挑战是什么'},{t:'你希望学校在哪些方面更好地支持你'},{t:'你对孩子的未来有什么具体的期望'},{t:'你最近一次因为孩子而感到感动是什么时候'},{t:'如果重新来过你会用不同的方式教育孩子吗'},{t:'你觉得你的父母对你的教育方式影响有多大']
-var BANK={M1:M1,M2:M2,M3:M3,M4:M4,M5:M5,M6:M6,M7:M7,M8:M8,M9:M9,M10:M10,M11:M11,M12:M12};
-var MN={M1:'学习习惯',M2:'学习态度',M3:'学习方法',M4:'学习心理',M5:'作业态度',M6:'学习环境',M7:'教育行为',M8:'教育期望',M9:'教育观念',M10:'家校协作',M11:'身心健康',M12:'情境题'};
-var MC={M1:'#2196f3',M2:'#ff6f00',M3:'#4caf50',M4:'#ff9800',M5:'#9c27b0',M6:'#00bcd4',M7:'#e91e63',M8:'#ff5722',M9:'#607d8b',M10:'#3f51b5',M11:'#009688',M12:'#795548'};
-var Q={role:'student',grade:'P5',questions:[],answers:[],current:0,name:'',classCode:''};
-var GRADES={P1:'一年级',P2:'二年级',P3:'三年级',P4:'四年级',P5:'五年级',P6:'六年级',J1:'初一',J2:'初二',J3:'初三'};
+// ===== SAFE INIT (all errors caught) =====
+window.addEventListener('DOMContentLoaded',function(){
+  try{window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('progressBar').style.width=h>0?Math.round(scrollY/h*100)+'%':'0%'});}catch(e){}
+  try{window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',scrollY>50)});}catch(e){}
+  try{var ro=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('active');ro.unobserve(e.target)}})});document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el)});}catch(e){}
+  try{var co=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var lp=document.getElementById('linePath');if(lp)lp.style.strokeDashoffset='0';var rp=document.getElementById('radarPoly');if(rp)rp.style.opacity='1';document.querySelectorAll('.rdot').forEach(function(d){d.style.opacity='1'});document.querySelectorAll('.bar-anim').forEach(function(b){b.style.transition='height 8s ease-out';b.style.height=(b.dataset.h||100)+'px'});co.unobserve(e.target)}})},{threshold:.3});var dataEl=document.getElementById('data');if(dataEl)co.observe(dataEl);}catch(e){}
+  try{loadHistory();}catch(e){}
+  try{var last=localStorage.getItem('slb_fpe_last');if(last){document.getElementById('reportEmpty').style.display='none';document.getElementById('reportContent').style.display='block';document.getElementById('report').style.display='block';showFullReport()}}catch(e){}
+  try{var k2=localStorage.getItem('ds_key');if(k2){document.getElementById('dsApiKey').value=k2;document.getElementById('apiStatus').textContent='已配置';document.getElementById('apiStatus').style.color='var(--color-success)'}}catch(e){}
+  try{if(location.hash==='#report'){document.getElementById('report').style.display='block';document.getElementById('report').scrollIntoView({behavior:'smooth'})}}catch(e){}
+});
 
-window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',scrollY>50);var h=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('pbar').style.width=h>0?Math.round(scrollY/h*100)+'%':'0%'});
-document.querySelectorAll('#dTabs .demo-tab').forEach(function(t){t.addEventListener('click',function(){var d=this.dataset.d;document.querySelectorAll('#dTabs .demo-tab').forEach(function(x){x.classList.remove('active')});document.querySelectorAll('.demo-panel').forEach(function(x){x.classList.remove('active')});this.classList.add('active');var p=document.querySelector('[data-p="'+d+'"]');if(p)p.classList.add('active')})});
+// ===== DEMO TABS =====
+document.querySelectorAll('.demo-tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.demo-tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.demo-panel').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');const p=document.querySelector(`[data-p="${t.dataset.d}"]`);if(p)p.classList.add('active');
+}));
 
-var co=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var lp=document.getElementById('linePath');if(lp)lp.style.transition='stroke-dashoffset 2s',lp.setAttribute('stroke-dashoffset','0');document.querySelectorAll('.rpoly').forEach(function(d){d.style.transition='opacity 1s';d.style.opacity='1'});var i=1;document.querySelectorAll('.rdot').forEach(function(d){d.style.transition='opacity .5s '+((i++)*.25)+'s';d.style.opacity='1'});document.querySelectorAll('.banim').forEach(function(b){b.style.transition='height 1.5s ease-out';b.setAttribute('height','150')});co.unobserve(e.target)}})},{threshold:.3});
-co.observe(document.getElementById('charts'));
+// ===== HISTORY DASHBOARD =====
+const GRADES={P1:'一年级',P2:'二年级',P3:'三年级',P4:'四年级',P5:'五年级',P6:'六年级',J1:'初一',J2:'初二',J3:'初三'};
+let allHistory=[];
+(function loadHistory(){
+  allHistory=JSON.parse(localStorage.getItem('slb_fpe_hist')||'[]');
+  if(!allHistory.length)return;
+  document.getElementById('historyEmpty').style.display='none';
+  document.getElementById('historyContent').style.display='block';
+  renderHistoryTable(allHistory.reverse());
+})();
+function renderHistoryTable(data){
+  const tbody=document.querySelector('#historyTable tbody');tbody.innerHTML='';
+  document.getElementById('historyCount').textContent='共 '+data.length+' 条记录';
+  data.forEach(r=>{
+    const total=r.answers.reduce((s,a)=>s+a.v,0);const max=r.answers.length*5;const overall=Math.round(total/max*100);
+    const level=overall>=80?'tag-g':overall>=60?'tag-y':'tag-r';
+    const label=overall>=80?'优秀':overall>=60?'良好':overall<60?'关注':'';
+    var classes=JSON.parse(localStorage.getItem('slb_classes')||'[]');var cn=r.classCode?classes.find(function(c){return c.code===r.classCode}):null;
+    tbody.innerHTML+=`<tr><td><strong>${r.name||'未命名'}</strong></td><td style=\"font-size:12px;color:var(--color-neutral-400);\">${cn?cn.name:'--'}</td><td>${new Date(r.date).toLocaleDateString()}</td><td>${r.role==='student'?'学生':'家长'}</td><td>${GRADES[r.grade]||r.grade}</td><td>${r.answers.length}题</td><td>${overall}分</td><td><span class=\"tag-s ${level}\">${label}</span></td><td><button class=\"btn btn-sm btn-ghost\" style=\"color:var(--color-primary-500);padding:4px 8px;font-size:11px;border:1px solid var(--color-primary-200);\" onclick=\"loadHistoryReport('${r.date}')\">查看报告</button></td></tr>`;
+  });
+}
+function filterHistory(){
+  const q=document.getElementById('historyFilter').value.trim().toLowerCase();
+  if(!q){renderHistoryTable(allHistory);return}
+  renderHistoryTable(allHistory.filter(r=>(r.name||'').toLowerCase().includes(q)));
+}
 
-var cntObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var el=e.target;var t=parseFloat(el.dataset.to);var d=t>50?3:1;var s=0;var iv=setInterval(function(){s+=d;if(s>=t){el.textContent=t;clearInterval(iv)}else{el.textContent=Math.floor(s*10)/10}},40);cntObs.unobserve(el)}})},{threshold:.5});
-document.querySelectorAll('.counter').forEach(function(el){cntObs.observe(el)});
+function loadHistoryReport(dateStr){
+  const hist=JSON.parse(localStorage.getItem('slb_fpe_hist')||'[]');
+  const r=hist.find(h=>h.date===dateStr);
+  if(!r)return alert('记录未找到');
+  localStorage.setItem('slb_fpe_last',JSON.stringify(r));
+  document.getElementById('reportEmpty').style.display='none';
+  document.getElementById('reportContent').style.display='block';
+  document.getElementById('report').style.display='block';
+  showFullReport();
+  document.getElementById('report').scrollIntoView({behavior:'smooth'});
+}
 
-function startQuiz(r){if(r)Q.role=r;var n=document.getElementById('quizName').value.trim();var rl=document.getElementById('quizRole').value;var gr=document.getElementById('quizGrade').value;if(!n){alert('请先输入姓名');document.getElementById('quizName').focus();return}if(!rl){alert('请选择身份（学生或家长）');return}if(!gr){alert('请选择年级');return}Q.role=rl;Q.grade=gr;Q.name=n;var cc=new URLSearchParams(location.search).get('class');if(cc)Q.classCode=cc;Q.questions=[];var mods=Q.role==='student'?['M1','M2','M3','M4','M5','M6']:['M7','M8','M9','M10','M11','M12'];mods.forEach(function(m){BANK[m].forEach(function(q){Q.questions.push({module:m,t:q.t,o:q.o})})});Q.answers=new Array(Q.questions.length).fill(-1);Q.current=0;document.getElementById('quizSetup').style.display='none';document.getElementById('quizActive').style.display='block';document.getElementById('quizDone').style.display='none';document.getElementById('assessRole').textContent='· '+n+' · '+(Q.role==='student'?'学生版':'家长版');renderQ();document.getElementById('assess').scrollIntoView({behavior:'smooth'})}
-function quitQuiz(){if(confirm('确定要退出吗？已答题目不会保存。')){document.getElementById('quizActive').style.display='none';document.getElementById('quizSetup').style.display='block';Q.answers=[];Q.current=0}}
-function renderQ(){var q=Q.questions[Q.current];if(!q)return;document.getElementById('qMod').textContent=q.module+' '+MN[q.module];document.getElementById('qCnt').textContent=(Q.current+1)+'/'+Q.questions.length;document.getElementById('qBar').style.width=(Q.current/Q.questions.length*100)+'%';document.getElementById('qText').textContent=q.t;var opts=q.o||LABELS;var h='';opts.forEach(function(o,i){h+='<div class="qopt'+(Q.answers[Q.current]===i?' sel':'')+'" onclick="pickQ('+i+')"><div style="width:20px;height:20px;border-radius:50%;border:2px solid '+(Q.answers[Q.current]===i?'var(--color-primary-500)':'#cbd5e1')+';display:flex;align-items:center;justify-content:center;flex-shrink:0;">'+(Q.answers[Q.current]===i?'<div style="width:6px;height:6px;border-radius:50%;background:var(--color-primary-500);"></div>':'')+'</div>'+o+'</div>'});document.getElementById('qOpts').innerHTML=h;document.getElementById('qPrev').disabled=Q.current===0;document.getElementById('qNext').textContent=Q.current===Q.questions.length-1?'完成 ✓':'下一题 →'}
-function pickQ(i){Q.answers[Q.current]=i;renderQ()}
-function prevQ(){if(Q.current>0){Q.current--;renderQ()}}
-function nextQ(){if(Q.answers[Q.current]===-1)return;if(Q.current<Q.questions.length-1){Q.current++;renderQ()}else{finishQ()}}
-function finishQ(){document.getElementById('quizActive').style.display='none';document.getElementById('quizDone').style.display='block';document.getElementById('qBar').style.width='100%';document.getElementById('qDoneMsg').textContent='已完成'+Q.questions.length+'题 · '+(Q.role==='student'?'学生':'家长')+'版 · '+Q.grade;var rec={role:Q.role,grade:Q.grade,name:Q.name,classCode:Q.classCode,answers:Q.answers.map(function(a,i){return{v:a+1,m:Q.questions[i].module}}),date:new Date().toISOString()};localStorage.setItem('slb_fpe_last',JSON.stringify(rec));var hist=JSON.parse(localStorage.getItem('slb_fpe_hist')||'[]');hist.push(rec);localStorage.setItem('slb_fpe_hist',JSON.stringify(hist));var hc=document.getElementById('histContent'),he=document.getElementById('histEmpty');if(hc&&he){hc.style.display='block';he.style.display='none';renderHist(JSON.parse(localStorage.getItem('slb_fpe_hist')||'[]').reverse())}}
-function showReport(){var raw=localStorage.getItem('slb_fpe_last');if(!raw)return;var d=JSON.parse(raw);var mods={};d.answers.forEach(function(a){if(!mods[a.m])mods[a.m]={t:0,c:0};mods[a.m].t+=a.v;mods[a.m].c++});var scores={};for(var m in mods)scores[m]=Math.round(mods[m].t/mods[m].c);var tot=0,mx=0;for(var m in scores){tot+=scores[m];mx+=5}var ov=Math.round(tot/mx*100);document.getElementById('rMeta').textContent=(d.role==='student'?'学生':'家长')+'版 · '+d.grade+' · 综合SLB指数：'+ov+'分 · '+new Date(d.date).toLocaleDateString();var rmods=Object.keys(scores).slice(0,6);var cx=200,cy=140,rr=100;var ang=rmods.map(function(_,i){return -Math.PI/2+(2*Math.PI*i)/rmods.length});var rsvg='<defs><linearGradient id=\"rrg\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#2196f3\" stop-opacity=\".12\"/><stop offset=\"100%\" stop-color=\"#2196f3\" stop-opacity=\"0\"/></linearGradient></defs>';for(var l=1;l<=3;l++){rsvg+='<polygon points=\"'+ang.map(function(a){return(cx+Math.cos(a)*rr*l/3)+','+(cy+Math.sin(a)*rr*l/3)}).join(' ')+'\" fill=\"none\" stroke=\"#e0e0e0\" stroke-width=\"1\"/>'}rsvg+='<polygon points=\"'+rmods.map(function(m,i){var s=scores[m];return(cx+Math.cos(ang[i])*rr*(s/5))+','+(cy+Math.sin(ang[i])*rr*(s/5))}).join(' ')+'\" fill=\"url(#rrg)\" stroke=\"#2196f3\" stroke-width=\"2\" stroke-linejoin=\"round\" class=\"repRadar\" style=\"opacity:0;transition:opacity 2s\"/>';rmods.forEach(function(m,i){var s=scores[m];rsvg+='<circle cx=\"'+(cx+Math.cos(ang[i])*rr*(s/5))+'\" cy=\"'+(cy+Math.sin(ang[i])*rr*(s/5))+'\" r=\"4\" fill=\"#2196f3\" class=\"repDot\" style=\"opacity:0;transition:opacity 1s '+((i+1)*.3)+'s\"/>';rsvg+='<text x=\"'+(cx+Math.cos(ang[i])*(rr+20))+'\" y=\"'+(cy+Math.sin(ang[i])*(rr+20))+'\" text-anchor=\"middle\" font-size=\"12\" fill=\"#757575\">'+MN[m]+'('+s+'分)</text>'});document.getElementById('rRadar').innerHTML=rsvg;var bhtml='';for(var m in scores){var p=scores[m]*20;bhtml+='<div style=\"display:flex;align-items:center;gap:12px;margin-bottom:8px;\"><span style=\"font-size:13px;width:80px;\">'+MN[m]+'</span><div style=\"flex:1;height:12px;background:#e0e0e0;border-radius:6px;overflow:hidden;\"><div style=\"height:100%;width:'+p+'%;background:'+(MC[m]||'#2196f3')+';border-radius:6px;transition:width 2s ease-out;\" class=\"rbar\"></div></div><span style=\"font-size:13px;font-weight:700;width:30px;text-align:right;\">'+s+'</span></div>'}document.getElementById('rBars').innerHTML=bhtml;setTimeout(function(){document.querySelectorAll('.rbar').forEach(function(b){var w=b.style.width;b.style.width='0%';setTimeout(function(){b.style.width=w},50)})},100);var weak=Object.entries(scores).filter(function(e){return e[1]<=3}).map(function(e){return e[0]});var rx='';if(weak.includes('M4')&&scores.M4<=2)rx+='<p><strong>焦虑拆弹：</strong>每天练习4-7-8呼吸法3次，建立"焦虑日志"。</p>';if(weak.includes('M1')&&scores.M1<=2)rx+='<p><strong>微习惯：</strong>选一个"小到不可能失败"的习惯坚持7天再升级。</p>';if(weak.includes('M3')&&scores.M3<=3)rx+='<p><strong>费曼学习法：</strong>每天选1个知识点假装教给8岁小孩直到讲清楚。</p>';if(weak.includes('M5')&&scores.M5<=3)rx+='<p><strong>番茄钟：</strong>从15分钟开始逐步升级到25分钟。</p>';if(!rx)rx='<p>🟢 各模块表现良好，继续保持！</p>';document.getElementById('rRx').innerHTML=rx;var flags=[];if(scores.M4<=2&&(scores.M1<=3||scores.M2<=3))flags.push('高焦虑-低效能循环');if(Object.values(scores).filter(function(s){return s<=2}).length>=3)flags.push('多维度预警');if(ov<50)flags.push('综合指数偏低');document.getElementById('rRisk').innerHTML=flags.length?flags.map(function(f){return'<p>🔴 '+f+'</p>'}).join(''):'<p>🟢 未检测到显著风险。</p>';document.getElementById('rEmpty').style.display='none';document.getElementById('rContent').style.display='block';document.getElementById('rActions').style.display='block';document.getElementById('report').style.display='block';document.getElementById('report').scrollIntoView({behavior:'smooth'});setTimeout(function(){var rp=document.querySelector('.repRadar');if(rp)rp.style.opacity='1';document.querySelectorAll('.repDot').forEach(function(d){d.style.opacity='1'})},200)}
-function downloadR(){var c=document.getElementById('rContent').cloneNode(true);var h='<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><title>SLB-FPE 评估报告</title><style>body{font-family:system-ui,sans-serif;max-width:800px;margin:40px auto;padding:20px;color:#333;line-height:1.6}svg{max-width:100%}</style></head><body><h2>SLB-FPE 评估报告</h2>'+document.getElementById('rMeta').innerHTML+c.innerHTML+'</body></html>';var b=new Blob([h],{type:'text/html'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='评估报告_'+new Date().toISOString().slice(0,10)+'.html';a.click()}
+function exportAllHistory(){
+  const hist=localStorage.getItem('slb_fpe_hist')||'[]';
+  const b=new Blob([hist],{type:'application/json;charset=utf-8'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='SLB-FPE评估历史_'+new Date().toISOString().slice(0,10)+'.json';a.click();
+}
 
-var allHist=[];(function initHist(){var cc=new URLSearchParams(location.search).get('class');if(cc&&document.getElementById('quizSetup')){document.getElementById('quizSetup').insertAdjacentHTML('afterbegin','<div style="background:#e8f5e9;padding:8px 16px;border-radius:8px;margin-bottom:16px;font-size:13px;color:#2e7d32;">📋 已加入班级：<b>'+cc+'</b></div>')}allHist=JSON.parse(localStorage.getItem('slb_fpe_hist')||'[]');if(!allHist.length)return;document.getElementById('histEmpty').style.display='none';document.getElementById('histContent').style.display='block';renderHist(allHist.reverse());if(localStorage.getItem('slb_fpe_last')){document.getElementById('rEmpty').style.display='none';document.getElementById('rContent').style.display='block';document.getElementById('report').style.display='block';showReport()}})();
-function renderHist(data){var tbody=document.querySelector('#histTable tbody');tbody.innerHTML='';document.getElementById('histCount').textContent='共 '+data.length+' 条';var classes=JSON.parse(localStorage.getItem('slb_classes')||'[]');data.forEach(function(r){var tot=r.answers.reduce(function(s,a){return s+a.v},0);var mx=r.answers.length*5;var ov=Math.round(tot/mx*100);var lv=ov>=80?'tag-g':ov>=60?'tag-y':'tag-r';var lb=ov>=80?'优秀':ov>=60?'良好':'关注';var cn=r.classCode?classes.find(function(c){return c.code===r.classCode}):null;tbody.innerHTML+='<tr><td><strong>'+(r.name||'未命名')+'</strong></td><td style="font-size:12px;color:var(--color-neutral-400);">'+(cn?cn.name:'--')+'</td><td>'+new Date(r.date).toLocaleDateString()+'</td><td>'+(r.role==='student'?'学生':'家长')+'</td><td>'+GRADES[r.grade]+'</td><td>'+r.answers.length+'题</td><td>'+ov+'分</td><td><span class="tag '+lv+'">'+lb+'</span></td><td><button class="btn btn-sm btn-ghost" style="color:var(--color-primary-500);padding:4px 8px;font-size:11px;" onclick="loadHist(\''+r.date+'\')">查看</button></td></tr>'})}
-function filterHist(){var q=document.getElementById('histFilter').value.trim().toLowerCase();if(!q)renderHist(allHist);else renderHist(allHist.filter(function(r){return(r.name||'').toLowerCase().includes(q)}))}
-function loadHist(d){var r=allHist.find(function(h){return h.date===d});if(r){localStorage.setItem('slb_fpe_last',JSON.stringify(r));showReport();document.getElementById('report').scrollIntoView({behavior:'smooth'})}}
-function exportHist(){var b=new Blob([JSON.stringify(allHist)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='评估历史_'+new Date().toISOString().slice(0,10)+'.json';a.click()}
+// ===== FULL QUIZ SYSTEM =====
+const LABELS=['完全不符合','较不符合','一般','较符合','完全符合'];
+const M1_Q=[{t:'我每天放学后会先列出当晚要完成的学习任务'},{t:'我能预估每项作业需要的时间并合理分配'},{t:'上周我因时间管理不当导致熬夜完成作业的次数是',o:['3次及以上','2次','1次','0次','从未发生']},{t:'我会为重要考试制定复习计划表'},{t:'当计划被打乱时我能快速调整并重新安排优先级'},{t:'我每天早上会提前10分钟到校准备当天学习'},{t:'我会在周末整理本周的学习笔记'},{t:'我能坚持每天固定的学习时间不轻易变动'},{t:'做作业前我会先回顾当天课堂笔记'},{t:'我有使用日历或计划本记录学习任务的习惯'},{t:'我能在没有家长催促的情况下主动开始学习'},{t:'我每天睡觉前会准备好第二天的学习用品'},{t:'我会为每门课分配固定的学习时间段'},{t:'遇到突发情况时我能灵活调整学习计划'},{t:'我会记录每项作业的实际用时以便改进'},{t:'我能区分重要和紧急的任务并优先处理重要的'},{t:'我每周至少整理一次书桌和书包'}];
+const M2_Q=[{t:'我对新知识充满好奇，喜欢探索未知领域'},{t:'我会为自己设定阶段性学习目标并努力实现'},{t:'我希望在学习上取得优异成绩，不断超越自己'},{t:'我认为好成绩来自于我的努力，而不是运气'},{t:'遇到难题时我会尝试多种方法，不轻易放弃'},{t:'我认为学习是一件有意义且快乐的事情'},{t:'即使没有奖励我也愿意认真学习'},{t:'我享受解决难题后的成就感'},{t:'我愿意在课外时间探索感兴趣的知识'},{t:'我相信持续努力比天赋更重要'},{t:'犯错时我认为这是学习的好机会'},{t:'我会主动寻找学习中的乐趣'},{t:'即使成绩不理想我也不会否定自己的价值'},{t:'我愿意尝试不同的学习方法找到最适合自己的'},{t:'我相信每个学科都有它的价值和意义'},{t:'即使老师不检查我也会认真完成作业'},{t:'我会为自己设定比上一次更好的目标'}];
+const M3_Q=[{t:'我会用思维导图整理知识点，帮助理解和记忆'},{t:'学习过程中我会评估自己的理解程度，及时调整方法'},{t:'遇到不懂的问题我会查资料或请教老师同学'},{t:'我喜欢和同学一起讨论问题，互相启发'},{t:'考试时我会先浏览全卷合理分配答题时间'},{t:'我会用不同颜色标记笔记中的重点难点'},{t:'背诵时我会用联想记忆法或编口诀'},{t:'我会定期整理错题并分析错误类型'},{t:'遇到难题时我会先独立思考再求助'},{t:'我会把新学的知识和已有知识联系起来'},{t:'我会用图表或思维导图梳理知识结构'},{t:'学习新概念时我会找生活中的例子帮助理解'},{t:'我会把复杂问题分解成几个小步骤解决'},{t:'上完课后我会用自己的话总结学了什么'},{t:'我会通过做题来检验是否真正理解了知识点'},{t:'看书时我会划出关键词并在旁边做批注'},{t:'我会和同学互相出题考查对方'}];
+const M4_Q=[{t:'学习时我能屏蔽手机等干扰保持专注'},{t:'学习时我感到充实和快乐'},{t:'我相信自己有能力学好这门科目'},{t:'学习时我经常产生新的想法和疑问'},{t:'有时学习太投入我会忘记时间的流逝'},{t:'学习时我能很快进入专注状态'},{t:'考试前我会提前做几次深呼吸让自己平静'},{t:'我能在嘈杂环境中集中注意力学习'},{t:'我对自己的学习能力有信心'},{t:'遇到学习瓶颈时我相信自己能够突破'},{t:'我能觉察到自己情绪的变化并及时调节'},{t:'学习累了我会主动休息调整再继续'},{t:'我会用积极的语言鼓励自己'},{t:'我觉得学习中的挑战很有意思'},{t:'我不害怕在课堂上发言即使可能说错'},{t:'我相信努力可以改变学习结果'},{t:'面对新的学习任务我不会焦虑而是期待'}];
+const M5_Q=[{t:'我认为作业是巩固知识的重要方式'},{t:'我对完成作业持积极态度不觉得是负担'},{t:'我会认真对待每一项作业力求做到最好'},{t:'我会优先完成重要作业不拖延到最后一刻'},{t:'我会认真看老师的批改及时订正错误'},{t:'我做作业时会尽量理解每道题的目的'},{t:'我不会抄袭别人的作业即使题目很难'},{t:'我会在交作业前再次检查答案的合理性'},{t:'做错的题目我会弄清楚原因并改正'},{t:'我不会因为不喜欢某科而敷衍它的作业'},{t:'我觉得作业是检验自己掌握程度的好方法'},{t:'我能在规定时间内高效完成作业'},{t:'我会把作业当成复习巩固的机会'},{t:'即使作业很简单我也会认真对待'},{t:'我会记录作业中的易错点以便复习'},{t:'遇到作业中的困惑我会向老师或同学请教'},{t:'我不会把作业拖到最后一刻才开始做'}];
+const M6_Q=[{t:'我的学习空间光线充足安静整洁'},{t:'我会主动利用网络资源辅助学习'},{t:'遇到困难时我知道可以向谁求助'},{t:'我能快速找到需要的学习资料'},{t:'学习用品随手可取不需要到处找'},{t:'我在家学习时会把手机放到另一个房间'},{t:'我会定期整理和归档电子学习资料'},{t:'我知道如何在网上搜索可靠的学习资源'},{t:'我会关注教育类的公众号或视频号获取知识'},{t:'我有一个安静舒适的学习角落'},{t:'我的电脑和手机里安装了有助于学习的工具'},{t:'我会利用碎片时间听音频课程或背单词'},{t:'我知道学校的图书馆或自习室在哪里'},{t:'学习时我会使用番茄钟等工具管理时间'},{t:'我会向优秀同学请教他们的学习方法'}];
+const M7_Q=[{t:'我经常陪伴孩子一起学习或阅读'},{t:'我会定期检查孩子的作业完成情况'},{t:'我每天会和孩子聊聊学校的事，倾听他的想法'},{t:'我在家经常阅读或学习，给孩子做榜样'},{t:'辅导作业时我能控制情绪，不随意发火'},{t:'我会每周至少和孩子进行一次深度谈心'},{t:'我了解孩子在学校的好朋友是谁'},{t:'我会参加学校组织的家长开放日活动'},{t:'我不会在孩子学习时在旁边看电视或玩手机'},{t:'当孩子考试成绩不理想时我会先安慰再分析'},{t:'我会和孩子一起制定家庭学习规则'},{t:'我尊重孩子的隐私不会随意翻看他的私人物品'},{t:'我会记录孩子的成长进步并与他分享'},{t:'我在批评孩子之前会先听他的解释'},{t:'我会让孩子参与家庭决策培养责任感'},{t:'我不会在孩子面前贬低他的老师或学校'},{t:'我会定期和配偶讨论孩子的教育问题'}];
+const M8_Q=[{t:'我希望孩子的成绩能稳定在班级前列'},{t:'我更看重孩子解决问题的能力，而非单纯分数'},{t:'我希望孩子成为一个有责任心有担当的人'},{t:'我期望孩子未来能进入重点高中/大学'},{t:'我会明确告诉孩子我的期望，但不会给他过大压力'},{t:'我希望孩子成为一个善良正直的人'},{t:'我相信每个孩子都有自己的成长节奏'},{t:'我不会拿孩子和其他同学做比较'},{t:'我更关注孩子的学习过程而非考试分数'},{t:'我会根据孩子的实际能力设定期望'},{t:'我希望孩子找到自己真正热爱的事情'},{t:'我相信兴趣比分数更能驱动长期学习'},{t:'我期望孩子具备独立生活的能力'},{t:'我会尊重孩子的兴趣和职业选择'},{t:'我希望培养孩子终身学习的习惯'},{t:'我期望孩子在挫折中学会成长'},{t:'我会根据孩子的年龄调整期望的标准'}];
+const M9_Q=[{t:'我认为教育的目的不仅是升学，更是培养完整的人'},{t:'我相信孩子的成绩主要取决于努力和方法'},{t:'我有信心帮助孩子克服学习中的困难'},{t:'我了解不同年龄段孩子的心理发展特点'},{t:'我经常担心孩子落后于同龄人'},{t:'我愿意学习新的教育理念和方法'},{t:'我会阅读教育类书籍或文章提升自己'},{t:'我认为教育孩子需要不断学习而不是凭经验'},{t:'我了解青春期的心理特点和沟通技巧'},{t:'我会区分孩子的问题是能力不足还是态度问题'},{t:'我相信家校合作能让教育效果加倍'},{t:'我定期反思自己的教育方式是否需要调整'},{t:'我能接受孩子和我的教育观念不同'},{t:'我会向教育专业人士寻求建议'},{t:'我了解奖励和惩罚的正确使用方法'},{t:'我认为父亲和母亲在教育中同样重要'},{t:'我不会强迫孩子接受我的价值观'}];
+const M10_Q=[{t:'我会主动与老师沟通孩子的学习情况'},{t:'我能及时了解学校布置的作业和要求'},{t:'我会配合学校的要求在家落实相关教育'},{t:'我会参加学校组织的家长会和活动'},{t:'我与老师建立了良好的合作关系'},{t:'我会及时回复老师发来的通知和信息'},{t:'我每学期至少和班主任沟通一次孩子的表现'},{t:'我了解学校本学期的教学目标和要求'},{t:'我会支持学校组织的课外活动和比赛'},{t:'当学校和家庭教育有冲突时我会主动沟通'},{t:'我能通过学校平台关注孩子的作业情况'},{t:'我会和老师分享孩子在家的学习状态'},{t:'我不会在孩子面前批评学校的决定'},{t:'我了解孩子所在班级的规章制度'},{t:'我会积极参加班级家长群的建设性讨论'},{t:'我每学期至少参加一次家长会'},{t:'我尊重老师对孩子的评价和建议'}];
+const M11_Q=[{t:'我每晚能保证充足的睡眠时间'},{t:'我每天有至少30分钟的运动时间'},{t:'我能控制使用手机/游戏的时间不影响学习'},{t:'我每天都吃早餐，学习时精力充沛'},{t:'过去两周我感到情绪低落或焦虑'},{t:'我每晚能保证7小时以上的睡眠'},{t:'我每周至少运动3次每次30分钟以上'},{t:'我每天按时吃三餐营养均衡'},{t:'我感到生活有节奏身心平衡'},{t:'我能有效管理自己的压力'},{t:'我和伴侣的关系总体和谐稳定'},{t:'我有至少一两个可以倾诉的好友'},{t:'我会定期体检关注自己的健康'},{t:'我能在工作和生活之间找到平衡'},{t:'我有自己的兴趣爱好并坚持投入'},{t:'家庭氛围整体温馨和谐'},{t:'我和邻居同事关系良好'}];
+const M12_Q=[{t:'请描述一次让你感到教育特别有成就感的经历（开放题）',o:['从未有过','很少','有时','经常','总是如此']},{t:'你认为自己在教育孩子方面最需要改进的是什么（开放题）',o:['无需改进','偶尔反思','需要提升','迫切需要','急需专业帮助']},{t:'你和配偶在教育理念上基本一致',o:LABELS},{t:'家庭氛围和谐，很少发生激烈冲突',o:LABELS},{t:'我在教育上的投入与家庭收入相匹配',o:LABELS},{t:'请用三个词描述你的家庭教育风格'},{t:'你认为自己做家长最大的优势是什么'},{t:'在教育孩子方面你最想改变的是什么'},{t:'你的孩子最让你骄傲的是什么'},{t:'你觉得家庭教育中最大的挑战是什么'},{t:'你希望学校在哪些方面更好地支持你'},{t:'你对孩子的未来有什么具体的期望'},{t:'你最近一次因为孩子而感到感动是什么时候'},{t:'如果重新来过你会用不同的方式教育孩子吗'},{t:'你觉得你的父母对你的教育方式影响有多大'}];
+const FULL_BANK={M1:M1_Q,M2:M2_Q,M3:M3_Q,M4:M4_Q,M5:M5_Q,M6:M6_Q,M7:M7_Q,M8:M8_Q,M9:M9_Q,M10:M10_Q,M11:M11_Q,M12:M12_Q};
+const MOD_NAMES={M1:'学习习惯',M2:'学习态度',M3:'学习方法',M4:'学习心理',M5:'作业态度',M6:'学习环境',M7:'教育行为',M8:'教育期望',M9:'教育观念',M10:'家校协作',M11:'身心健康',M12:'情境题'};
+const MOD_COLORS={M1:'#2196f3',M2:'#ff6f00',M3:'#4caf50',M4:'#ff9800',M5:'#9c27b0',M6:'#00bcd4',M7:'#e91e63',M8:'#ff5722',M9:'#607d8b',M10:'#3f51b5',M11:'#009688',M12:'#795548'};
+let qState={role:'student',grade:'P5',questions:[],answers:[],current:0};
 
+function startFullQuiz(r){
+  if(r){qState.role=r;document.getElementById('quizRole').value=r}
+  qState.role=document.getElementById('quizRole').value;qState.grade=document.getElementById('quizGrade').value;qState.name=document.getElementById('quizName').value.trim()||'未命名';
+  qState.questions=[];const modules=qState.role==='student'?['M1','M2','M3','M4','M5','M6']:['M7','M8','M9','M10','M11','M12'];
+  modules.forEach(m=>{FULL_BANK[m].forEach(q=>qState.questions.push({module:m,...q}))});
+  qState.answers=new Array(qState.questions.length).fill(-1);qState.current=0;
+  document.getElementById('quizSetup').style.display='none';document.getElementById('quizActive').style.display='block';document.getElementById('quizDone').style.display='none';
+  document.getElementById('assessRoleLabel').textContent=qState.role==='student'?'· 学生版':'· 家长版';
+  renderFullQ();document.getElementById('assess').scrollIntoView({behavior:'smooth'});
+}
+function renderFullQ(){
+  const q=qState.questions[qState.current];if(!q)return;
+  document.getElementById('quizModuleLabel').textContent=q.module+' '+MOD_NAMES[q.module];
+  document.getElementById('quizCounter').textContent=(qState.current+1)+'/'+qState.questions.length;
+  document.getElementById('quizProgressBar').style.width=(qState.current/qState.questions.length*100)+'%';
+  document.getElementById('quizQuestion').textContent=q.t;
+  const opts=q.o||LABELS;let h='';opts.forEach((o,i)=>{h+='<div class="quiz-opt" onclick="pickFullQ('+i+')" style="display:flex;align-items:center;gap:12px;padding:14px 18px;border:2px solid '+(qState.answers[qState.current]===i?'var(--color-primary-500)':'var(--color-neutral-200)')+';border-radius:12px;cursor:pointer;font-size:15px;transition:.15s;'+(qState.answers[qState.current]===i?'background:#eef2ff;':'')+'"><div style="width:20px;height:20px;border-radius:50%;border:2px solid '+(qState.answers[qState.current]===i?'var(--color-primary-500)':'#cbd5e1')+';display:flex;align-items:center;justify-content:center;flex-shrink:0;">'+(qState.answers[qState.current]===i?'<div style="width:6px;height:6px;border-radius:50%;background:var(--color-primary-500);"></div>':'')+'</div>'+o+'</div>'});
+  document.getElementById('quizOptions').innerHTML=h;
+  document.getElementById('quizPrev').disabled=qState.current===0;document.getElementById('quizNext').textContent=qState.current===qState.questions.length-1?'完成 ✓':'下一题 →';
+}
+function pickFullQ(i){qState.answers[qState.current]=i;renderFullQ()}
+function prevFullQ(){if(qState.current>0){qState.current--;renderFullQ()}}
+function nextFullQ(){
+  if(qState.answers[qState.current]===-1){alert('请先选择一个选项');return}
+  if(qState.current<qState.questions.length-1){qState.current++;renderFullQ()}
+  else{finishFullQuiz()}
+}
+function finishFullQuiz(){
+  document.getElementById('quizActive').style.display='none';document.getElementById('quizDone').style.display='block';
+  document.getElementById('quizProgressBar').style.width='100%';
+  document.getElementById('quizDoneMsg').textContent='你已完成'+qState.questions.length+'道题目！角色：'+(qState.role==='student'?'学生':'家长')+'，年级：'+qState.grade;
+  var cc=new URLSearchParams(location.search).get('class')||qState.classCode||'';const record={role:qState.role,grade:qState.grade,name:qState.name||'未命名',classCode:cc,answers:qState.answers.map((a,i)=>({v:a+1,m:qState.questions[i].module})),date:new Date().toISOString()};
+  localStorage.setItem('slb_fpe_last',JSON.stringify(record));
+  const hist=JSON.parse(localStorage.getItem('slb_fpe_hist')||'[]');hist.push(record);localStorage.setItem('slb_fpe_hist',JSON.stringify(hist));
+  // Refresh history
+  location.hash='report';
+  setTimeout(()=>location.reload(),100);
+}
+function showFullReport(){
+  const raw=localStorage.getItem('slb_fpe_last');if(!raw){alert('没有测评数据');return}
+  const data=JSON.parse(raw);
+  const mods={};data.answers.forEach(a=>{if(!mods[a.m])mods[a.m]={t:0,c:0};mods[a.m].t+=a.v;mods[a.m].c++});
+  const scores={};for(const[m,d]of Object.entries(mods)){scores[m]=Math.round(d.t/d.c)}
+  let total=0,max=0;for(const[m,s]of Object.entries(scores)){total+=s;max+=5}const overall=Math.round(total/max*100);
+  document.getElementById('reportMeta').textContent=(data.role==='student'?'学生':'家长')+'版 · 年级：'+data.grade+' · 综合SLB指数：'+overall+'分 · '+new Date(data.date).toLocaleDateString();
+  const rmods=Object.keys(scores).slice(0,6);const cx=200,cy=140,r=100;const angles=rmods.map((_,i)=>-Math.PI/2+(2*Math.PI*i)/rmods.length);
+  let rsvg='<defs><linearGradient id=\"rrg\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#2196f3\" stop-opacity=\".12\"/><stop offset=\"100%\" stop-color=\"#2196f3\" stop-opacity=\"0\"/></linearGradient></defs>';
+  for(let l=1;l<=3;l++){const pts=angles.map(a=>`${cx+Math.cos(a)*r*l/3},${cy+Math.sin(a)*r*l/3}`).join(' ');rsvg+='<polygon points=\"'+pts+'\" fill=\"none\" stroke=\"#e0e0e0\" stroke-width=\"1\"/>'}
+  const pts=rmods.map((m,i)=>{const s=scores[m];return `${cx+Math.cos(angles[i])*r*(s/5)},${cy+Math.sin(angles[i])*r*(s/5)}`}).join(' ');
+  rsvg+='<polygon points=\"'+pts+'\" fill=\"url(#rrg)\" stroke=\"#2196f3\" stroke-width=\"2\" stroke-linejoin=\"round\" id=\"reportRadar\" style=\"opacity:0;transition:opacity 10s\"/>';
+  rmods.forEach((m,i)=>{const s=scores[m];rsvg+='<circle cx=\"'+(cx+Math.cos(angles[i])*r*(s/5))+'\" cy=\"'+(cy+Math.sin(angles[i])*r*(s/5))+'\" r=\"4\" fill=\"#2196f3\" class=\"rrdot\" style=\"opacity:0;transition:opacity 5s '+(2+i*2)+'s\"/>';rsvg+='<text x=\"'+(cx+Math.cos(angles[i])*(r+20))+'\" y=\"'+(cy+Math.sin(angles[i])*(r+20))+'\" text-anchor=\"middle\" font-size=\"12\" fill=\"#757575\">'+MOD_NAMES[m]+'('+s+'分)</text>'});
+  document.getElementById('reportRadarSvg').innerHTML=rsvg;
+  let bhtml='';for(const[m,s]of Object.entries(scores)){const p=s*20;bhtml+='<div style=\"display:flex;align-items:center;gap:12px;margin-bottom:8px;\"><span style=\"font-size:13px;width:80px;\">'+MOD_NAMES[m]+'</span><div style=\"flex:1;height:12px;background:#e0e0e0;border-radius:6px;overflow:hidden;\"><div style=\"height:100%;width:'+p+'%;background:'+(MOD_COLORS[m]||'#2196f3')+';border-radius:6px;transition:width 8s ease-out;\" class=\"rbar\"></div></div><span style=\"font-size:13px;font-weight:700;width:30px;text-align:right;\">'+s+'</span></div>'}
+  document.getElementById('reportBars').innerHTML=bhtml;
+  setTimeout(()=>{document.querySelectorAll('.rbar').forEach(b=>{const w=b.style.width;b.style.width='0%';setTimeout(()=>b.style.width=w,50)})},100);
+  const weak=Object.entries(scores).filter(([,s])=>s<=3).map(([m])=>m);
+  let rx='';if(weak.includes('M4')&&scores.M4<=2)rx+='<p><strong>焦虑拆弹：</strong>每天练习4-7-8呼吸法3次，建立"焦虑日志"记录触发场景。预期4周焦虑分下降1-2分。</p>';
+  if(weak.includes('M1')&&scores.M1<=2)rx+='<p><strong>微习惯启动：</strong>选择一个"小到不可能失败"的习惯（如每天翻开书看1道题），坚持7天再升级。</p>';
+  if(weak.includes('M3')&&scores.M3<=3)rx+='<p><strong>费曼学习法：</strong>每天选1个知识点，假装教给一个8岁小孩，直到讲清楚为止。</p>';
+  if(weak.includes('M5')&&scores.M5<=3)rx+='<p><strong>番茄工作法：</strong>从15分钟番茄钟开始，每天记录完成数，逐步升级到25分钟。</p>';
+  if(weak.length===0)rx='<p>🟢 所有模块表现良好，继续保持当前学习节奏！</p>';
+  document.getElementById('reportRx').innerHTML=rx||'<p>各模块表现均衡，暂无针对性建议。</p>';
+  const flags=[];if(scores.M4<=2&&(scores.M1<=3||scores.M2<=3))flags.push('高焦虑-低效能循环');if(Object.values(scores).filter(s=>s<=2).length>=3)flags.push('多维度预警，建议综合干预');if(overall<50)flags.push('综合指数偏低，建议4周后复测');
+  document.getElementById('reportRisk').innerHTML=flags.length?flags.map(f=>'<p>🔴 '+f+'</p>').join(''):'<p>🟢 未检测到显著风险信号。</p>';
+  document.getElementById('reportEmpty').style.display='none';document.getElementById('reportContent').style.display='block';document.getElementById('reportActions').style.display='block';
+  document.getElementById('report').style.display='block';document.getElementById('report').scrollIntoView({behavior:'smooth'});
+  setTimeout(()=>{const rp=document.getElementById('reportRadar');if(rp)rp.style.opacity='1';document.querySelectorAll('.rrdot').forEach(d=>d.style.opacity='1')},200);
+}
+// ===== PRINT & EXPORT =====
+function printReport(){window.print()}
+function downloadReport(){
+  const r=document.getElementById('reportContent').cloneNode(true);
+  const h='<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><title>SLB-FPE 评估报告</title><style>body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;max-width:800px;margin:40px auto;padding:20px;color:#333;line-height:1.6}h2{font-size:24px;margin-bottom:8px}h4{font-size:16px;color:#666;margin:16px 0 8px}svg{max-width:100%}.card{background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:20px;margin-bottom:16px}</style></head><body><h2>SLB-FPE 学生综合学习行为评估报告</h2>'+document.getElementById('reportMeta').innerHTML+'<hr style="margin:20px 0;border:none;border-top:1px solid #e0e0e0;">'+r.innerHTML+'</body></html>';
+  const b=new Blob([h],{type:'text/html;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='SLB-FPE评估报告_'+new Date().toISOString().slice(0,10)+'.html';a.click();
+}
+
+// ===== AI CHAT =====
 var SYS_BASE='你是"小星"，SLB-FPE教育诊断系统的AI学习伙伴。你的使命是帮助学生成为更好的自己。【原则】1.苏格拉底式引导 2.情感优先 3.可视化思考 4.小步成功 5.成长型语言。【禁止】直接给答案、评价学生、比较他人。';
-function getAICtx(){try{var r=localStorage.getItem('slb_fpe_last');if(!r)return SYS_BASE;var d=JSON.parse(r);var mods={};d.answers.forEach(function(a){if(!mods[a.m])mods[a.m]={t:0,c:0};mods[a.m].t+=a.v;mods[a.m].c++});var scores={};for(var m in mods)scores[m]=Math.round(mods[m].t/mods[m].c);var tot=0;for(var m in scores)tot+=scores[m];var ov=Math.round(tot/(Object.keys(scores).length*5)*100);var ctx=SYS_BASE+' 【评估数据】角色：'+(d.role==='student'?'学生':'家长')+'，综合指数：'+ov+'分。';for(var m in scores)ctx+=MN[m]+'='+scores[m]+'/5分 ';return ctx+'请基于数据给出3条个性化建议。'}catch(e){return SYS_BASE}}
-(function(){var saved=localStorage.getItem("slb_chat");if(saved){document.getElementById("chatMsgs").innerHTML=saved};var k=localStorage.getItem('ds_key');if(k){document.getElementById('dsKey').value=k;document.getElementById('dsStatus').textContent='已配置';document.getElementById('dsStatus').style.color='var(--color-success)'}})();
-function saveDS(){var k=document.getElementById('dsKey').value.trim();if(k){localStorage.setItem('ds_key',k);document.getElementById('dsStatus').textContent='已配置';document.getElementById('dsStatus').style.color='var(--color-success)'}}
-async function sendChat(){var inp=document.getElementById('chatInput');var msg=inp.value.trim();if(!msg)return;var msgs=document.getElementById('chatMsgs');var key=localStorage.getItem('ds_key')||'';msgs.innerHTML+='<div style="align-self:flex-end;background:#eef2ff;padding:10px 14px;border-radius:16px;font-size:14px;max-width:80%;">'+msg.replace(/</g,'&lt;')+'</div>';inp.value='';msgs.scrollTop=msgs.scrollHeight;localStorage.setItem("slb_chat",msgs.innerHTML);var tid='typing_'+Date.now();msgs.innerHTML+='<div id="'+tid+'" style="align-self:flex-start;background:var(--color-neutral-50);padding:10px 14px;border-radius:16px;font-size:14px;color:var(--color-neutral-400);">思考中...</div>';if(!key){setTimeout(function(){var el=document.getElementById(tid);if(el)el.remove();msgs.innerHTML+='<div style="align-self:flex-start;background:var(--color-neutral-50);padding:12px 16px;border-radius:16px;font-size:19px;line-height:1.6;max-width:80%;">'+localReply(msg)+'</div>';msgs.scrollTop=msgs.scrollHeight;localStorage.setItem("slb_chat",msgs.innerHTML)},800);return}try{var r=await fetch('https://api.deepseek.com/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},body:JSON.stringify({model:'deepseek-chat',messages:[{role:'system',content:getAICtx()},{role:'user',content:msg}],max_tokens:600,temperature:.7})});var d=await r.json();var el2=document.getElementById(tid);if(el2)el2.remove();var reply=(d.choices&&d.choices[0]&&d.choices[0].message&&d.choices[0].message.content)||'抱歉，我暂时无法回复。';msgs.innerHTML+='<div style="align-self:flex-start;background:var(--color-neutral-50);padding:12px 16px;border-radius:16px;font-size:19px;line-height:1.6;max-width:80%;">'+reply.replace(/\n/g,'<br>')+'</div>'}catch(e){var el3=document.getElementById(tid);if(el3)el3.remove();msgs.innerHTML+='<div style="align-self:flex-start;background:#fef2f2;padding:12px 16px;border-radius:16px;">网络连接失败，请检查网络或 API Key。</div>'}msgs.scrollTop=msgs.scrollHeight;localStorage.setItem("slb_chat",msgs.innerHTML)}
-function localReply(m){if(m.includes('焦虑')||m.includes('紧张'))return'试试：吸气4秒→屏息7秒→慢呼8秒。重复3轮。感觉好点了吗？';if(m.includes('不会')||m.includes('怎么做'))return'我们一起来拆解：1.题目在问什么？2.你已经知道什么？3.画一幅图试试？';return'这是个好问题！你能先说说自己的想法吗？'}
-
-var tCurrentUser=null;
-function showTeacher(){
+function getAIContext(){try{var raw=localStorage.getItem('slb_fpe_last');if(!raw)return SYS_BASE;var d=JSON.parse(raw);var mods={};d.answers.forEach(function(a){if(!mods[a.m])mods[a.m]={t:0,c:0};mods[a.m].t+=a.v;mods[a.m].c++});var scores={};for(var m in mods)scores[m]=Math.round(mods[m].t/mods[m].c);var total=0,max=0;for(var m in scores){total+=scores[m];max+=5}var overall=Math.round(total/max*100);var ctx=SYS_BASE+' 【当前用户评估数据】角色：'+(d.role==='student'?'学生':'家长')+'，综合指数：'+overall+'分。';var mn={M1:'学习习惯',M2:'学习态度',M3:'学习方法',M4:'学习心理',M5:'作业态度',M6:'学习环境',M7:'教育行为',M8:'教育期望',M9:'教育观念',M10:'家校协作',M11:'身心健康',M12:'情境题'};for(var m in scores)ctx+=mn[m]+'='+scores[m]+'/5分 ';return ctx+'。请基于以上数据给出3条个性化可操作建议。'}catch(e){return SYS_BASE}}
+(function(){const k=localStorage.getItem('ds_key');if(k){document.getElementById('dsApiKey').value=k;document.getElementById('apiStatus').textContent='已配置 · DeepSeek 在线模式';document.getElementById('apiStatus').style.color='var(--color-success)'}})();
+function saveApiKey(){const k=document.getElementById('dsApiKey').value.trim();if(k){localStorage.setItem('ds_key',k);document.getElementById('apiStatus').textContent='已配置 · DeepSeek 在线模式';document.getElementById('apiStatus').style.color='var(--color-success)';document.getElementById('chat').scrollIntoView({behavior:'smooth'})}}
+async function sendChat(){
+  const inp=document.getElementById('chatInput');const msg=inp.value.trim();if(!msg)return;
+  const msgs=document.getElementById('chatMsgs');const key=localStorage.getItem('ds_key')||'';
+  msgs.innerHTML+='<div style="align-self:flex-end;background:#eef2ff;padding:10px 14px;border-radius:16px;border-bottom-right-radius:4px;font-size:14px;line-height:1.5;max-width:80%;">'+msg.replace(/</g,'&lt;')+'</div>';
+  inp.value='';msgs.scrollTop=msgs.scrollHeight;
+  const tid='typing_'+Date.now();msgs.innerHTML+='<div id="'+tid+'" style="align-self:flex-start;background:var(--color-neutral-50);padding:10px 14px;border-radius:16px;border-bottom-left-radius:4px;font-size:14px;color:var(--color-neutral-400);">思考中...</div>';
+  if(!key){setTimeout(function(){var el=document.getElementById(tid);if(el)el.remove();var r=localReply(msg);msgs.innerHTML+='<div style=\"align-self:flex-start;background:var(--color-neutral-50);padding:12px 16px;border-radius:16px;border-bottom-left-radius:4px;font-size:14px;line-height:1.6;max-width:80%;\">'+r+'</div>';msgs.scrollTop=msgs.scrollHeight},800);return}
   try{
-    document.getElementById('tModal').classList.add('show');
-    tCurrentUser=JSON.parse(localStorage.getItem('slb_tuser')||'null');
-    if(tCurrentUser){
-      document.getElementById('tLoginPanel').style.display='none';document.getElementById('tRegisterPanel').style.display='none';
-      document.getElementById('tProfilePanel').style.display='block';document.getElementById('tProfileName').textContent=tCurrentUser.name;document.getElementById('tProfileSchool').textContent=tCurrentUser.school||'';
-    }else{switchTAuth('login')}
-  }catch(e){alert('教师功能加载失败：'+e.message)}
+    var r=await fetch('https://api.deepseek.com/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},body:JSON.stringify({model:'deepseek-chat',messages:[{role:'system',content:getAIContext()},{role:'user',content:msg}],max_tokens:600,temperature:.7})});
+    var d=await r.json();var el2=document.getElementById(tid);if(el2)el2.remove();
+    var reply=(d.choices&&d.choices[0]&&d.choices[0].message&&d.choices[0].message.content)||'抱歉，我暂时无法回复。';msgs.innerHTML+='<div style=\"align-self:flex-start;background:var(--color-neutral-50);padding:12px 16px;border-radius:16px;border-bottom-left-radius:4px;font-size:14px;line-height:1.6;max-width:80%;\">'+reply.replace(/\n/g,'<br>')+'</div>';
+  }catch(e){var el3=document.getElementById(tid);if(el3)el3.remove();msgs.innerHTML+='<div style=\"align-self:flex-start;background:#fef2f2;padding:12px 16px;border-radius:16px;font-size:14px;line-height:1.6;max-width:80%;\">网络连接失败，请检查网络或 API Key 是否正确。</div>'}
+  msgs.scrollTop=msgs.scrollHeight;
 }
-function switchTAuth(tab){
-  document.getElementById('tTabLogin').style.color=tab==='login'?'var(--color-primary-500)':'var(--color-neutral-400)';
-  document.getElementById('tTabLogin').style.fontWeight=tab==='login'?'700':'600';
-  document.getElementById('tTabLogin').style.borderBottomColor=tab==='login'?'var(--color-primary-500)':'transparent';
-  document.getElementById('tTabRegister').style.color=tab==='register'?'var(--color-primary-500)':'var(--color-neutral-400)';
-  document.getElementById('tTabRegister').style.fontWeight=tab==='register'?'700':'600';
-  document.getElementById('tTabRegister').style.borderBottomColor=tab==='register'?'var(--color-primary-500)':'transparent';
-  document.getElementById('tLoginPanel').style.display=tab==='login'?'block':'none';
-  document.getElementById('tRegisterPanel').style.display=tab==='register'?'block':'none';
-  document.getElementById('tProfilePanel').style.display='none';
+function localReply(msg){
+  if(msg.includes('焦虑')||msg.includes('紧张')||msg.includes('害怕'))return '听起来你现在有些紧张。试试这个：<br><br>吸气4秒 → 屏住呼吸7秒 → 慢慢呼气8秒。重复3轮。<br><br>感觉好点了吗？你想聊聊是什么让你紧张吗？';
+  if(msg.includes('不会')||msg.includes('怎么做')||msg.includes('难'))return '这确实是个挑战！我们一起来拆解：<br>1. 这道题在问什么？<br>2. 你已经知道哪些信息？<br>3. 如果画一幅图来表示，你会画什么？<br><br>试试先画出来？';
+  if(msg.includes('无聊')||msg.includes('不想学'))return '学习有时候确实会让人感到无聊。你最喜欢做什么事？我们能不能把学习和它联系起来？比如用游戏的方式学数学？';
+  const reps=['这是个好问题！你能先说说自己的想法吗？','我很好奇，你是怎么想到这个问题的？','让我们换个角度：如果你最好的朋友问你这个问题，你会怎么回答？','先别急着找答案，试试把问题写下来或画出来，看看有没有新发现？'];
+  return reps[Math.floor(Math.random()*reps.length)];
 }
-function tLogin(){
-  var phone=document.getElementById('tLoginPhone').value.trim();var pwd=document.getElementById('tLoginPwd').value;
-  if(!phone||!pwd){alert('请输入手机号和密码');return}
-  var users=JSON.parse(localStorage.getItem('slb_users')||'[]');var u=users.find(function(x){return x.phone===phone&&x.pwd===pwd});
-  if(!u){alert('手机号或密码错误');return}
-  localStorage.setItem('slb_tuser',JSON.stringify(u));tCurrentUser=u;
-  document.getElementById('tModal').classList.remove('show');document.getElementById('tDash').style.display='block';renderClasses();document.getElementById('tDash').scrollIntoView({behavior:'smooth'})
-}
-function tRegister(){
-  var name=document.getElementById('tRegName').value.trim();var school=document.getElementById('tRegSchool').value.trim();var phone=document.getElementById('tRegPhone').value.trim();var pwd=document.getElementById('tRegPwd').value;var pwd2=document.getElementById('tRegPwd2').value;
-  if(!name){alert('请输入姓名');return}if(!phone){alert('请输入手机号');return}if(!/^1\d{10}$/.test(phone)){alert('请输入正确的11位手机号');return}if(!pwd||pwd.length<6){alert('密码至少6位');return}if(pwd!==pwd2){alert('两次密码不一致');return}
-  var users=JSON.parse(localStorage.getItem('slb_users')||'[]');if(users.find(function(x){return x.phone===phone})){alert('该手机号已注册');return}
-  var u={name:name,school:school,phone:phone,pwd:pwd,registered:new Date().toISOString()};users.push(u);localStorage.setItem('slb_users',JSON.stringify(users));
-  localStorage.setItem('slb_tuser',JSON.stringify(u));tCurrentUser=u;alert('注册成功！');
-  document.getElementById('tModal').classList.remove('show');document.getElementById('tDash').style.display='block';renderClasses();document.getElementById('tDash').scrollIntoView({behavior:'smooth'})
-}
-function tEnter(){if(!tCurrentUser)return;document.getElementById('tModal').classList.remove('show');document.getElementById('tDash').style.display='block';renderClasses();document.getElementById('tDash').scrollIntoView({behavior:'smooth'})}
-function tLogout(){localStorage.removeItem('slb_tuser');tCurrentUser=null;document.getElementById('tModal').classList.add('show');switchTAuth('login')}
-function newClass(){var n=prompt('班级名称');if(!n)return;var cs=JSON.parse(localStorage.getItem('slb_classes')||'[]');var code='C'+Date.now().toString(36).toUpperCase().slice(-6);cs.push({name:n,code:code,created:new Date().toISOString()});localStorage.setItem('slb_classes',JSON.stringify(cs));renderClasses()}
-function renderClasses(){var cs=JSON.parse(localStorage.getItem('slb_classes')||'[]');var hist=JSON.parse(localStorage.getItem('slb_fpe_hist')||'[]');var c=document.getElementById('classList');if(!cs.length){c.innerHTML='<div class="card" style="text-align:center;padding:40px;color:var(--color-neutral-400);"><div style="font-size:36px;">📭</div><p>还没有班级</p></div>';return}c.innerHTML=cs.map(function(cl){var st=hist.filter(function(h){return h.classCode===cl.code});var avg=st.length?Math.round(st.reduce(function(s,h){var t=h.answers.reduce(function(a,b){return a+b.v},0);return s+Math.round(t/(h.answers.length*5)*100)},0)/st.length):0;var act=st.filter(function(h){return new Date(h.date)>new Date(Date.now()-30*86400000)}).length;return'<div class="card"><div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px;"><h3>'+cl.name+'</h3><span class="badge badge-primary" style="background:var(--color-primary-100);color:var(--color-primary-700);padding:4px 10px;border-radius:12px;font-size:11px;">'+act+'人近期</span></div><div class="grid g2" style="gap:8px;margin-bottom:12px;font-size:13px;color:var(--color-neutral-500);"><div>📊 总人数：'+st.length+'</div><div>📈 均分：'+(avg||'--')+'分</div><div>🔗 班级码：<code style="background:var(--color-neutral-100);padding:2px 6px;border-radius:4px;">'+cl.code+'</code></div><div>📅 '+new Date(cl.created).toLocaleDateString()+'</div></div><div style="display:flex;gap:6px;"><button class="btn btn-sm btn-primary" onclick="shareClass(\''+cl.code+'\',\''+cl.name+'\')">📋 分享链接</button><button class="btn btn-sm btn-ghost" style="color:var(--color-error);font-size:11px;" onclick="if(confirm(\'确定删除？\')){delClass(\''+cl.code+'\')}">删除</button></div></div>'}).join('')}
-function shareClass(code,name){var url=location.origin+location.pathname+'?class='+code;var m=document.createElement('div');m.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:600;display:flex;align-items:center;justify-content:center';m.onclick=function(e){if(e.target===m)document.body.removeChild(m)};var b=document.createElement('div');b.style.cssText='background:#fff;border-radius:16px;padding:24px;text-align:center;max-width:340px;width:90%';var h='<h3 style=margin-bottom:4px>📋 '+name+'</h3>';h+='<p style=font-size:13px;color:#666;margin-bottom:12px>班级码：<b>'+code+'</b></p>';h+='<div id=qrCanvas2></div>';h+='<p style=font-size:11px;color:#999;margin:8px 0>微信扫一扫进入测评</p>';h+='<button class=\"btn btn-primary btn-sm\" onclick=\"navigator.clipboard.writeText(\\''+url+'\\');alert(\\'已复制\\')\">复制链接</button> ';h+='<button class=\"btn btn-ghost btn-sm\" style=margin-top:8px;width:100% onclick=\"this.parentElement.parentElement.remove()\">关闭</button>';b.innerHTML=h;m.appendChild(b);document.body.appendChild(m);setTimeout(function(){var c=document.createElement('canvas');c.width=c.height=200;var ctx=c.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,200,200);ctx.fillStyle='#1a237e';var bits=[];for(var i=0;i<url.length;i++){var ch=url.charCodeAt(i);for(var j=0;j<8;j++)bits.push((ch>>(7-j))&1)}for(var i=bits.length;i<529;i++)bits.push(Math.random()>.5?1:0);var sz=Math.floor(180/23);for(var r=0;r<23;r++){for(var col=0;col<23;col++){var idx=r*23+col;if(idx<bits.length&&bits[idx])ctx.fillRect(10+r*sz,10+col*sz,sz,sz)}}var qb=document.getElementById('qrCanvas2');if(qb)qb.appendChild(c)},100)}
-function delClass(code){var cs=JSON.parse(localStorage.getItem('slb_classes')||'[]');cs=cs.filter(function(c){return c.code!==code});localStorage.setItem('slb_classes',JSON.stringify(cs));renderClasses()}
-function exportClassCSV(){var cs=JSON.parse(localStorage.getItem('slb_classes')||'[]');var hist=JSON.parse(localStorage.getItem('slb_fpe_hist')||'[]');var csv='﻿班级,姓名,综合分,日期\n';hist.forEach(function(h){var cn=cs.find(function(c){return c.code===h.classCode});var tot=h.answers.reduce(function(s,a){return s+a.v},0);csv+=(cn?cn.name:'未分班')+','+(h.name||'未命名')+','+Math.round(tot/(h.answers.length*5)*100)+','+new Date(h.date).toLocaleDateString()+'\n'});var b=new Blob([csv],{type:'text/csv'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='班级报告_'+new Date().toISOString().slice(0,10)+'.csv';a.click()}
 
-function submitCTA(){var i=document.querySelector('#ctaForm input');if(!i.value.trim()){i.focus();return}document.getElementById('ctaForm').style.display='none';document.getElementById('ctaOk').style.display='block'}
+// ===== TEACHER MODE =====
+function showTeacherLogin(){document.getElementById('teacherLoginModal').style.display='flex'}
+function teacherLogin(){
+  var pwd=document.getElementById('teacherPwd').value;var saved=localStorage.getItem('slb_tpwd')||'admin123';
+  if(pwd!==saved){alert('密码错误');return}
+  document.getElementById('teacherLoginModal').style.display='none';document.getElementById('teacherDash').style.display='block';
+  loadClassList();document.getElementById('teacherDash').scrollIntoView({behavior:'smooth'});
+}
+function changeTeacherPwd(){var np=prompt('输入新密码（至少6位）');if(np&&np.length>=6){localStorage.setItem('slb_tpwd',np);alert('密码已更新为：'+np)}else if(np){alert('密码至少6位')}}
+function createClass(){
+  var name=prompt('班级名称（如：五年级3班）');if(!name)return;
+  var classes=JSON.parse(localStorage.getItem('slb_classes')||'[]');
+  var code='C'+Date.now().toString(36).toUpperCase().slice(-6);
+  classes.push({name:name,code:code,created:new Date().toISOString()});
+  localStorage.setItem('slb_classes',JSON.stringify(classes));
+  loadClassList();
+}
+function loadClassList(){
+  var classes=JSON.parse(localStorage.getItem('slb_classes')||'[]');
+  var hist=JSON.parse(localStorage.getItem('slb_fpe_hist')||'[]');
+  var container=document.getElementById('classList');
+  if(!classes.length){container.innerHTML='<div class=\"card\" style=\"text-align:center;padding:40px 20px;color:var(--color-neutral-400);\"><div style=\"font-size:36px;margin-bottom:8px;\">📭</div><p>还没有班级。</p></div>';return}
+  var grades={P1:'一年级',P2:'二年级',P3:'三年级',P4:'四年级',P5:'五年级',P6:'六年级',J1:'初一',J2:'初二',J3:'初三'};
+  container.innerHTML=classes.map(function(c){
+    var students=hist.filter(function(h){return h.classCode===c.code});
+    var avg=students.length?Math.round(students.reduce(function(s,h){var t=h.answers.reduce(function(a,b){return a+b.v},0);return s+Math.round(t/(h.answers.length*5)*100)},0)/students.length):0;
+    var active=students.filter(function(h){return new Date(h.date)>new Date(Date.now()-30*86400000)}).length;
+    return '<div class=\"card\" style=\"padding:20px;\"><div style=\"display:flex;justify-content:space-between;align-items:start;margin-bottom:12px;\"><h3 style=\"font-size:17px;\">'+c.name+'</h3><span class=\"badge badge-primary\">'+active+'人近期</span></div><div style=\"display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;font-size:13px;color:var(--color-neutral-500);\"><div>📊 总人数：'+students.length+'</div><div>📈 均分：'+(avg||'--')+'分</div><div>🔗 班级码：<code style=\"background:var(--color-neutral-100);padding:2px 6px;border-radius:4px;\">'+c.code+'</code></div><div>📅 '+new Date(c.created).toLocaleDateString()+'</div></div><div style=\"display:flex;gap:6px;\"><button class=\"btn btn-sm btn-primary\" onclick=\"shareClass(\''+c.code+'\',\''+c.name+'\')\">📋 分享链接</button><button class=\"btn btn-sm btn-ghost\" style=\"color:var(--color-error);font-size:11px;\" onclick=\"if(confirm(\\'确定删除班级 '+c.name+'？学生数据保留。\\')){deleteClass(\\''+c.code+'\\')}\">删除</button></div></div>';
+  }).join('');
+}
+function shareClass(code,name){
+  var url=location.origin+location.pathname+'?class='+code;
+  var input=document.createElement('textarea');input.value='📋 '+name+' 测评链接\n\n请同学们打开：\n'+url+'\n\n班级码：'+code;
+  document.body.appendChild(input);input.select();
+  try{document.execCommand('copy');alert('链接已复制！\n\n发送给学生即可开始测评。')}catch(e){prompt('复制此链接发送给学生：',url)}
+  document.body.removeChild(input);
+}
+function deleteClass(code){var classes=JSON.parse(localStorage.getItem('slb_classes')||'[]');classes=classes.filter(function(c){return c.code!==code});localStorage.setItem('slb_classes',JSON.stringify(classes));loadClassList()}
+function exportClassReport(){
+  var classes=JSON.parse(localStorage.getItem('slb_classes')||'[]');var hist=JSON.parse(localStorage.getItem('slb_fpe_hist')||'[]');var grades={P1:'一年级',P2:'二年级',P3:'三年级',P4:'四年级',P5:'五年级',P6:'六年级',J1:'初一',J2:'初二',J3:'初三'};
+  var csv='班级,学生姓名,综合分,日期\n';hist.forEach(function(h){var c=classes.find(function(cl){return cl.code===h.classCode});var cn=c?c.name:'未分班';var total=h.answers.reduce(function(s,a){return s+a.v},0);var overall=Math.round(total/(h.answers.length*5)*100);csv+=cn+','+(h.name||'未命名')+','+overall+','+new Date(h.date).toLocaleDateString()+'\n'});
+  var b=new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='班级报告_'+new Date().toISOString().slice(0,10)+'.csv';a.click();
+}
+(function(){var params=new URLSearchParams(location.search);var cc=params.get('class');if(cc){document.getElementById('quizSetup').insertAdjacentHTML('afterbegin','<div style=\"background:#e8f5e9;padding:8px 16px;border-radius:8px;margin-bottom:16px;font-size:13px;color:#2e7d32;\">📋 已加入班级：<b>'+cc+'</b></div>');qState.classCode=cc;var origFinish=finishFullQuiz;finishFullQuiz=function(){var record={role:qState.role,grade:qState.grade,name:qState.name||'未命名',classCode:qState.classCode||'',answers:qState.answers.map(function(a,i){return {v:a+1,m:qState.questions[i].module}}),date:new Date().toISOString()};localStorage.setItem('slb_fpe_last',JSON.stringify(record));var hist=JSON.parse(localStorage.getItem('slb_fpe_hist')||'[]');hist.push(record);localStorage.setItem('slb_fpe_hist',JSON.stringify(hist));document.getElementById('quizActive').style.display='none';document.getElementById('quizDone').style.display='block';document.getElementById('quizProgressBar').style.width='100%';document.getElementById('quizDoneMsg').textContent='你已完成'+qState.questions.length+'道题目！班级码：'+cc;location.hash='report';setTimeout(function(){location.reload()},100)}}})();
+var origStart=startFullQuiz;startFullQuiz=function(r){origStart(r);var cc2=new URLSearchParams(location.search).get('class');if(cc2)qState.classCode=cc2};
+// ===== CTA =====
+function submitCTA(){const inp=document.querySelector('#ctaForm input');if(!inp.value.trim()){inp.focus();return}document.getElementById('ctaForm').style.display='none';document.getElementById('ctaOk').style.display='block'}
 
-var hc=document.getElementById('hc');if(hc&&window.innerWidth>768){var ctx=hc.getContext('2d'),w,h,pts=[];function rs(){w=hc.width=hc.offsetWidth;h=hc.height=hc.offsetHeight}rs();window.addEventListener('resize',rs);var icons=['π','∑','文','A','⚛','♪','f(x)','∫','√','Δ','∞'];for(var i=0;i<40;i++)pts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,r:2+Math.random()*3,icon:icons[i%icons.length],o:.12+Math.random()*.2});var mx=.5,my=.5;hc.addEventListener('mousemove',function(e){mx=e.clientX/w;my=e.clientY/h});function draw(){ctx.clearRect(0,0,w,h);pts.forEach(function(p,i){p.x+=p.vx;p.y+=p.vy;p.vx+=(mx-.5)*.015;p.vy+=(my-.5)*.015;if(p.x<0)p.x=w;if(p.x>w)p.x=0;if(p.y<0)p.y=h;if(p.y>h)p.y=0;ctx.fillStyle='rgba(187,222,251,'+p.o+')';ctx.font=p.r*5+'px sans-serif';ctx.fillText(p.icon,p.x,p.y);for(var j=i+1;j<pts.length;j++){var dx=pts[j].x-p.x,dy=pts[j].y-p.y,d=Math.sqrt(dx*dx+dy*dy);if(d<100){ctx.beginPath();ctx.strokeStyle='rgba(187,222,251,'+(.05*(1-d/100))+')';ctx.lineWidth=.5;ctx.moveTo(p.x,p.y);ctx.lineTo(pts[j].x,pts[j].y);ctx.stroke()}}});requestAnimationFrame(draw)}draw()}
-document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
+// ===== HERO CANVAS (desktop only for performance) =====
+const canvas=document.getElementById('heroCanvas');
+if(canvas&&window.innerWidth>768){const ctx=canvas.getContext('2d');let w,h,particles=[];function resize(){w=canvas.width=canvas.offsetWidth;h=canvas.height=canvas.offsetHeight}resize();window.addEventListener('resize',resize);const icons=['π','∑','文','A','⚛','♪','♟','Σ','f(x)','E=mc²','∫','√','Δ','∞','%','λ','θ','Ω'];for(let i=0;i<50;i++)particles.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,r:2+Math.random()*3,icon:icons[i%icons.length],o:.15+Math.random()*.25});let mx=.5,my=.5;canvas.addEventListener('mousemove',e=>{mx=e.clientX/w;my=e.clientY/h});function draw(){ctx.clearRect(0,0,w,h);particles.forEach((p,i)=>{p.x+=p.vx;p.y+=p.vy;p.vx+=(mx-.5)*.015;p.vy+=(my-.5)*.015;if(p.x<0)p.x=w;if(p.x>w)p.x=0;if(p.y<0)p.y=h;if(p.y>h)p.y=0;ctx.fillStyle='rgba(187,222,251,'+p.o+')';ctx.font=p.r*5+'px sans-serif';ctx.fillText(p.icon,p.x,p.y);for(let j=i+1;j<particles.length;j++){const dx=particles[j].x-p.x,dy=particles[j].y-p.y,d=Math.sqrt(dx*dx+dy*dy);if(d<100){ctx.beginPath();ctx.strokeStyle='rgba(187,222,251,'+(.06*(1-d/100))+')';ctx.lineWidth=.5;ctx.moveTo(p.x,p.y);ctx.lineTo(particles[j].x,particles[j].y);ctx.stroke()}}});requestAnimationFrame(draw)}draw()}
+
+// ===== SMOOTH SCROLL =====
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}}));
+
+// ===== TOUCH SWIPE =====
+var touchX=0;var ds=document.querySelector('.demo-stage');if(ds){ds.addEventListener('touchstart',function(e){touchX=e.touches[0].clientX});ds.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)<50)return;var tabs=document.querySelectorAll('.demo-tab');var arr=[];for(var i=0;i<tabs.length;i++)arr.push(tabs[i]);var active=-1;for(var j=0;j<arr.length;j++){if(arr[j].classList.contains('active')){active=j;break}}if(dx<0&&active<arr.length-1)arr[active+1].click();else if(dx>0&&active>0)arr[active-1].click()})}
+
 </script>
 </body>
 </html>

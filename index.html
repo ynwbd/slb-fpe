@@ -21,6 +21,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--f);font-size:var(--t-base);line-height:1.75;color:var(--n900);background:#f9f8f6;-webkit-font-smoothing:antialiased;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+@media(prefers-color-scheme:dark){body{background:#1a1a2e;color:#e0e0e0}.card,.chart-card,.glass,.stage,.stat-card,.pcard,.tcard{background:#2a2a40;border-color:#333;color:#e0e0e0}.card p,.chart-card h4,.lead{color:#aaa}.label{color:var(--p200)}.tcard .q{color:#ccc}}
 ::selection{background:var(--p100)}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 @media print{nav,footer,#hero,.trust-band,#features,#demo,#data,#stories,#pricing,#cta,#assess,#chat,#history,#teacherDash,.progress-bar,#reportActions{display:none!important}#report{display:block!important;padding:0!important}.section{padding:16px 0!important}}
@@ -70,7 +71,9 @@ body{font-family:var(--f);font-size:var(--t-base);line-height:1.75;color:var(--n
 .hero h1{color:#fff}.hero h1 span{background:linear-gradient(135deg,#fff 0%,var(--p200) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .hero p{color:rgba(255,255,255,.8);margin:24px 0 32px;max-width:480px}
 .hero .btns{display:flex;gap:12px;flex-wrap:wrap}
-.glass{background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.06));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.15);border-radius:var(--r-2xl);padding:32px;box-shadow:0 25px 60px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.1);margin-right:20px}
+.glass{background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.06));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.15);border-radius:var(--r-2xl);padding:32px;box-shadow:0 25px 60px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.1);margin-right:20px;position:relative;overflow:hidden}
+.glass::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent 40%,rgba(255,255,255,.03) 50%,transparent 60%);animation:shimmer 8s infinite}
+@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
 .glass h3{font-size:16px;color:var(--p200);margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.08)}
 .glass .big{font-size:56px;font-weight:900;color:#fff;margin-bottom:12px}.glass .big em{color:var(--p200);font-style:normal}
 .glass .row{display:flex;justify-content:space-between;font-size:15px;color:rgba(255,255,255,.8);margin-bottom:2px}
@@ -211,10 +214,10 @@ footer a:hover{color:var(--p300)}
   <div class="wrap">
     <marquee width="100%" scrollamount="3" style="border:none;">教育部教育信息化合作单位 · 北京师范大学联合研究 · 科大讯飞技术合作 · 华东师范大学常模共建 · 中科院心理所效度验证 · 学而思战略合作</marquee>
     <div class="stats">
-      <div class="stat"><div class="n" id="cnt1">5200+</div><div class="l">覆盖学校</div></div>
-      <div class="stat"><div class="n" id="cnt2">120万+</div><div class="l">服务学生</div></div>
-      <div class="stat"><div class="n" id="cnt3">98.5%</div><div class="l">诊断准确率</div></div>
-      <div class="stat"><div class="n" id="cnt4">6s</div><div class="l">预警响应</div></div>
+      <div class="stat"><div class="n counter" data-to="5200">0</div><div class="l">覆盖学校</div></div>
+      <div class="stat"><div class="n counter" data-to="120">0</div><div class="l">服务学生（万）</div></div>
+      <div class="stat"><div class="n counter" data-to="98.5">0</div><div class="l">诊断准确率（%）</div></div>
+      <div class="stat"><div class="n counter" data-to="6">0</div><div class="l">预警响应（秒）</div></div>
     </div>
   </div>
 </div>
@@ -560,6 +563,9 @@ function exportClassCSV(){var cs=JSON.parse(localStorage.getItem('slb_classes')|
 function submitCTA(){var i=document.querySelector('#ctaForm input');if(!i.value.trim()){i.focus();return}document.getElementById('ctaForm').style.display='none';document.getElementById('ctaOk').style.display='block'}
 
 // HERO CANVAS
+var countObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var el=e.target;var t=parseFloat(el.dataset.to);var d=t>50?3:1;var s=0;var iv=setInterval(function(){s+=d;if(s>=t){el.textContent=t;clearInterval(iv)}else{el.textContent=Math.floor(s*10)/10}},40);countObs.unobserve(el)}})},{threshold:.5});
+document.querySelectorAll('.counter').forEach(function(el){countObs.observe(el)});
+
 var hc=document.getElementById('hc');if(hc&&window.innerWidth>768){var ctx=hc.getContext('2d'),w,h,pts=[];function rs(){w=hc.width=hc.offsetWidth;h=hc.height=hc.offsetHeight}rs();window.addEventListener('resize',rs);var icons=['π','∑','文','A','⚛','♪','f(x)','∫','√','Δ','∞'];for(var i=0;i<40;i++)pts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,r:2+Math.random()*3,icon:icons[i%icons.length],o:.12+Math.random()*.2});var mx=.5,my=.5;hc.addEventListener('mousemove',function(e){mx=e.clientX/w;my=e.clientY/h});function draw(){ctx.clearRect(0,0,w,h);pts.forEach(function(p,i){p.x+=p.vx;p.y+=p.vy;p.vx+=(mx-.5)*.015;p.vy+=(my-.5)*.015;if(p.x<0)p.x=w;if(p.x>w)p.x=0;if(p.y<0)p.y=h;if(p.y>h)p.y=0;ctx.fillStyle='rgba(187,222,251,'+p.o+')';ctx.font=p.r*5+'px sans-serif';ctx.fillText(p.icon,p.x,p.y);for(var j=i+1;j<pts.length;j++){var dx=pts[j].x-p.x,dy=pts[j].y-p.y,d=Math.sqrt(dx*dx+dy*dy);if(d<100){ctx.beginPath();ctx.strokeStyle='rgba(187,222,251,'+(.05*(1-d/100))+')';ctx.lineWidth=.5;ctx.moveTo(p.x,p.y);ctx.lineTo(pts[j].x,pts[j].y);ctx.stroke()}}});requestAnimationFrame(draw)}draw()}
 
 // SMOOTH SCROLL

@@ -153,7 +153,7 @@ footer{background:var(--color-neutral-900);color:var(--color-neutral-400);paddin
     <div>
       <h1>让每个孩子<br>被<em>真正理解</em></h1>
       <p>SLB-FPE 教育诊断与干预生态系统。覆盖中小学全学段，12 个核心评估模块，融合 AI 自适应测试与知识图谱，实现评估→诊断→干预→追踪全闭环。</p>
-      <div class="btns"><a href="#assess" class="btn btn-primary btn-lg" onclick="setTimeout(function(){startQuiz('student')},200)">开始免费评估</a><a href="#demo" class="btn btn-ghost btn-lg">观看演示</a></div>
+      <div class="btns"><a href="#assess" class="btn btn-primary btn-lg" onclick="setTimeout(function(){document.getElementById('quizRole').value='student';startQuiz()},200)">开始免费评估</a><a href="#demo" class="btn btn-ghost btn-lg">观看演示</a></div>
     </div>
     <div class="glass">
       <h3>📊 学生综合评估报告</h3>
@@ -272,9 +272,9 @@ footer{background:var(--color-neutral-900);color:var(--color-neutral-400);paddin
     <div class="card" id="quizCard">
       <div id="quizSetup" style="text-align:center;padding:20px 0;">
         <div style="display:flex;gap:12px;justify-content:center;margin-bottom:16px;flex-wrap:wrap;">
-          <input type="text" id="quizName" placeholder="输入姓名（选填）" class="input" style="width:200px;">
-          <select id="quizRole" style="padding:12px 18px;border:2px solid var(--color-neutral-200);border-radius:10px;font-size:15px;"><option value="student">我是学生</option><option value="parent">我是家长</option></select>
-          <select id="quizGrade" style="padding:12px 18px;border:2px solid var(--color-neutral-200);border-radius:10px;font-size:15px;"><option value="P1">一年级</option><option value="P2">二年级</option><option value="P3">三年级</option><option value="P4">四年级</option><option value="P5" selected>五年级</option><option value="P6">六年级</option><option value="J1">初一</option><option value="J2">初二</option><option value="J3">初三</option></select>
+          <input type="text" id="quizName" placeholder="请输入姓名 *必填" class="input" style="width:200px;" required>
+          <select id="quizRole" style="padding:12px 18px;border:2px solid var(--color-neutral-200);border-radius:10px;font-size:15px;"><option value="">选择身份 *</option><option value="student">我是学生</option><option value="parent">我是家长</option></select>
+          <select id="quizGrade" style="padding:12px 18px;border:2px solid var(--color-neutral-200);border-radius:10px;font-size:15px;"><option value="">选择年级 *</option><option value="P1">一年级</option><option value="P2">二年级</option><option value="P3">三年级</option><option value="P4">四年级</option><option value="P5">五年级</option><option value="P6">六年级</option><option value="J1">初一</option><option value="J2">初二</option><option value="J3">初三</option></select>
         </div>
         <button class="btn btn-primary btn-lg" onclick="startQuiz()">开始答题</button>
       </div>
@@ -283,7 +283,7 @@ footer{background:var(--color-neutral-900);color:var(--color-neutral-400);paddin
         <div class="qprog"><div id="qBar"></div></div>
         <div class="qq" id="qText"></div>
         <div class="qopts" id="qOpts"></div>
-        <div style="display:flex;justify-content:space-between;margin-top:24px;"><button class="btn btn-ghost btn-sm" id="qPrev" onclick="prevQ()" disabled style="background:var(--color-neutral-100);color:var(--color-neutral-500);">← 上一题</button><button class="btn btn-primary" id="qNext" onclick="nextQ()">下一题 →</button></div>
+        <div style="display:flex;justify-content:space-between;margin-top:24px;gap:8px;flex-wrap:wrap;"><button class="btn btn-ghost btn-sm" id="qExit" onclick="quitQuiz()" style="background:var(--color-neutral-100);color:var(--color-neutral-600);">🚪 退出</button><div style="display:flex;gap:8px;"><button class="btn btn-ghost btn-sm" id="qPrev" onclick="prevQ()" disabled style="background:var(--color-neutral-100);color:var(--color-neutral-500);">← 上一题</button><button class="btn btn-primary" id="qNext" onclick="nextQ()">下一题 →</button></div></div>
       </div>
       <div id="quizDone" style="display:none;text-align:center;padding:40px 0;"><div style="font-size:48px;">🎉</div><h3 style="font-size:24px;margin:12px 0;">测评完成！</h3><p id="qDoneMsg" style="color:var(--color-neutral-500);margin-bottom:20px;"></p><button class="btn btn-primary btn-lg" onclick="showReport()">查看完整报告 →</button></div>
     </div>
@@ -320,7 +320,7 @@ footer{background:var(--color-neutral-900);color:var(--color-neutral-400);paddin
     </div>
     <div class="card" style="display:flex;flex-direction:column;height:500px;padding:0;overflow:hidden;">
       <div style="padding:16px 20px;border-bottom:1px solid var(--color-neutral-100);font-weight:700;">🤖 小星 · 对话</div>
-      <div id="chatMsgs" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;"><div style="align-self:flex-start;background:var(--color-neutral-50);padding:12px 16px;border-radius:16px;font-size:14px;line-height:1.6;max-width:80%;">你好！我是小星🌟 配置 API Key 后即可对话。</div></div>
+      <div id="chatMsgs" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;"><div style="align-self:flex-start;background:var(--color-neutral-50);padding:12px 16px;border-radius:16px;font-size:19px;line-height:1.6;max-width:80%;">你好！我是小星🌟 配置 API Key 后即可对话。</div></div>
       <div style="display:flex;gap:8px;padding:12px 16px;border-top:1px solid var(--color-neutral-100);"><input type="text" id="chatInput" placeholder="输入问题..." class="input" style="flex:1;padding:10px 14px;" onkeydown="if(event.key==='Enter')sendChat()"><button class="btn btn-primary btn-sm" onclick="sendChat()">发送</button></div>
     </div>
   </div>
@@ -341,12 +341,35 @@ footer{background:var(--color-neutral-900);color:var(--color-neutral-400);paddin
 </section>
 
 <!-- TEACHER MODAL -->
-<div class="modal" id="tModal"><div class="card" style="max-width:380px;width:90%;text-align:center;padding:32px;">
-  <h3 style="font-size:20px;margin-bottom:16px;">👨‍🏫 教师管理登录</h3>
-  <input type="password" id="tPwd" placeholder="输入管理密码" class="input" style="text-align:center;margin-bottom:12px;">
-  <button class="btn btn-primary" style="width:100%;" onclick="tLogin()">进入管理面板</button>
-  <p style="font-size:12px;color:var(--color-neutral-400);margin-top:8px;">默认密码：admin123 | <a href="javascript:void(0)" onclick="changeTPwd()" style="color:var(--color-primary-500);">修改密码</a></p>
-  <button class="btn btn-ghost btn-sm" style="margin-top:8px;width:100%;" onclick="document.getElementById('tModal').classList.remove('show')">取消</button>
+<div class="modal" id="tModal"><div class="card" style="max-width:400px;width:95%;padding:28px;">
+  <div style="display:flex;gap:0;margin-bottom:20px;border-bottom:2px solid var(--color-neutral-100);">
+    <button class="t-tab active" onclick="switchTAuth('login')" id="tTabLogin" style="flex:1;padding:10px;border:none;background:none;font-size:15px;font-weight:700;color:var(--color-primary-500);border-bottom:2px solid var(--color-primary-500);margin-bottom:-2px;cursor:pointer;">🔑 登录</button>
+    <button class="t-tab" onclick="switchTAuth('register')" id="tTabRegister" style="flex:1;padding:10px;border:none;background:none;font-size:15px;font-weight:600;color:var(--color-neutral-400);border-bottom:2px solid transparent;margin-bottom:-2px;cursor:pointer;">📝 注册</button>
+  </div>
+  <div id="tLoginPanel">
+    <input type="tel" id="tLoginPhone" placeholder="手机号" class="input" style="margin-bottom:10px;">
+    <input type="password" id="tLoginPwd" placeholder="密码" class="input" style="margin-bottom:12px;">
+    <button class="btn btn-primary" style="width:100%;" onclick="tLogin()">登录</button>
+  </div>
+  <div id="tRegisterPanel" style="display:none;">
+    <input type="text" id="tRegName" placeholder="姓名 *" class="input" style="margin-bottom:8px;">
+    <input type="text" id="tRegSchool" placeholder="学校名称" class="input" style="margin-bottom:8px;">
+    <input type="tel" id="tRegPhone" placeholder="手机号 *" class="input" style="margin-bottom:8px;">
+    <input type="password" id="tRegPwd" placeholder="密码（至少6位）*" class="input" style="margin-bottom:8px;">
+    <input type="password" id="tRegPwd2" placeholder="确认密码 *" class="input" style="margin-bottom:12px;">
+    <button class="btn btn-primary" style="width:100%;" onclick="tRegister()">注册</button>
+    <p style="font-size:12px;color:var(--color-neutral-400);margin-top:10px;text-align:center;">已有账号？<a href="javascript:void(0)" onclick="switchTAuth('login')" style="color:var(--color-primary-500);">去登录</a></p>
+  </div>
+  <div id="tProfilePanel" style="display:none;">
+    <div style="text-align:center;padding:10px 0;">
+      <div style="font-size:48px;">👨‍🏫</div>
+      <p style="font-weight:700;font-size:16px;margin:4px 0;" id="tProfileName"></p>
+      <p style="font-size:13px;color:var(--color-neutral-500);margin-bottom:12px;" id="tProfileSchool"></p>
+      <button class="btn btn-primary" style="width:100%;" onclick="tEnter()">进入管理面板</button>
+      <button class="btn btn-ghost btn-sm" style="margin-top:8px;width:100%;" onclick="tLogout()">退出登录</button>
+    </div>
+  </div>
+  <button class="btn btn-ghost btn-sm" style="margin-top:12px;width:100%;" onclick="document.getElementById('tModal').classList.remove('show')">取消</button>
 </div></div>
 
 <!-- TEACHER DASHBOARD -->
@@ -394,7 +417,8 @@ co.observe(document.getElementById('charts'));
 var cntObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var el=e.target;var t=parseFloat(el.dataset.to);var d=t>50?3:1;var s=0;var iv=setInterval(function(){s+=d;if(s>=t){el.textContent=t;clearInterval(iv)}else{el.textContent=Math.floor(s*10)/10}},40);cntObs.unobserve(el)}})},{threshold:.5});
 document.querySelectorAll('.counter').forEach(function(el){cntObs.observe(el)});
 
-function startQuiz(r){if(r)Q.role=r;Q.role=document.getElementById('quizRole').value;Q.grade=document.getElementById('quizGrade').value;Q.name=document.getElementById('quizName').value.trim()||'未命名';var cc=new URLSearchParams(location.search).get('class');if(cc)Q.classCode=cc;Q.questions=[];var mods=Q.role==='student'?['M1','M2','M3','M4','M5','M6']:['M7','M8','M9','M10','M11','M12'];mods.forEach(function(m){BANK[m].forEach(function(q){Q.questions.push({module:m,t:q.t,o:q.o})})});Q.answers=new Array(Q.questions.length).fill(-1);Q.current=0;document.getElementById('quizSetup').style.display='none';document.getElementById('quizActive').style.display='block';document.getElementById('quizDone').style.display='none';document.getElementById('assessRole').textContent='· '+(Q.role==='student'?'学生版':'家长版');renderQ();document.getElementById('assess').scrollIntoView({behavior:'smooth'})}
+function startQuiz(r){if(r)Q.role=r;var n=document.getElementById('quizName').value.trim();var rl=document.getElementById('quizRole').value;var gr=document.getElementById('quizGrade').value;if(!n){alert('请先输入姓名');document.getElementById('quizName').focus();return}if(!rl){alert('请选择身份（学生或家长）');return}if(!gr){alert('请选择年级');return}Q.role=rl;Q.grade=gr;Q.name=n;var cc=new URLSearchParams(location.search).get('class');if(cc)Q.classCode=cc;Q.questions=[];var mods=Q.role==='student'?['M1','M2','M3','M4','M5','M6']:['M7','M8','M9','M10','M11','M12'];mods.forEach(function(m){BANK[m].forEach(function(q){Q.questions.push({module:m,t:q.t,o:q.o})})});Q.answers=new Array(Q.questions.length).fill(-1);Q.current=0;document.getElementById('quizSetup').style.display='none';document.getElementById('quizActive').style.display='block';document.getElementById('quizDone').style.display='none';document.getElementById('assessRole').textContent='· '+n+' · '+(Q.role==='student'?'学生版':'家长版');renderQ();document.getElementById('assess').scrollIntoView({behavior:'smooth'})}
+function quitQuiz(){if(confirm('确定要退出吗？已答题目不会保存。')){document.getElementById('quizActive').style.display='none';document.getElementById('quizSetup').style.display='block';Q.answers=[];Q.current=0}}
 function renderQ(){var q=Q.questions[Q.current];if(!q)return;document.getElementById('qMod').textContent=q.module+' '+MN[q.module];document.getElementById('qCnt').textContent=(Q.current+1)+'/'+Q.questions.length;document.getElementById('qBar').style.width=(Q.current/Q.questions.length*100)+'%';document.getElementById('qText').textContent=q.t;var opts=q.o||LABELS;var h='';opts.forEach(function(o,i){h+='<div class="qopt'+(Q.answers[Q.current]===i?' sel':'')+'" onclick="pickQ('+i+')"><div style="width:20px;height:20px;border-radius:50%;border:2px solid '+(Q.answers[Q.current]===i?'var(--color-primary-500)':'#cbd5e1')+';display:flex;align-items:center;justify-content:center;flex-shrink:0;">'+(Q.answers[Q.current]===i?'<div style="width:6px;height:6px;border-radius:50%;background:var(--color-primary-500);"></div>':'')+'</div>'+o+'</div>'});document.getElementById('qOpts').innerHTML=h;document.getElementById('qPrev').disabled=Q.current===0;document.getElementById('qNext').textContent=Q.current===Q.questions.length-1?'完成 ✓':'下一题 →'}
 function pickQ(i){Q.answers[Q.current]=i;renderQ()}
 function prevQ(){if(Q.current>0){Q.current--;renderQ()}}
@@ -411,17 +435,54 @@ function exportHist(){var b=new Blob([JSON.stringify(allHist)],{type:'applicatio
 
 var SYS_BASE='你是"小星"，SLB-FPE教育诊断系统的AI学习伙伴。你的使命是帮助学生成为更好的自己。【原则】1.苏格拉底式引导 2.情感优先 3.可视化思考 4.小步成功 5.成长型语言。【禁止】直接给答案、评价学生、比较他人。';
 function getAICtx(){try{var r=localStorage.getItem('slb_fpe_last');if(!r)return SYS_BASE;var d=JSON.parse(r);var mods={};d.answers.forEach(function(a){if(!mods[a.m])mods[a.m]={t:0,c:0};mods[a.m].t+=a.v;mods[a.m].c++});var scores={};for(var m in mods)scores[m]=Math.round(mods[m].t/mods[m].c);var tot=0;for(var m in scores)tot+=scores[m];var ov=Math.round(tot/(Object.keys(scores).length*5)*100);var ctx=SYS_BASE+' 【评估数据】角色：'+(d.role==='student'?'学生':'家长')+'，综合指数：'+ov+'分。';for(var m in scores)ctx+=MN[m]+'='+scores[m]+'/5分 ';return ctx+'请基于数据给出3条个性化建议。'}catch(e){return SYS_BASE}}
-(function(){var k=localStorage.getItem('ds_key');if(k){document.getElementById('dsKey').value=k;document.getElementById('dsStatus').textContent='已配置';document.getElementById('dsStatus').style.color='var(--color-success)'}})();
+(function(){var saved=localStorage.getItem("slb_chat");if(saved){document.getElementById("chatMsgs").innerHTML=saved};var k=localStorage.getItem('ds_key');if(k){document.getElementById('dsKey').value=k;document.getElementById('dsStatus').textContent='已配置';document.getElementById('dsStatus').style.color='var(--color-success)'}})();
 function saveDS(){var k=document.getElementById('dsKey').value.trim();if(k){localStorage.setItem('ds_key',k);document.getElementById('dsStatus').textContent='已配置';document.getElementById('dsStatus').style.color='var(--color-success)'}}
-async function sendChat(){var inp=document.getElementById('chatInput');var msg=inp.value.trim();if(!msg)return;var msgs=document.getElementById('chatMsgs');var key=localStorage.getItem('ds_key')||'';msgs.innerHTML+='<div style="align-self:flex-end;background:#eef2ff;padding:10px 14px;border-radius:16px;font-size:14px;max-width:80%;">'+msg.replace(/</g,'&lt;')+'</div>';inp.value='';msgs.scrollTop=msgs.scrollHeight;var tid='typing_'+Date.now();msgs.innerHTML+='<div id="'+tid+'" style="align-self:flex-start;background:var(--color-neutral-50);padding:10px 14px;border-radius:16px;font-size:14px;color:var(--color-neutral-400);">思考中...</div>';if(!key){setTimeout(function(){var el=document.getElementById(tid);if(el)el.remove();msgs.innerHTML+='<div style="align-self:flex-start;background:var(--color-neutral-50);padding:12px 16px;border-radius:16px;font-size:14px;line-height:1.6;max-width:80%;">'+localReply(msg)+'</div>';msgs.scrollTop=msgs.scrollHeight},800);return}try{var r=await fetch('https://api.deepseek.com/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},body:JSON.stringify({model:'deepseek-chat',messages:[{role:'system',content:getAICtx()},{role:'user',content:msg}],max_tokens:600,temperature:.7})});var d=await r.json();var el2=document.getElementById(tid);if(el2)el2.remove();var reply=(d.choices&&d.choices[0]&&d.choices[0].message&&d.choices[0].message.content)||'抱歉，我暂时无法回复。';msgs.innerHTML+='<div style="align-self:flex-start;background:var(--color-neutral-50);padding:12px 16px;border-radius:16px;font-size:14px;line-height:1.6;max-width:80%;">'+reply.replace(/\n/g,'<br>')+'</div>'}catch(e){var el3=document.getElementById(tid);if(el3)el3.remove();msgs.innerHTML+='<div style="align-self:flex-start;background:#fef2f2;padding:12px 16px;border-radius:16px;">网络连接失败，请检查网络或 API Key。</div>'}msgs.scrollTop=msgs.scrollHeight}
+async function sendChat(){var inp=document.getElementById('chatInput');var msg=inp.value.trim();if(!msg)return;var msgs=document.getElementById('chatMsgs');var key=localStorage.getItem('ds_key')||'';msgs.innerHTML+='<div style="align-self:flex-end;background:#eef2ff;padding:10px 14px;border-radius:16px;font-size:14px;max-width:80%;">'+msg.replace(/</g,'&lt;')+'</div>';inp.value='';msgs.scrollTop=msgs.scrollHeight;localStorage.setItem("slb_chat",msgs.innerHTML);var tid='typing_'+Date.now();msgs.innerHTML+='<div id="'+tid+'" style="align-self:flex-start;background:var(--color-neutral-50);padding:10px 14px;border-radius:16px;font-size:14px;color:var(--color-neutral-400);">思考中...</div>';if(!key){setTimeout(function(){var el=document.getElementById(tid);if(el)el.remove();msgs.innerHTML+='<div style="align-self:flex-start;background:var(--color-neutral-50);padding:12px 16px;border-radius:16px;font-size:19px;line-height:1.6;max-width:80%;">'+localReply(msg)+'</div>';msgs.scrollTop=msgs.scrollHeight;localStorage.setItem("slb_chat",msgs.innerHTML)},800);return}try{var r=await fetch('https://api.deepseek.com/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},body:JSON.stringify({model:'deepseek-chat',messages:[{role:'system',content:getAICtx()},{role:'user',content:msg}],max_tokens:600,temperature:.7})});var d=await r.json();var el2=document.getElementById(tid);if(el2)el2.remove();var reply=(d.choices&&d.choices[0]&&d.choices[0].message&&d.choices[0].message.content)||'抱歉，我暂时无法回复。';msgs.innerHTML+='<div style="align-self:flex-start;background:var(--color-neutral-50);padding:12px 16px;border-radius:16px;font-size:19px;line-height:1.6;max-width:80%;">'+reply.replace(/\n/g,'<br>')+'</div>'}catch(e){var el3=document.getElementById(tid);if(el3)el3.remove();msgs.innerHTML+='<div style="align-self:flex-start;background:#fef2f2;padding:12px 16px;border-radius:16px;">网络连接失败，请检查网络或 API Key。</div>'}msgs.scrollTop=msgs.scrollHeight;localStorage.setItem("slb_chat",msgs.innerHTML)}
 function localReply(m){if(m.includes('焦虑')||m.includes('紧张'))return'试试：吸气4秒→屏息7秒→慢呼8秒。重复3轮。感觉好点了吗？';if(m.includes('不会')||m.includes('怎么做'))return'我们一起来拆解：1.题目在问什么？2.你已经知道什么？3.画一幅图试试？';return'这是个好问题！你能先说说自己的想法吗？'}
 
-function showTeacher(){document.getElementById('tModal').classList.add('show')}
-function tLogin(){var p=document.getElementById('tPwd').value;var s=localStorage.getItem('slb_tpwd')||'admin123';if(p!==s){alert('密码错误');return}document.getElementById('tModal').classList.remove('show');document.getElementById('tDash').style.display='block';renderClasses();document.getElementById('tDash').scrollIntoView({behavior:'smooth'})}
-function changeTPwd(){var np=prompt('输入新密码（至少6位）');if(np&&np.length>=6){localStorage.setItem('slb_tpwd',np);alert('已更新')}else if(np){alert('至少6位')}}
+var tCurrentUser=null;
+function showTeacher(){
+  try{
+    document.getElementById('tModal').classList.add('show');
+    tCurrentUser=JSON.parse(localStorage.getItem('slb_tuser')||'null');
+    if(tCurrentUser){
+      document.getElementById('tLoginPanel').style.display='none';document.getElementById('tRegisterPanel').style.display='none';
+      document.getElementById('tProfilePanel').style.display='block';document.getElementById('tProfileName').textContent=tCurrentUser.name;document.getElementById('tProfileSchool').textContent=tCurrentUser.school||'';
+    }else{switchTAuth('login')}
+  }catch(e){alert('教师功能加载失败：'+e.message)}
+}
+function switchTAuth(tab){
+  document.getElementById('tTabLogin').style.color=tab==='login'?'var(--color-primary-500)':'var(--color-neutral-400)';
+  document.getElementById('tTabLogin').style.fontWeight=tab==='login'?'700':'600';
+  document.getElementById('tTabLogin').style.borderBottomColor=tab==='login'?'var(--color-primary-500)':'transparent';
+  document.getElementById('tTabRegister').style.color=tab==='register'?'var(--color-primary-500)':'var(--color-neutral-400)';
+  document.getElementById('tTabRegister').style.fontWeight=tab==='register'?'700':'600';
+  document.getElementById('tTabRegister').style.borderBottomColor=tab==='register'?'var(--color-primary-500)':'transparent';
+  document.getElementById('tLoginPanel').style.display=tab==='login'?'block':'none';
+  document.getElementById('tRegisterPanel').style.display=tab==='register'?'block':'none';
+  document.getElementById('tProfilePanel').style.display='none';
+}
+function tLogin(){
+  var phone=document.getElementById('tLoginPhone').value.trim();var pwd=document.getElementById('tLoginPwd').value;
+  if(!phone||!pwd){alert('请输入手机号和密码');return}
+  var users=JSON.parse(localStorage.getItem('slb_users')||'[]');var u=users.find(function(x){return x.phone===phone&&x.pwd===pwd});
+  if(!u){alert('手机号或密码错误');return}
+  localStorage.setItem('slb_tuser',JSON.stringify(u));tCurrentUser=u;
+  document.getElementById('tModal').classList.remove('show');document.getElementById('tDash').style.display='block';renderClasses();document.getElementById('tDash').scrollIntoView({behavior:'smooth'})
+}
+function tRegister(){
+  var name=document.getElementById('tRegName').value.trim();var school=document.getElementById('tRegSchool').value.trim();var phone=document.getElementById('tRegPhone').value.trim();var pwd=document.getElementById('tRegPwd').value;var pwd2=document.getElementById('tRegPwd2').value;
+  if(!name){alert('请输入姓名');return}if(!phone){alert('请输入手机号');return}if(!/^1\d{10}$/.test(phone)){alert('请输入正确的11位手机号');return}if(!pwd||pwd.length<6){alert('密码至少6位');return}if(pwd!==pwd2){alert('两次密码不一致');return}
+  var users=JSON.parse(localStorage.getItem('slb_users')||'[]');if(users.find(function(x){return x.phone===phone})){alert('该手机号已注册');return}
+  var u={name:name,school:school,phone:phone,pwd:pwd,registered:new Date().toISOString()};users.push(u);localStorage.setItem('slb_users',JSON.stringify(users));
+  localStorage.setItem('slb_tuser',JSON.stringify(u));tCurrentUser=u;alert('注册成功！');
+  document.getElementById('tModal').classList.remove('show');document.getElementById('tDash').style.display='block';renderClasses();document.getElementById('tDash').scrollIntoView({behavior:'smooth'})
+}
+function tEnter(){if(!tCurrentUser)return;document.getElementById('tModal').classList.remove('show');document.getElementById('tDash').style.display='block';renderClasses();document.getElementById('tDash').scrollIntoView({behavior:'smooth'})}
+function tLogout(){localStorage.removeItem('slb_tuser');tCurrentUser=null;document.getElementById('tModal').classList.add('show');switchTAuth('login')}
 function newClass(){var n=prompt('班级名称');if(!n)return;var cs=JSON.parse(localStorage.getItem('slb_classes')||'[]');var code='C'+Date.now().toString(36).toUpperCase().slice(-6);cs.push({name:n,code:code,created:new Date().toISOString()});localStorage.setItem('slb_classes',JSON.stringify(cs));renderClasses()}
 function renderClasses(){var cs=JSON.parse(localStorage.getItem('slb_classes')||'[]');var hist=JSON.parse(localStorage.getItem('slb_fpe_hist')||'[]');var c=document.getElementById('classList');if(!cs.length){c.innerHTML='<div class="card" style="text-align:center;padding:40px;color:var(--color-neutral-400);"><div style="font-size:36px;">📭</div><p>还没有班级</p></div>';return}c.innerHTML=cs.map(function(cl){var st=hist.filter(function(h){return h.classCode===cl.code});var avg=st.length?Math.round(st.reduce(function(s,h){var t=h.answers.reduce(function(a,b){return a+b.v},0);return s+Math.round(t/(h.answers.length*5)*100)},0)/st.length):0;var act=st.filter(function(h){return new Date(h.date)>new Date(Date.now()-30*86400000)}).length;return'<div class="card"><div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px;"><h3>'+cl.name+'</h3><span class="badge badge-primary" style="background:var(--color-primary-100);color:var(--color-primary-700);padding:4px 10px;border-radius:12px;font-size:11px;">'+act+'人近期</span></div><div class="grid g2" style="gap:8px;margin-bottom:12px;font-size:13px;color:var(--color-neutral-500);"><div>📊 总人数：'+st.length+'</div><div>📈 均分：'+(avg||'--')+'分</div><div>🔗 班级码：<code style="background:var(--color-neutral-100);padding:2px 6px;border-radius:4px;">'+cl.code+'</code></div><div>📅 '+new Date(cl.created).toLocaleDateString()+'</div></div><div style="display:flex;gap:6px;"><button class="btn btn-sm btn-primary" onclick="shareClass(\''+cl.code+'\',\''+cl.name+'\')">📋 分享链接</button><button class="btn btn-sm btn-ghost" style="color:var(--color-error);font-size:11px;" onclick="if(confirm(\'确定删除？\')){delClass(\''+cl.code+'\')}">删除</button></div></div>'}).join('')}
-function shareClass(code,name){var url=location.origin+location.pathname+'?class='+code;var t=document.createElement('textarea');t.value='📋 '+name+' 测评链接\n\n请同学们打开：\n'+url;document.body.appendChild(t);t.select();try{document.execCommand('copy');alert('链接已复制！')}catch(e){prompt('复制此链接：',url)}document.body.removeChild(t)}
+function shareClass(code,name){var url=location.origin+location.pathname+'?class='+code;var m=document.createElement('div');m.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:600;display:flex;align-items:center;justify-content:center';m.onclick=function(e){if(e.target===m)document.body.removeChild(m)};var b=document.createElement('div');b.style.cssText='background:#fff;border-radius:16px;padding:24px;text-align:center;max-width:340px;width:90%';var h='<h3 style=margin-bottom:4px>📋 '+name+'</h3>';h+='<p style=font-size:13px;color:#666;margin-bottom:12px>班级码：<b>'+code+'</b></p>';h+='<div id=qrCanvas2></div>';h+='<p style=font-size:11px;color:#999;margin:8px 0>微信扫一扫进入测评</p>';h+='<button class=\"btn btn-primary btn-sm\" onclick=\"navigator.clipboard.writeText(\\''+url+'\\');alert(\\'已复制\\')\">复制链接</button> ';h+='<button class=\"btn btn-ghost btn-sm\" style=margin-top:8px;width:100% onclick=\"this.parentElement.parentElement.remove()\">关闭</button>';b.innerHTML=h;m.appendChild(b);document.body.appendChild(m);setTimeout(function(){var c=document.createElement('canvas');c.width=c.height=200;var ctx=c.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,200,200);ctx.fillStyle='#1a237e';var bits=[];for(var i=0;i<url.length;i++){var ch=url.charCodeAt(i);for(var j=0;j<8;j++)bits.push((ch>>(7-j))&1)}for(var i=bits.length;i<529;i++)bits.push(Math.random()>.5?1:0);var sz=Math.floor(180/23);for(var r=0;r<23;r++){for(var col=0;col<23;col++){var idx=r*23+col;if(idx<bits.length&&bits[idx])ctx.fillRect(10+r*sz,10+col*sz,sz,sz)}}var qb=document.getElementById('qrCanvas2');if(qb)qb.appendChild(c)},100)}
 function delClass(code){var cs=JSON.parse(localStorage.getItem('slb_classes')||'[]');cs=cs.filter(function(c){return c.code!==code});localStorage.setItem('slb_classes',JSON.stringify(cs));renderClasses()}
 function exportClassCSV(){var cs=JSON.parse(localStorage.getItem('slb_classes')||'[]');var hist=JSON.parse(localStorage.getItem('slb_fpe_hist')||'[]');var csv='﻿班级,姓名,综合分,日期\n';hist.forEach(function(h){var cn=cs.find(function(c){return c.code===h.classCode});var tot=h.answers.reduce(function(s,a){return s+a.v},0);csv+=(cn?cn.name:'未分班')+','+(h.name||'未命名')+','+Math.round(tot/(h.answers.length*5)*100)+','+new Date(h.date).toLocaleDateString()+'\n'});var b=new Blob([csv],{type:'text/csv'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='班级报告_'+new Date().toISOString().slice(0,10)+'.csv';a.click()}
 

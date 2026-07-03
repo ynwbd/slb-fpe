@@ -21,10 +21,12 @@
       --color-neutral-500: #9e9e9e; --color-neutral-600: #757575; --color-neutral-700: #616161;
       --color-neutral-800: #424242; --color-neutral-900: #212121;
       --color-success: #4caf50; --color-warning: #ff9800; --color-error: #f44336; --color-info: #2196f3;
-      --gradient-hero: linear-gradient(135deg, #1a237e 0%, #283593 25%, #3949ab 50%, #5c6bc0 75%, #00bcd4 100%);
-      --gradient-card: linear-gradient(145deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.05) 100%);
-      --gradient-cta: linear-gradient(90deg, #ff6f00 0%, #ff8f00 100%);
-      --shadow-sm: 0 1px 2px 0 rgba(0,0,0,.05); --shadow-md: 0 4px 6px -1px rgba(0,0,0,.1); --shadow-lg: 0 10px 15px -3px rgba(0,0,0,.1); --shadow-xl: 0 20px 25px -5px rgba(0,0,0,.1);
+      --gradient-hero: linear-gradient(135deg, #1a237e 0%, #283593 20%, #3949ab 45%, #5c6bc0 70%, #0097a7 100%);
+      --gradient-card: linear-gradient(145deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,.06) 100%);
+      --gradient-cta: linear-gradient(90deg, #ff6f00 0%, #ff8f00 50%, #ffa000 100%);
+      --color-bg: #f9f8f6;
+      --section-pad: 120px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.04); --shadow-md: 0 2px 8px rgba(0,0,0,.06); --shadow-lg: 0 8px 24px rgba(0,0,0,.08); --shadow-xl: 0 16px 40px rgba(0,0,0,.1);
       --shadow-glow: 0 0 20px rgba(33,150,243,.3); --shadow-glow-accent: 0 0 20px rgba(255,111,0,.3);
       --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px; --radius-xl: 16px; --radius-2xl: 24px; --radius-full: 9999px;
       --space-xs: 4px; --space-sm: 8px; --space-md: 16px; --space-lg: 24px; --space-xl: 32px; --space-2xl: 48px; --space-3xl: 64px; --space-4xl: 96px;
@@ -42,7 +44,7 @@
   
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{font-family:var(--font-sans);font-size:var(--text-base);line-height:1.75;color:var(--color-neutral-900);background:var(--color-neutral-0);-webkit-font-smoothing:antialiased;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+    body{font-family:var(--font-sans);font-size:var(--text-base);line-height:1.75;color:var(--color-neutral-900);background:var(--color-bg);-webkit-font-smoothing:antialiased;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
     ::selection{background:var(--color-primary-200)}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto}}
     @media print{nav,footer,#hero,.trust-band,#features,#demo,#data,#stories,#pricing,#cta,#assess,#chat,#history,.progress-bar,.hero canvas,#reportActions{display:none!important}#report{display:block!important;padding:0!important}.section{padding:16px 0!important}.card,.chart-card{box-shadow:none!important;border:1px solid #ddd!important;break-inside:avoid}}
@@ -118,7 +120,7 @@
     .hamburger.active span:nth-child(1){transform:rotate(45deg)translate(5px,5px)}.hamburger.active span:nth-child(2){opacity:0}.hamburger.active span:nth-child(3){transform:rotate(-45deg)translate(5px,-5px)}
 
     /* Section */
-    .section{padding:var(--space-4xl) 0;position:relative}
+    .section{padding:var(--section-pad) 0;position:relative}
     .section-dark{background:var(--gradient-hero);color:var(--color-neutral-0)}
     .section-label{font-size:var(--text-xs);font-weight:var(--font-bold);text-transform:uppercase;letter-spacing:.12em;color:var(--color-primary-300);margin-bottom:var(--space-sm)}
     .section-label::before{content:'— '}
@@ -244,6 +246,7 @@
     <a href="#stories">评价</a><a href="#pricing">定价</a>
     <a href="#assess" class="btn btn-primary btn-sm">免费测评</a>
     <a href="#chat" class="btn btn-ghost btn-sm" style="color:var(--color-neutral-0);border-color:rgba(255,255,255,.3);">🤖 AI助手</a>
+    <a href="#" class="btn btn-ghost btn-sm" style="color:var(--color-neutral-0);border-color:rgba(255,255,255,.3);" onclick="showTeacherLogin()">👨‍🏫 教师</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="菜单" onclick="document.getElementById('navLinks').classList.toggle('open');this.classList.toggle('active')"><span></span><span></span><span></span></button>
 </nav>
@@ -381,7 +384,7 @@
     </div>
     <div id="historyContent" style="display:none;">
       <div style="margin-bottom:12px;display:flex;gap:8px;"><input type="text" id="historyFilter" placeholder="按姓名搜索..." style="padding:8px 14px;border:1px solid var(--color-neutral-200);border-radius:8px;font-size:13px;width:200px;" oninput="filterHistory()"><span id="historyCount" style="font-size:12px;color:var(--color-neutral-500);align-self:center;"></span></div>
-      <div style="overflow-x:auto;"><table class="history-table" id="historyTable"><thead><tr><th>姓名</th><th>日期</th><th>角色</th><th>年级</th><th>题数</th><th>综合分</th><th>等级</th><th>操作</th></tr></thead><tbody></tbody></table></div>
+      <div style="overflow-x:auto;"><table class="history-table" id="historyTable"><thead><tr><th>姓名</th><th>班级</th><th>日期</th><th>角色</th><th>年级</th><th>题数</th><th>综合分</th><th>等级</th><th>操作</th></tr></thead><tbody></tbody></table></div>
       <div style="margin-top:16px;display:flex;gap:8px;">
         <button class="btn btn-secondary btn-sm" onclick="exportAllHistory()">📥 导出全部记录</button>
         <button class="btn btn-ghost btn-sm" onclick="if(confirm('确定清除所有评估记录？此操作不可恢复。')){localStorage.removeItem('slb_fpe_hist');location.reload()}" style="color:var(--color-error);">🗑️ 清除记录</button>
@@ -508,6 +511,37 @@
   </div>
 </section>
 
+<!-- TEACHER MODAL -->
+<div id="teacherLoginModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:500;align-items:center;justify-content:center;">
+  <div class="card" style="max-width:380px;width:90%;text-align:center;padding:32px;">
+    <h3 style="font-size:20px;margin-bottom:16px;">👨‍🏫 教师管理登录</h3>
+    <input type="password" id="teacherPwd" placeholder="输入管理密码" style="width:100%;padding:12px;border:2px solid var(--color-neutral-200);border-radius:10px;font-size:15px;margin-bottom:12px;text-align:center;">
+    <button class="btn btn-primary" style="width:100%;" onclick="teacherLogin()">进入管理面板</button>
+    <p style="font-size:12px;color:var(--color-neutral-400);margin-top:8px;">默认密码：admin123 &nbsp;|&nbsp; <a href="#" onclick="changeTeacherPwd()" style="color:var(--color-primary-500);">修改密码</a></p>
+    <button class="btn btn-ghost btn-sm" style="margin-top:8px;width:100%;" onclick="document.getElementById('teacherLoginModal').style.display='none'">取消</button>
+  </div>
+</div>
+
+<!-- TEACHER DASHBOARD -->
+<section class="section" id="teacherDash" style="display:none;">
+  <div class="container">
+    <div class="section-label section-light">教师工作台</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-lg);flex-wrap:wrap;gap:12px;">
+      <h2 class="heading-2" style="margin:0;">班级管理</h2>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="btn btn-primary btn-sm" onclick="createClass()">+ 新建班级</button>
+        <button class="btn btn-secondary btn-sm" onclick="exportClassReport()">📥 导出班级报告</button>
+        <button class="btn btn-ghost btn-sm" onclick="document.getElementById('teacherDash').style.display='none';" style="color:var(--color-neutral-500);">退出</button>
+      </div>
+    </div>
+    <div id="classList" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;">
+      <div class="card" style="text-align:center;padding:40px 20px;color:var(--color-neutral-400);">
+        <div style="font-size:36px;margin-bottom:8px;">📭</div><p>还没有班级。点击"新建班级"开始。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer style="background:var(--color-neutral-900);color:var(--color-neutral-400);padding:var(--space-4xl)0 var(--space-2xl);">
   <div class="container">
@@ -559,7 +593,8 @@ function renderHistoryTable(data){
     const total=r.answers.reduce((s,a)=>s+a.v,0);const max=r.answers.length*5;const overall=Math.round(total/max*100);
     const level=overall>=80?'tag-g':overall>=60?'tag-y':'tag-r';
     const label=overall>=80?'优秀':overall>=60?'良好':overall<60?'关注':'';
-    tbody.innerHTML+=`<tr><td><strong>${r.name||'未命名'}</strong></td><td>${new Date(r.date).toLocaleDateString()}</td><td>${r.role==='student'?'学生':'家长'}</td><td>${GRADES[r.grade]||r.grade}</td><td>${r.answers.length}题</td><td>${overall}分</td><td><span class=\"tag-s ${level}\">${label}</span></td><td><button class=\"btn btn-sm btn-ghost\" style=\"color:var(--color-primary-500);padding:4px 8px;font-size:11px;border:1px solid var(--color-primary-200);\" onclick=\"loadHistoryReport('${r.date}')\">查看报告</button></td></tr>`;
+    var classes=JSON.parse(localStorage.getItem('slb_classes')||'[]');var cn=r.classCode?classes.find(function(c){return c.code===r.classCode}):null;
+    tbody.innerHTML+=`<tr><td><strong>${r.name||'未命名'}</strong></td><td style=\"font-size:12px;color:var(--color-neutral-400);\">${cn?cn.name:'--'}</td><td>${new Date(r.date).toLocaleDateString()}</td><td>${r.role==='student'?'学生':'家长'}</td><td>${GRADES[r.grade]||r.grade}</td><td>${r.answers.length}题</td><td>${overall}分</td><td><span class=\"tag-s ${level}\">${label}</span></td><td><button class=\"btn btn-sm btn-ghost\" style=\"color:var(--color-primary-500);padding:4px 8px;font-size:11px;border:1px solid var(--color-primary-200);\" onclick=\"loadHistoryReport('${r.date}')\">查看报告</button></td></tr>`;
   });
 }
 function filterHistory(){
@@ -636,7 +671,7 @@ function finishFullQuiz(){
   document.getElementById('quizActive').style.display='none';document.getElementById('quizDone').style.display='block';
   document.getElementById('quizProgressBar').style.width='100%';
   document.getElementById('quizDoneMsg').textContent='你已完成'+qState.questions.length+'道题目！角色：'+(qState.role==='student'?'学生':'家长')+'，年级：'+qState.grade;
-  const record={role:qState.role,grade:qState.grade,name:qState.name||'未命名',answers:qState.answers.map((a,i)=>({v:a+1,m:qState.questions[i].module})),date:new Date().toISOString()};
+  var cc=new URLSearchParams(location.search).get('class')||qState.classCode||'';const record={role:qState.role,grade:qState.grade,name:qState.name||'未命名',classCode:cc,answers:qState.answers.map((a,i)=>({v:a+1,m:qState.questions[i].module})),date:new Date().toISOString()};
   localStorage.setItem('slb_fpe_last',JSON.stringify(record));
   const hist=JSON.parse(localStorage.getItem('slb_fpe_hist')||'[]');hist.push(record);localStorage.setItem('slb_fpe_hist',JSON.stringify(hist));
   // Refresh history
@@ -708,6 +743,51 @@ function localReply(msg){
   return reps[Math.floor(Math.random()*reps.length)];
 }
 
+// ===== TEACHER MODE =====
+function showTeacherLogin(){document.getElementById('teacherLoginModal').style.display='flex'}
+function teacherLogin(){
+  var pwd=document.getElementById('teacherPwd').value;var saved=localStorage.getItem('slb_tpwd')||'admin123';
+  if(pwd!==saved){alert('密码错误');return}
+  document.getElementById('teacherLoginModal').style.display='none';document.getElementById('teacherDash').style.display='block';
+  loadClassList();document.getElementById('teacherDash').scrollIntoView({behavior:'smooth'});
+}
+function changeTeacherPwd(){var np=prompt('输入新密码（至少6位）');if(np&&np.length>=6){localStorage.setItem('slb_tpwd',np);alert('密码已更新为：'+np)}else if(np){alert('密码至少6位')}}
+function createClass(){
+  var name=prompt('班级名称（如：五年级3班）');if(!name)return;
+  var classes=JSON.parse(localStorage.getItem('slb_classes')||'[]');
+  var code='C'+Date.now().toString(36).toUpperCase().slice(-6);
+  classes.push({name:name,code:code,created:new Date().toISOString()});
+  localStorage.setItem('slb_classes',JSON.stringify(classes));
+  loadClassList();
+}
+function loadClassList(){
+  var classes=JSON.parse(localStorage.getItem('slb_classes')||'[]');
+  var hist=JSON.parse(localStorage.getItem('slb_fpe_hist')||'[]');
+  var container=document.getElementById('classList');
+  if(!classes.length){container.innerHTML='<div class=\"card\" style=\"text-align:center;padding:40px 20px;color:var(--color-neutral-400);\"><div style=\"font-size:36px;margin-bottom:8px;\">📭</div><p>还没有班级。</p></div>';return}
+  var grades={P1:'一年级',P2:'二年级',P3:'三年级',P4:'四年级',P5:'五年级',P6:'六年级',J1:'初一',J2:'初二',J3:'初三'};
+  container.innerHTML=classes.map(function(c){
+    var students=hist.filter(function(h){return h.classCode===c.code});
+    var avg=students.length?Math.round(students.reduce(function(s,h){var t=h.answers.reduce(function(a,b){return a+b.v},0);return s+Math.round(t/(h.answers.length*5)*100)},0)/students.length):0;
+    var active=students.filter(function(h){return new Date(h.date)>new Date(Date.now()-30*86400000)}).length;
+    return '<div class=\"card\" style=\"padding:20px;\"><div style=\"display:flex;justify-content:space-between;align-items:start;margin-bottom:12px;\"><h3 style=\"font-size:17px;\">'+c.name+'</h3><span class=\"badge badge-primary\">'+active+'人近期</span></div><div style=\"display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;font-size:13px;color:var(--color-neutral-500);\"><div>📊 总人数：'+students.length+'</div><div>📈 均分：'+(avg||'--')+'分</div><div>🔗 班级码：<code style=\"background:var(--color-neutral-100);padding:2px 6px;border-radius:4px;\">'+c.code+'</code></div><div>📅 '+new Date(c.created).toLocaleDateString()+'</div></div><div style=\"display:flex;gap:6px;\"><button class=\"btn btn-sm btn-primary\" onclick=\"shareClass(\''+c.code+'\',\''+c.name+'\')\">📋 分享链接</button><button class=\"btn btn-sm btn-ghost\" style=\"color:var(--color-error);font-size:11px;\" onclick=\"if(confirm(\\'确定删除班级 '+c.name+'？学生数据保留。\\')){deleteClass(\\''+c.code+'\\')}\">删除</button></div></div>';
+  }).join('');
+}
+function shareClass(code,name){
+  var url=location.origin+location.pathname+'?class='+code;
+  var input=document.createElement('textarea');input.value='📋 '+name+' 测评链接\n\n请同学们打开：\n'+url+'\n\n班级码：'+code;
+  document.body.appendChild(input);input.select();
+  try{document.execCommand('copy');alert('链接已复制！\n\n发送给学生即可开始测评。')}catch(e){prompt('复制此链接发送给学生：',url)}
+  document.body.removeChild(input);
+}
+function deleteClass(code){var classes=JSON.parse(localStorage.getItem('slb_classes')||'[]');classes=classes.filter(function(c){return c.code!==code});localStorage.setItem('slb_classes',JSON.stringify(classes));loadClassList()}
+function exportClassReport(){
+  var classes=JSON.parse(localStorage.getItem('slb_classes')||'[]');var hist=JSON.parse(localStorage.getItem('slb_fpe_hist')||'[]');var grades={P1:'一年级',P2:'二年级',P3:'三年级',P4:'四年级',P5:'五年级',P6:'六年级',J1:'初一',J2:'初二',J3:'初三'};
+  var csv='班级,学生姓名,综合分,日期\n';hist.forEach(function(h){var c=classes.find(function(cl){return cl.code===h.classCode});var cn=c?c.name:'未分班';var total=h.answers.reduce(function(s,a){return s+a.v},0);var overall=Math.round(total/(h.answers.length*5)*100);csv+=cn+','+(h.name||'未命名')+','+overall+','+new Date(h.date).toLocaleDateString()+'\n'});
+  var b=new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='班级报告_'+new Date().toISOString().slice(0,10)+'.csv';a.click();
+}
+(function(){var params=new URLSearchParams(location.search);var cc=params.get('class');if(cc){document.getElementById('quizSetup').insertAdjacentHTML('afterbegin','<div style=\"background:#e8f5e9;padding:8px 16px;border-radius:8px;margin-bottom:16px;font-size:13px;color:#2e7d32;\">📋 已加入班级：<b>'+cc+'</b></div>');qState.classCode=cc;var origFinish=finishFullQuiz;finishFullQuiz=function(){var record={role:qState.role,grade:qState.grade,name:qState.name||'未命名',classCode:qState.classCode||'',answers:qState.answers.map(function(a,i){return {v:a+1,m:qState.questions[i].module}}),date:new Date().toISOString()};localStorage.setItem('slb_fpe_last',JSON.stringify(record));var hist=JSON.parse(localStorage.getItem('slb_fpe_hist')||'[]');hist.push(record);localStorage.setItem('slb_fpe_hist',JSON.stringify(hist));document.getElementById('quizActive').style.display='none';document.getElementById('quizDone').style.display='block';document.getElementById('quizProgressBar').style.width='100%';document.getElementById('quizDoneMsg').textContent='你已完成'+qState.questions.length+'道题目！班级码：'+cc;location.hash='report';setTimeout(function(){location.reload()},100)}}})();
+var origStart=startFullQuiz;startFullQuiz=function(r){origStart(r);var cc2=new URLSearchParams(location.search).get('class');if(cc2)qState.classCode=cc2};
 // ===== CTA =====
 function submitCTA(){const inp=document.querySelector('#ctaForm input');if(!inp.value.trim()){inp.focus();return}document.getElementById('ctaForm').style.display='none';document.getElementById('ctaOk').style.display='block'}
 
